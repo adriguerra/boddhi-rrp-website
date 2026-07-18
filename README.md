@@ -1,37 +1,31 @@
 # BODDHI RRP® — Rapid Repair Protocol website
 
-Static implementation of the **BODDHI RRP Website** from the Claude Design project
-[RRP — Rapid Repair Protocol Design System](https://claude.ai/design/p/20258494-b19d-4a56-aaa1-d5bf1e3306d3)
-(`ui_kits/website`, English copy, dark high-performance aesthetic).
+Next.js (App Router) implementation of the BODDHI RRP marketing site, with
+English (`/`) and French (`/fr`) via shared components, and **Motion** for
+hero + scroll-reveal animations.
 
-## Structure
+## Stack
 
-- `index.html` — the full one-page site in English (Nav, Hero, What is RRP®, The Science, Case Studies, Services, About, Work With Us, Footer)
-- `fr/index.html` — the French version (same structure, translated copy following the brandbook tone)
-- `css/tokens.css` — design tokens transcribed from the design system (colors, type, spacing, radii, shadows, motion)
-- `css/site.css` — page styles, responsive at 1024px (tablet) and 640px (mobile)
-- `js/main.js` — enquiry-button toast (mock, as in the design — no data is sent)
-- `assets/` — brand assets exported from the design project
+- Next.js 16 + React 19
+- Motion (`motion/react`)
+- Phosphor Icons
+- Days One + Plus Jakarta Sans via `next/font`
 
-## External dependencies
-
-- Google Fonts: Days One (display), Plus Jakarta Sans (text)
-- Phosphor Icons web-font 2.1.1 (regular / bold / fill) from unpkg
-
-## Run
-
-Any static server, e.g.:
+## Develop
 
 ```sh
-python3 -m http.server 8000
-# → http://localhost:8000
+npm install
+npm run dev
+# → http://localhost:3000
 ```
 
-## Languages
+## Deploy
 
-English is the default at `/`; French lives at `/fr/`. The EN | FR toggle sits in the nav (and a link in the footer). An explicit choice is stored in `localStorage` (`rrpLang`); the root page redirects to `/fr/` when the visitor previously picked French. Both pages carry cross-referencing `hreflang` tags for SEO.
+Designed for Vercel. Push the repo and import the project; no special config required.
 
 ## Notes
 
-- The contact CTAs show a confirmation toast only (design parity). To make them functional, wire them to `mailto:clinic@boddhiclinic.com` or a form service.
-- Per the design system readme: the isolated "R" emblem SVG doesn't rasterize, so nav/footer use the white lockup (`logo-white.png`). No favicon is set for the same reason.
+- Contact CTAs still show a confirmation toast only (design parity). Wire to
+  `mailto:clinic@boddhiclinic.com` or a form service when ready.
+- Language preference is stored in `localStorage` (`rrpLang`); the EN home
+  page redirects to `/fr` when the visitor previously picked French.

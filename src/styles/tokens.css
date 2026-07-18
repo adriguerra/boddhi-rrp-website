@@ -1,0 +1,137 @@
+/* ============================================================
+   RRP — Rapid Repair Protocol — Design tokens
+   Transcribed from the Claude Design project
+   "RRP — Rapid Repair Protocol Design System" (tokens/*.css)
+   ============================================================ */
+
+:root {
+  /* --- Brand core --- */
+  --rrp-teal: #286A73;      /* Primary — Deep Mineral Teal */
+  --rrp-graphite: #22262B;  /* Dark — Graphite */
+  --rrp-orange: #FF6A13;    /* Accent — Signal Orange */
+  --rrp-ivory: #F5F2EB;     /* Light — Warm Ivory */
+
+  /* --- Teal scale — PRIMARY 500 --- */
+  --teal-100: #E8F4F5;
+  --teal-200: #C4E3E6;
+  --teal-300: #8DC8CE;
+  --teal-400: #57ADB5;
+  --teal-500: #286A73;
+  --teal-600: #21575E;
+  --teal-700: #1A4549;
+  --teal-800: #123234;
+  --teal-900: #0A1F20;
+
+  /* --- Orange scale — ACCENT 500 --- */
+  --orange-100: #FFF0E6;
+  --orange-200: #FFD4B3;
+  --orange-300: #FFB880;
+  --orange-400: #FF914D;
+  --orange-500: #FF6A13;
+  --orange-600: #D9550E;
+  --orange-700: #A8420B;
+  --orange-800: #7A2F08;
+  --orange-900: #4D1D05;
+
+  /* --- Gray scale — 100 = Warm Ivory, 900 = Graphite --- */
+  --gray-100: #F5F2EB;
+  --gray-200: #DBD8D3;
+  --gray-300: #C0BFBB;
+  --gray-400: #A6A5A3;
+  --gray-500: #8B8C8B;
+  --gray-600: #717373;
+  --gray-700: #57595B;
+  --gray-800: #3C4043;
+  --gray-900: #22262B;
+
+  /* Surfaces */
+  --surface-page: var(--gray-100);
+  --surface-card: #FFFFFF;
+  --surface-inverse: var(--gray-900);
+  --surface-brand: var(--teal-500);
+  --surface-brand-dark: var(--teal-800);
+
+  /* Text */
+  --text-strong: var(--gray-900);
+  --text-body: var(--gray-800);
+  --text-muted: var(--gray-600);
+  --text-subtle: var(--gray-500);
+  --text-on-brand: var(--gray-100);
+  --text-on-accent: #FFFFFF;
+  --text-link: var(--teal-600);
+  --text-link-hover: var(--teal-700);
+
+  /* Accent / interactive */
+  --accent: var(--orange-500);
+  --accent-hover: var(--orange-600);
+  --accent-active: var(--orange-700);
+  --primary: var(--teal-500);
+  --primary-hover: var(--teal-600);
+  --primary-active: var(--teal-700);
+
+  /* Borders */
+  --border-subtle: var(--gray-200);
+  --border-default: var(--gray-300);
+  --border-strong: var(--gray-400);
+  --border-brand: var(--teal-500);
+
+  /* Focus */
+  --focus-ring: var(--orange-500);
+
+  /* Status */
+  --success: #2F8F5B;
+  --warning: var(--orange-500);
+  --danger: #C43D2E;
+  --info: var(--teal-500);
+
+  /* Typography */
+  --font-display: var(--font-days-one), system-ui, sans-serif;
+  --font-sans: var(--font-plus-jakarta), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-body-sm: 0.875rem;
+  --fs-caption: 0.75rem;
+  --ls-overline: 0.14em;
+
+  /* Spacing (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Elevation — soft, cool-tinted mineral shadows */
+  --shadow-xs: 0 1px 2px rgba(34, 38, 43, 0.06);
+  --shadow-sm: 0 2px 6px rgba(34, 38, 43, 0.08);
+  --shadow-md: 0 8px 20px rgba(34, 38, 43, 0.10);
+  --shadow-lg: 0 18px 40px rgba(34, 38, 43, 0.14);
+  --shadow-brand: 0 12px 28px rgba(40, 106, 115, 0.28);
+  --shadow-accent: 0 10px 24px rgba(255, 106, 19, 0.30);
+
+  /* Motion — quick, confident, "rapid" */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 360ms;
+
+  /* Focus ring */
+  --focus-ring-shadow: 0 0 0 3px rgba(255, 106, 19, 0.45);
+}
