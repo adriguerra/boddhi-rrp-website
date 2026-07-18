@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Medal } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import { DocumentLang } from "@/components/DocumentLang";
 import { LangLink } from "@/components/LangLink";
+import { NavShell } from "@/components/NavShell";
 import { Reveal } from "@/components/motion/Reveal";
 import { VerticalVideo } from "@/components/VerticalVideo";
 import {
@@ -21,15 +22,14 @@ export function CaseStudyPage({
   item: CaseItem;
 }) {
   const { locale, nav, cases, footer, contact } = content;
-  const otherLocale = locale === "en" ? "fr" : "en";
-  const otherHref = casePath(otherLocale, item.slug);
+  const otherHref = casePath(locale === "en" ? "fr" : "en", item.slug);
   const home = homePath(locale);
 
   return (
     <>
       <DocumentLang locale={locale} />
 
-      <header className="nav">
+      <NavShell>
         <div className="nav__inner">
           <Link href={home}>
             <Image
@@ -42,11 +42,11 @@ export function CaseStudyPage({
             />
           </Link>
           <nav className="nav__links" aria-label={nav.aria}>
-            <Link href={`${home}#cases`}>{nav.links[0]?.label}</Link>
-            <Link href={`${home}#what`}>{nav.links[1]?.label}</Link>
-            <Link href={`${home}#science`}>{nav.links[2]?.label}</Link>
-            <Link href={`${home}#services`}>{nav.links[3]?.label}</Link>
-            <Link href={`${home}#about`}>{nav.links[4]?.label}</Link>
+            {nav.links.map((link) => (
+              <Link key={link.href} href={`${home}${link.href}`}>
+                {link.label}
+              </Link>
+            ))}
           </nav>
           <div className="nav__right">
             <div className="lang-switch" aria-label={nav.langAria}>
@@ -73,7 +73,7 @@ export function CaseStudyPage({
             </Link>
           </div>
         </div>
-      </header>
+      </NavShell>
 
       <main className="case-detail">
         <div className="case-detail__inner">
@@ -84,7 +84,7 @@ export function CaseStudyPage({
           </Reveal>
 
           <Reveal>
-            <div className="case-detail__hero">
+            <header className="case-detail__hero">
               <Image
                 src={item.photo}
                 alt={item.name}
@@ -97,34 +97,27 @@ export function CaseStudyPage({
                 <h1>{item.name}</h1>
                 <p className="case-detail__team">{item.team}</p>
               </div>
-            </div>
-          </Reveal>
-
-          <Reveal>
-            <div className="case-detail__highlight">
-              <div>
-                <span className="case-detail__label">{item.beforeLabel}</span>
-                <p className="case-detail__before">{item.before}</p>
-              </div>
-              <div className="case-detail__highlight-result">
-                <span className="case-detail__label">{item.rtpLabel}</span>
-                <p className="case-detail__rtp">{item.rtp}</p>
-                <p className="case-detail__result">{item.result}</p>
-              </div>
-            </div>
+            </header>
           </Reveal>
 
           {item.video ? (
             <Reveal>
               <VerticalVideo
                 src={item.video}
-                poster={item.photo}
+                poster={item.videoPoster ?? item.photo}
                 label={item.videoLabel}
                 name={item.name}
                 className="case-detail__reel"
               />
             </Reveal>
           ) : null}
+
+          <Reveal>
+            <p className="case-detail__told">
+              <span className="case-detail__label">{item.beforeLabel}</span>
+              <span className="case-detail__before">{item.before}</span>
+            </p>
+          </Reveal>
 
           <Reveal>
             <article className="case-card case-card--detail">
@@ -136,14 +129,11 @@ export function CaseStudyPage({
                   </div>
                 ))}
               </dl>
-              <div className="case-card__medal">
-                <div className="case-card__medal-head">
-                  <Medal size={20} weight="fill" color="var(--orange-400)" />
-                  <span>{item.medal}</span>
-                </div>
-                <p>{item.medalBody}</p>
-              </div>
             </article>
+          </Reveal>
+
+          <Reveal>
+            <p className="case-detail__narrative">{item.medalBody}</p>
           </Reveal>
 
           <Reveal>

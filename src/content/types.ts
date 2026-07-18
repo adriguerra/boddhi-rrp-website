@@ -35,28 +35,12 @@ export type SiteContent = {
   };
   what: {
     badge: string;
-    title: string;
-    titleAccent: string;
-    lead: string;
-    leadStrong: string;
-    leadDisplay: string;
-    repairOverline: string;
-    repairBody: string;
-    quote1: string;
-    quote1Accent: string;
-    quote2: string;
     photoCaption: string;
-    phasesHead: string;
     phases: {
       num: string;
       title: string;
       body: string;
-      bullets?: string[];
     }[];
-    keyOverline: string;
-    keyBody: string;
-    keyAccent: string;
-    keyCta: string;
   };
   science: {
     eyebrow: string;
@@ -87,7 +71,9 @@ export type SiteContent = {
       beforeLabel: string;
       before: string;
       video?: string;
+      videoPoster?: string;
       videoLabel?: string;
+      storyLabel?: string;
       rows: { label: string; value: string }[];
       resultLabel: string;
       result: string;
@@ -101,14 +87,14 @@ export type SiteContent = {
   services: {
     eyebrow: string;
     title: string;
-    intro: string;
     callout: string;
     calloutStrong: string;
     items: {
-      num: string;
       title: string;
+      choice: string;
       lead: string;
-      blocks: { title: string; body: string }[];
+      cta: string;
+      photos: { src: string; alt: string }[];
     }[];
   };
   about: {
@@ -123,7 +109,6 @@ export type SiteContent = {
     quote: string;
     quoteStrong: string;
     location: string;
-    creds: { value: string; unit: string; body: string }[];
     teamTitle: string;
     teamText: string;
     teamStrong: string;
@@ -132,12 +117,9 @@ export type SiteContent = {
   contact: {
     title: string;
     tagline: string;
-    primary: string;
-    residency: string;
-    training: string;
+    cta: string;
     email: string;
     location: string;
-    toast: string;
   };
   footer: {
     copy: string;

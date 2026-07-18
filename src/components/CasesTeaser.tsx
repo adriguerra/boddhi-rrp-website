@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Medal } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { VerticalVideo } from "@/components/VerticalVideo";
@@ -13,9 +13,8 @@ export function CasesTeaser({ content }: { content: SiteContent }) {
     <section className="section--light cases cases--teaser" id="cases">
       <div className="container">
         <Reveal className="cases__intro">
-          <span className="badge badge--orange-soft">{cases.badge}</span>
-          <h2 className="section-title">{cases.title}</h2>
-          <p>{cases.subtitle}</p>
+          <p className="cases__label">{cases.badge}</p>
+          <h2 className="sr-only">{cases.title}</h2>
         </Reveal>
 
         <Stagger className="cases__grid">
@@ -24,72 +23,43 @@ export function CasesTeaser({ content }: { content: SiteContent }) {
 
             return (
               <StaggerItem key={item.slug}>
-                <article
-                  className={`case-teaser${item.video ? " case-teaser--video" : ""}`}
-                >
+                <article className="case-teaser case-teaser--media">
                   {item.video ? (
                     <VerticalVideo
                       src={item.video}
-                      poster={item.photo}
+                      poster={item.videoPoster ?? item.photo}
                       label={item.videoLabel}
                       name={item.name}
                       className="case-teaser__reel"
                     />
-                  ) : null}
+                  ) : (
+                    <Link
+                      href={href}
+                      className="case-teaser__reel case-teaser__reel--still"
+                    >
+                      {(item.storyLabel || item.videoLabel) && (
+                        <span className="case-teaser__story-label">
+                          {item.storyLabel ?? item.videoLabel}
+                        </span>
+                      )}
+                      <div className="case-teaser__still">
+                        <Image
+                          src={item.photo}
+                          alt={item.name}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 420px"
+                          className="case-teaser__still-img"
+                        />
+                      </div>
+                    </Link>
+                  )}
 
                   <div className="case-teaser__body">
-                    <div className="case-teaser__top">
-                      {!item.video ? (
-                        <div className="case-teaser__photo">
-                          <Image
-                            src={item.photo}
-                            alt={item.name}
-                            width={128}
-                            height={128}
-                          />
-                        </div>
-                      ) : null}
-                      <div>
-                        <h3>
-                          <Link href={href}>{item.name}</Link>
-                        </h3>
-                        <p className="case-teaser__team">{item.team}</p>
-                        <p className="case-teaser__injury">{item.injury}</p>
-                      </div>
-                    </div>
-
-                    <div className="case-teaser__contrast">
-                      <div className="case-teaser__before">
-                        <span className="case-teaser__label">
-                          {item.beforeLabel}
-                        </span>
-                        <span className="case-teaser__before-value">
-                          {item.before}
-                        </span>
-                      </div>
-                      <span className="case-teaser__arrow" aria-hidden>
-                        →
-                      </span>
-                      <div className="case-teaser__after">
-                        <span className="case-teaser__label">
-                          {item.rtpLabel}
-                        </span>
-                        <span className="case-teaser__rtp">{item.rtp}</span>
-                        <span className="case-teaser__result">{item.result}</span>
-                      </div>
-                    </div>
-
-                    <div className="case-teaser__medal">
-                      <Medal
-                        size={18}
-                        weight="fill"
-                        color="var(--orange-400)"
-                      />
-                      <span>{item.medal}</span>
-                    </div>
-
-                    <Link href={href} className="case-teaser__cta">
-                      {cases.readMore} <ArrowRight size={16} weight="bold" />
+                    <h3>{item.name}</h3>
+                    <p className="case-teaser__injury">{item.injury}</p>
+                    <Link href={href} className="case-teaser__read">
+                      {cases.readMore}
+                      <ArrowRight size={14} weight="bold" aria-hidden />
                     </Link>
                   </div>
                 </article>
@@ -97,8 +67,6 @@ export function CasesTeaser({ content }: { content: SiteContent }) {
             );
           })}
         </Stagger>
-
-        <p className="cases__footnote">{cases.footnote}</p>
       </div>
     </section>
   );
