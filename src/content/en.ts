@@ -11,8 +11,8 @@ export const en: SiteContent = {
     aria: "Main navigation",
     links: [
       { href: "#cases", label: "Results" },
-      { href: "#services", label: "Access" },
       { href: "#about", label: "About" },
+      { href: "#services", label: "Access" },
     ],
     cta: "Talk to Us",
     langAria: "Language",
@@ -40,6 +40,7 @@ export const en: SiteContent = {
   },
   what: {
     badge: "The Protocol",
+    title: "How it works.",
     photoCaption: "Precision Repair Acupuncture",
     phases: [
       {
@@ -61,28 +62,25 @@ export const en: SiteContent = {
   },
   science: {
     eyebrow: "The Science",
-    title: "Two principles.",
-    principles: [
-      {
-        label: "One",
-        title: "Activate repair",
-        paragraphs: [
-          "Heat, not ice. Delivery of immune cells, oxygen, and growth factors to the tissue.",
-        ],
-      },
-      {
-        label: "Two",
-        title: "Lock it in",
-        paragraphs: [
-          "Strategic immobilization and controlled loading until the structure holds.",
-        ],
-        punch: "Nothing left to chance.",
-      },
-    ],
-    windowLabel: "Critical Window",
-    windowTitle: "The first 72 hours",
-    windowBody: "Not a waiting period. ",
-    windowStrong: "A window. RRP® targets it directly.",
+    title: "Why we don't wait.",
+    windowLine: "The critical window RRP® targets directly.",
+    against: {
+      label: "The usual path",
+      lines: [
+        "Rest. Ice. Wait.",
+        "Suppress the response. Protect the injury.",
+        "Come back in 8–12 weeks.",
+      ],
+    },
+    for: {
+      label: "RRP®",
+      lines: [
+        "Heat, not ice.",
+        "Activate repair in the critical window.",
+        "Lock the tissue until it holds.",
+      ],
+      punch: "Nothing left to chance.",
+    },
   },
   cases: {
     badge: "Results",

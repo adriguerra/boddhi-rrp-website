@@ -35,6 +35,7 @@ export type SiteContent = {
   };
   what: {
     badge: string;
+    title: string;
     photoCaption: string;
     phases: {
       num: string;
@@ -45,16 +46,16 @@ export type SiteContent = {
   science: {
     eyebrow: string;
     title: string;
-    principles: {
+    windowLine: string;
+    against: {
       label: string;
-      title: string;
-      paragraphs: string[];
+      lines: string[];
+    };
+    for: {
+      label: string;
+      lines: string[];
       punch?: string;
-    }[];
-    windowLabel: string;
-    windowTitle: string;
-    windowBody: string;
-    windowStrong: string;
+    };
   };
   cases: {
     badge: string;

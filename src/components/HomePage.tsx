@@ -1,9 +1,9 @@
 import Image from "next/image";
 import {
   ArrowRight,
-  Drop,
-  LockKey,
+  Check,
   MapPin,
+  Minus,
   PhoneCall,
 } from "@phosphor-icons/react/dist/ssr";
 import { CasesTeaser } from "@/components/CasesTeaser";
@@ -18,9 +18,6 @@ import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import type { SiteContent } from "@/content";
 import { getCaseStudies } from "@/data/caseStudies";
 import type { HeroChrome } from "@/types/CaseStudy";
-
-const principleIcons = [Drop, LockKey] as const;
-const principleColors = ["var(--orange-400)", "var(--teal-400)"] as const;
 
 export function HomePage({ content }: { content: SiteContent }) {
   const { locale, nav, hero, what, science, services, about, footer } =
@@ -93,6 +90,150 @@ export function HomePage({ content }: { content: SiteContent }) {
 
       <CasesTeaser content={content} />
 
+      <section className="section--light" id="what">
+        <div className="container">
+          <Reveal className="what__intro">
+            <span className="badge badge--teal-soft">{what.badge}</span>
+            <h2 className="section-title">{what.title}</h2>
+          </Reveal>
+
+          <div className="what__layout">
+            <Reveal>
+              <figure className="what__photo">
+                <Image
+                  src="/assets/acupuncture.png"
+                  alt={what.photoCaption}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 42vw"
+                  style={{ objectFit: "cover" }}
+                />
+                <figcaption>{what.photoCaption}</figcaption>
+              </figure>
+            </Reveal>
+
+            <Stagger className="what__phases">
+              {what.phases.map((phase) => (
+                <StaggerItem key={phase.num}>
+                <div className="phase-card">
+                  <h3>
+                    <span className="phase-card__num">{phase.num}</span>
+                    {phase.title}
+                  </h3>
+                  <p>{phase.body}</p>
+                </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+        </div>
+      </section>
+
+      <section className="section--dark science" id="science">
+        <div className="container">
+          <Reveal className="science__intro">
+            <span className="eyebrow">{science.eyebrow}</span>
+            <h2 className="section-title">{science.title}</h2>
+          </Reveal>
+
+          <div className="science__contrast">
+            <Reveal className="science__box science__box--usual">
+              <h3 className="science__box-title">{science.against.label}</h3>
+              <ul>
+                {science.against.lines.map((line) => (
+                  <li key={line}>
+                    <Minus
+                      className="science__box-icon"
+                      size={20}
+                      weight="bold"
+                      aria-hidden
+                    />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+            <Reveal className="science__box science__box--rrp" delay={0.08}>
+              <h3 className="science__box-title">{science.for.label}</h3>
+              <ul>
+                {science.for.lines.map((line) => (
+                  <li key={line}>
+                    <Check
+                      className="science__box-icon"
+                      size={20}
+                      weight="bold"
+                      aria-hidden
+                    />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+              {science.for.punch ? (
+                <p className="science__box-punch">{science.for.punch}</p>
+              ) : null}
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.1}>
+            <div className="science__window">
+              <div className="science__window-stat">
+                <div className="value">72h</div>
+              </div>
+              <p className="science__window-line">{science.windowLine}</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section--light" id="about">
+        <div className="container">
+          <Reveal className="about__intro">
+            <span className="badge badge--teal-soft">{about.badge}</span>
+            <h2 className="section-title">{about.teamTitle}</h2>
+            <p className="about__location">
+              <MapPin size={17} weight="fill" color="var(--teal-600)" />{" "}
+              {about.location}
+            </p>
+          </Reveal>
+
+          <Stagger className="team-grid">
+            <StaggerItem>
+              <article className="team-card team-card--lead">
+                <div className="team-card__photo">
+                  <Image
+                    src="/assets/lucy-dean.jpg"
+                    alt={about.name}
+                    width={200}
+                    height={240}
+                  />
+                </div>
+                <div>
+                  <p className="team-card__name">{about.name}</p>
+                  <p className="team-card__role">{about.role}</p>
+                </div>
+              </article>
+            </StaggerItem>
+            {about.team.map((member) => (
+              <StaggerItem key={member.name}>
+                <article className="team-card">
+                  <div className="team-card__photo">
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      width={160}
+                      height={192}
+                    />
+                  </div>
+                  <div>
+                    <p className="team-card__name">{member.name}</p>
+                    <p className="team-card__role">{member.role}</p>
+                  </div>
+                </article>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
       <section className="section--dark" id="services">
         <div className="container">
           <Reveal className="services__intro">
@@ -157,181 +298,6 @@ export function HomePage({ content }: { content: SiteContent }) {
                 </StaggerItem>
               );
             })}
-          </Stagger>
-        </div>
-      </section>
-
-      <section className="section--light" id="what">
-        <div className="container">
-          <Reveal className="what__intro">
-            <span className="badge badge--teal-soft">{what.badge}</span>
-          </Reveal>
-
-          <div className="what__layout">
-            <Reveal>
-              <figure className="what__photo">
-                <Image
-                  src="/assets/acupuncture.png"
-                  alt={what.photoCaption}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 42vw"
-                  style={{ objectFit: "cover" }}
-                />
-                <figcaption>{what.photoCaption}</figcaption>
-              </figure>
-            </Reveal>
-
-            <Stagger className="what__phases">
-              {what.phases.map((phase) => (
-                <StaggerItem key={phase.num}>
-                <div className="phase-card">
-                  <h3>
-                    <span className="phase-card__num">{phase.num}</span>
-                    {phase.title}
-                  </h3>
-                  <p>{phase.body}</p>
-                </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </div>
-        </div>
-      </section>
-
-      <section className="section--dark science" id="science">
-        <div className="container">
-          <Reveal className="science__intro">
-            <span className="eyebrow">{science.eyebrow}</span>
-            <h2 className="section-title">
-              {science.title.split("\n").map((line, i, arr) => (
-                <span key={line}>
-                  {line}
-                  {i < arr.length - 1 ? <br /> : null}
-                </span>
-              ))}
-            </h2>
-          </Reveal>
-
-          <Stagger className="science__grid">
-            {science.principles.map((p, i) => {
-              const Icon = principleIcons[i] ?? Drop;
-              return (
-                <StaggerItem key={p.label}>
-                  <div className="principle">
-                    <div className="principle__head">
-                      <Icon
-                        size={30}
-                        weight="fill"
-                        color={principleColors[i] ?? "var(--orange-400)"}
-                      />
-                      <span>{p.label}</span>
-                    </div>
-                    <h3>{p.title}</h3>
-                    {p.paragraphs.map((para, idx) => {
-                      if (i === 0 && idx === 1) {
-                        const [before, after] = para.split(
-                          "Heat, not ice. Activation, not suppression.",
-                        );
-                        if (after !== undefined) {
-                          return (
-                            <p key={para}>
-                              {before}
-                              <strong>
-                                Heat, not ice. Activation, not suppression.
-                              </strong>
-                              {after}
-                            </p>
-                          );
-                        }
-                        const [beforeFr, afterFr] = para.split(
-                          "La chaleur, pas la glace. L'activation, pas la suppression.",
-                        );
-                        if (afterFr !== undefined) {
-                          return (
-                            <p key={para}>
-                              {beforeFr}
-                              <strong>
-                                La chaleur, pas la glace. L&apos;activation, pas
-                                la suppression.
-                              </strong>
-                              {afterFr}
-                            </p>
-                          );
-                        }
-                      }
-                      return <p key={para}>{para}</p>;
-                    })}
-                    {p.punch ? <p className="punch">{p.punch}</p> : null}
-                  </div>
-                </StaggerItem>
-              );
-            })}
-          </Stagger>
-
-          <Reveal delay={0.1}>
-            <div className="science__window">
-              <div className="science__window-stat">
-                <div className="value">72h</div>
-                <div className="label">{science.windowLabel}</div>
-              </div>
-              <div>
-                <h3>{science.windowTitle}</h3>
-                <p>
-                  {science.windowBody}
-                  <strong>{science.windowStrong}</strong>
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section--light" id="about">
-        <div className="container">
-          <Reveal className="about__intro">
-            <span className="badge badge--teal-soft">{about.badge}</span>
-            <h2 className="section-title">{about.teamTitle}</h2>
-            <p className="about__location">
-              <MapPin size={17} weight="fill" color="var(--teal-600)" />{" "}
-              {about.location}
-            </p>
-          </Reveal>
-
-          <Stagger className="team-grid">
-            <StaggerItem>
-              <article className="team-card team-card--lead">
-                <div className="team-card__photo">
-                  <Image
-                    src="/assets/lucy-dean.jpg"
-                    alt={about.name}
-                    width={200}
-                    height={240}
-                  />
-                </div>
-                <div>
-                  <p className="team-card__name">{about.name}</p>
-                  <p className="team-card__role">{about.role}</p>
-                </div>
-              </article>
-            </StaggerItem>
-            {about.team.map((member) => (
-              <StaggerItem key={member.name}>
-                <article className="team-card">
-                  <div className="team-card__photo">
-                    <Image
-                      src={member.photo}
-                      alt={member.name}
-                      width={160}
-                      height={192}
-                    />
-                  </div>
-                  <div>
-                    <p className="team-card__name">{member.name}</p>
-                    <p className="team-card__role">{member.role}</p>
-                  </div>
-                </article>
-              </StaggerItem>
-            ))}
           </Stagger>
         </div>
       </section>

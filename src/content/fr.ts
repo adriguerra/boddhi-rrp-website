@@ -11,8 +11,8 @@ export const fr: SiteContent = {
     aria: "Navigation principale",
     links: [
       { href: "#cases", label: "Résultats" },
-      { href: "#services", label: "Accès" },
       { href: "#about", label: "À propos" },
+      { href: "#services", label: "Accès" },
     ],
     cta: "Parlez-nous",
     langAria: "Langue",
@@ -40,6 +40,7 @@ export const fr: SiteContent = {
   },
   what: {
     badge: "Le protocole",
+    title: "Comment ça marche.",
     photoCaption: "Precision Repair Acupuncture",
     phases: [
       {
@@ -61,28 +62,25 @@ export const fr: SiteContent = {
   },
   science: {
     eyebrow: "La science",
-    title: "Deux principes.",
-    principles: [
-      {
-        label: "Un",
-        title: "Activer la réparation",
-        paragraphs: [
-          "La chaleur, pas la glace. Acheminement des cellules immunitaires, de l'oxygène et des facteurs de croissance.",
-        ],
-      },
-      {
-        label: "Deux",
-        title: "Verrouiller",
-        paragraphs: [
-          "Immobilisation stratégique et mise en charge contrôlée jusqu'à ce que la structure tienne.",
-        ],
-        punch: "Rien n'est laissé au hasard.",
-      },
-    ],
-    windowLabel: "Fenêtre critique",
-    windowTitle: "Les 72 premières heures",
-    windowBody: "Pas une période d'attente. ",
-    windowStrong: "Une fenêtre. Le RRP® la cible directement.",
+    title: "Pourquoi on n'attend pas.",
+    windowLine: "La fenêtre critique que le RRP® cible directement.",
+    against: {
+      label: "Le chemin habituel",
+      lines: [
+        "Repos. Glace. Attente.",
+        "Supprimer la réponse. Protéger la blessure.",
+        "Revenir dans 8 à 12 semaines.",
+      ],
+    },
+    for: {
+      label: "RRP®",
+      lines: [
+        "La chaleur, pas la glace.",
+        "Activer la réparation dans la fenêtre critique.",
+        "Verrouiller le tissu jusqu'à ce qu'il tienne.",
+      ],
+      punch: "Rien n'est laissé au hasard.",
+    },
   },
   cases: {
     badge: "Résultats",

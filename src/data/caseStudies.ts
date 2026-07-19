@@ -35,8 +35,8 @@ export const caseStudies: CaseStudy[] = [
     outcome: "Danish Cup Winner 2026",
     outcomeIcon: "trophy",
     heroImages: [
-      "/case-studies/kevin/slide-1.png",
       "/case-studies/kevin/slide-2.png",
+      "/case-studies/kevin/slide-1.png",
     ],
     actionImage: "/case-studies/kevin/action.jpg",
     celebrationImage: "/case-studies/kevin/celebration.jpg",
@@ -73,8 +73,8 @@ export const caseStudiesFr: CaseStudy[] = [
     outcome: "Vainqueur Coupe du Danemark 2026",
     outcomeIcon: "trophy",
     heroImages: [
-      "/case-studies/kevin/slide-1.png",
       "/case-studies/kevin/slide-2.png",
+      "/case-studies/kevin/slide-1.png",
     ],
     actionImage: "/case-studies/kevin/action.jpg",
     celebrationImage: "/case-studies/kevin/celebration.jpg",

@@ -41,7 +41,7 @@ function videoPosterFor(study: CaseStudy): string {
 
 /**
  * Dual-layer crossfade between case studies.
- * Sequence per case: heroVideo (once) → heroImages slideshow.
+ * Sequence per case: heroImages slideshow → heroVideo (once), then loop.
  */
 export function HeroBackground({ caseStudy, className }: HeroBackgroundProps) {
   const seq = useRef(0);
@@ -79,6 +79,15 @@ export function HeroBackground({ caseStudy, className }: HeroBackgroundProps) {
   );
 }
 
+function initialPhase(
+  hasSlides: boolean,
+  hasVideo: boolean,
+): "video" | "images" {
+  if (hasSlides) return "images";
+  if (hasVideo) return "video";
+  return "images";
+}
+
 function MediaLayer({
   study,
   active,
@@ -94,9 +103,9 @@ function MediaLayer({
   const hasFollowUpSlides = slides.length > 0;
   const [fadeIn, setFadeIn] = useState(initial);
   const [slideIndex, setSlideIndex] = useState(0);
-  /** video first; after it ends (or if no video), show stills */
-  const [phase, setPhase] = useState<"video" | "images">(
-    hasVideo ? "video" : "images",
+  /** stills first; after they run (or if no stills), show video */
+  const [phase, setPhase] = useState<"video" | "images">(() =>
+    initialPhase(hasFollowUpSlides, hasVideo),
   );
 
   useEffect(() => {
@@ -109,29 +118,43 @@ function MediaLayer({
 
   useEffect(() => {
     setSlideIndex(0);
-    setPhase(hasVideo ? "video" : "images");
-  }, [study.id, hasVideo]);
+    setPhase(initialPhase(hasFollowUpSlides, hasVideo));
+  }, [study.id, hasFollowUpSlides, hasVideo]);
 
-  // Restart video whenever this case becomes active again
+  // Reset sequence whenever this case becomes active again
   useEffect(() => {
-    if (!active || !hasVideo) return;
-    setPhase("video");
-    const el = videoRef.current;
-    if (!el) return;
-    el.currentTime = 0;
-    void el.play().catch(() => undefined);
-  }, [active, hasVideo, study.id]);
+    if (!active) return;
+    setSlideIndex(0);
+    setPhase(initialPhase(hasFollowUpSlides, hasVideo));
+  }, [active, hasFollowUpSlides, hasVideo, study.id]);
 
   useEffect(() => {
-    if (!active || phase !== "images" || slides.length < 2) return;
+    if (!active || phase !== "images" || slides.length === 0) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // With a follow-up video: advance stills once, then play it
+    if (hasVideo) {
+      let i = 0;
+      const tick = window.setInterval(() => {
+        if (i + 1 >= slides.length) {
+          setSlideIndex(0);
+          setPhase("video");
+          return;
+        }
+        i += 1;
+        setSlideIndex(i);
+      }, SLIDE_INTERVAL_MS);
+      return () => window.clearInterval(tick);
+    }
+
+    if (slides.length < 2) return;
 
     const tick = window.setInterval(() => {
       setSlideIndex((i) => (i + 1) % slides.length);
     }, SLIDE_INTERVAL_MS);
 
     return () => window.clearInterval(tick);
-  }, [active, phase, slides.length]);
+  }, [active, phase, slides.length, hasVideo]);
 
   useEffect(() => {
     const el = videoRef.current;
@@ -139,6 +162,7 @@ function MediaLayer({
 
     const onEnded = () => {
       if (hasFollowUpSlides) {
+        setSlideIndex(0);
         setPhase("images");
       } else {
         el.currentTime = 0;
@@ -148,6 +172,7 @@ function MediaLayer({
 
     el.addEventListener("ended", onEnded);
     if (active && phase === "video") {
+      el.currentTime = 0;
       void el.play().catch(() => undefined);
     } else {
       el.pause();
@@ -205,7 +230,6 @@ function MediaLayer({
             muted
             playsInline
             loop={!hasFollowUpSlides}
-            autoPlay={active}
             preload="auto"
             poster={videoPosterFor(study)}
             data-visible={showVideo ? "true" : "false"}
