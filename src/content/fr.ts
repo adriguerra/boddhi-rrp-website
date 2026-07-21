@@ -197,11 +197,7 @@ export const fr: SiteContent = {
         cta: "Réserver Genève",
         photos: [
           {
-            src: "/assets/clinic/entrance.jpg",
-            alt: "Entrée de la Boddhi Clinic à Genève",
-          },
-          {
-            src: "/assets/clinic/treatment-room.png",
+            src: "/assets/clinic/treatment-room.jpg",
             alt: "Salle de traitement à la Boddhi Clinic",
           },
         ],

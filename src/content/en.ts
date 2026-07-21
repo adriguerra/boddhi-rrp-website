@@ -194,11 +194,7 @@ export const en: SiteContent = {
         cta: "Book Geneva",
         photos: [
           {
-            src: "/assets/clinic/entrance.jpg",
-            alt: "Boddhi Clinic entrance in Geneva",
-          },
-          {
-            src: "/assets/clinic/treatment-room.png",
+            src: "/assets/clinic/treatment-room.jpg",
             alt: "Treatment room at Boddhi Clinic",
           },
         ],
