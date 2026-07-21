@@ -22,6 +22,7 @@ export type SiteContent = {
     titleAccent: string;
     sub: string;
     subStrong: string;
+    audience: string;
     ctaPrimary: string;
     ctaSecondary: string;
     photoAlt: string;
@@ -102,17 +103,14 @@ export type SiteContent = {
     badge: string;
     name: string;
     role: string;
-    story: string;
-    storyEm: string;
-    storyMid: string;
-    storyStrong: string;
-    storyEnd: string;
-    quote: string;
-    quoteStrong: string;
     location: string;
+    creds: {
+      to: number;
+      suffix?: string;
+      label: string;
+      format?: "comma";
+    }[];
     teamTitle: string;
-    teamText: string;
-    teamStrong: string;
     team: { name: string; role: string; photo: string }[];
   };
   contact: {

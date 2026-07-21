@@ -37,7 +37,9 @@ export interface CaseStudy {
 /** Static chrome that never changes while case studies rotate */
 export interface HeroChrome {
   headline: string;
-  brand: string;
+  subheadline?: string;
+  brand?: string;
+  audience?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
 }

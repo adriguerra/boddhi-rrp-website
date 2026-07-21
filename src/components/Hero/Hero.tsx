@@ -9,6 +9,8 @@ import { HeroOverlay } from "./HeroOverlay";
 
 const DEFAULT_INTERVAL_MS = 9000;
 const CONTENT_FADE_MS = 380;
+/** Protocol stills — show brand chrome; hide athlete proof */
+const QUIET_SLIDES = new Set(["/assets/acupuncture.png"]);
 
 export type HeroProps = {
   caseStudies: CaseStudy[];
@@ -33,6 +35,10 @@ export function Hero({
   const count = caseStudies.length;
   const [index, setIndex] = useState(0);
   const [contentVisible, setContentVisible] = useState(true);
+  const [showAthlete, setShowAthlete] = useState(() => {
+    const first = caseStudies[0]?.heroImages?.[0];
+    return !first || !QUIET_SLIDES.has(first);
+  });
   const fading = useRef(false);
   const active = caseStudies[index] ?? caseStudies[0];
 
@@ -52,6 +58,11 @@ export function Hero({
     },
     [count, index],
   );
+
+  const onActiveSlideChange = useCallback((slideSrc: string | null) => {
+    // null = video / no quiet still → athlete proof
+    setShowAthlete(!slideSrc || !QUIET_SLIDES.has(slideSrc));
+  }, []);
 
   useEffect(() => {
     if (count < 2) return;
@@ -93,42 +104,55 @@ export function Hero({
 
   if (!active) return null;
 
+  const mode = showAthlete ? "athlete" : "chrome";
+  const athleteVisible = contentVisible && showAthlete;
+
   return (
     <section
       className={["case-hero", className].filter(Boolean).join(" ")}
       id={id}
     >
-      <HeroBackground caseStudy={active} className="case-hero__bg" />
+      <HeroBackground
+        caseStudy={active}
+        className="case-hero__bg"
+        onActiveSlideChange={onActiveSlideChange}
+      />
       <div className="case-hero__veil" aria-hidden />
 
       <div className="case-hero__inner">
-        <HeroOverlay chrome={chrome} className="case-hero__overlay">
+        <HeroOverlay
+          chrome={chrome}
+          mode={mode}
+          className="case-hero__overlay"
+          controls={
+            count > 1 ? (
+              <div
+                className="case-hero__dots"
+                role="tablist"
+                aria-label="Case studies"
+              >
+                {caseStudies.map((study, i) => (
+                  <button
+                    key={study.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={i === index}
+                    aria-label={study.athlete}
+                    className="case-hero__dot"
+                    data-active={i === index ? "true" : "false"}
+                    onClick={() => goTo(i)}
+                  />
+                ))}
+              </div>
+            ) : null
+          }
+        >
           <div
             className="case-hero__case-fade"
-            data-visible={contentVisible ? "true" : "false"}
+            data-visible={athleteVisible ? "true" : "false"}
           >
             <HeroCaseStudy caseStudy={active} className="case-hero__case" />
           </div>
-          {count > 1 ? (
-            <div
-              className="case-hero__dots"
-              role="tablist"
-              aria-label="Case studies"
-            >
-              {caseStudies.map((study, i) => (
-                <button
-                  key={study.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === index}
-                  aria-label={study.athlete}
-                  className="case-hero__dot"
-                  data-active={i === index ? "true" : "false"}
-                  onClick={() => goTo(i)}
-                />
-              ))}
-            </div>
-          ) : null}
         </HeroOverlay>
       </div>
 

@@ -4,13 +4,14 @@ import {
   Check,
   MapPin,
   Minus,
-  PhoneCall,
 } from "@phosphor-icons/react/dist/ssr";
 import { CasesTeaser } from "@/components/CasesTeaser";
 import { ContactSection } from "@/components/ContactSection";
+import { CountUp } from "@/components/CountUp";
 import { DocumentLang } from "@/components/DocumentLang";
 import { FrenchPreferenceRedirect } from "@/components/FrenchPreferenceRedirect";
 import { Hero } from "@/components/Hero";
+import { MarkedText } from "@/components/MarkedText";
 import { NavShell } from "@/components/NavShell";
 import { LangLink } from "@/components/LangLink";
 import { Reveal } from "@/components/motion/Reveal";
@@ -26,7 +27,9 @@ export function HomePage({ content }: { content: SiteContent }) {
   const caseStudies = getCaseStudies(locale);
   const heroChrome: HeroChrome = {
     headline: hero.title,
-    brand: `${hero.eyebrow}™`,
+    subheadline: hero.sub,
+    audience: hero.audience,
+    primaryCta: { label: hero.ctaPrimary, href: "#contact" },
   };
 
   return (
@@ -137,7 +140,11 @@ export function HomePage({ content }: { content: SiteContent }) {
 
           <div className="science__contrast">
             <Reveal className="science__box science__box--usual">
-              <h3 className="science__box-title">{science.against.label}</h3>
+              <MarkedText
+                as="h3"
+                className="science__box-title"
+                text={science.against.label}
+              />
               <ul>
                 {science.against.lines.map((line) => (
                   <li key={line}>
@@ -153,7 +160,11 @@ export function HomePage({ content }: { content: SiteContent }) {
               </ul>
             </Reveal>
             <Reveal className="science__box science__box--rrp" delay={0.08}>
-              <h3 className="science__box-title">{science.for.label}</h3>
+              <MarkedText
+                as="h3"
+                className="science__box-title"
+                text={science.for.label}
+              />
               <ul>
                 {science.for.lines.map((line) => (
                   <li key={line}>
@@ -178,7 +189,11 @@ export function HomePage({ content }: { content: SiteContent }) {
               <div className="science__window-stat">
                 <div className="value">72h</div>
               </div>
-              <p className="science__window-line">{science.windowLine}</p>
+              <MarkedText
+                as="p"
+                className="science__window-line"
+                text={science.windowLine}
+              />
             </div>
           </Reveal>
         </div>
@@ -186,51 +201,72 @@ export function HomePage({ content }: { content: SiteContent }) {
 
       <section className="section--light" id="about">
         <div className="container">
-          <Reveal className="about__intro">
-            <span className="badge badge--teal-soft">{about.badge}</span>
-            <h2 className="section-title">{about.teamTitle}</h2>
-            <p className="about__location">
-              <MapPin size={17} weight="fill" color="var(--teal-600)" />{" "}
-              {about.location}
-            </p>
-          </Reveal>
-
-          <Stagger className="team-grid">
-            <StaggerItem>
-              <article className="team-card team-card--lead">
-                <div className="team-card__photo">
+          <div className="about__grid">
+            <Reveal className="about__lucy">
+              <span className="badge badge--teal-soft">{about.badge}</span>
+              <div className="about__head">
+                <div className="about__photo">
                   <Image
                     src="/assets/lucy-dean.jpg"
                     alt={about.name}
-                    width={200}
-                    height={240}
+                    width={280}
+                    height={336}
+                    priority={false}
                   />
                 </div>
-                <div>
-                  <p className="team-card__name">{about.name}</p>
-                  <p className="team-card__role">{about.role}</p>
+                <div className="about__identity">
+                  <h2 className="about__name">{about.name}</h2>
+                  <MarkedText as="p" className="about__role" text={about.role} />
                 </div>
-              </article>
-            </StaggerItem>
-            {about.team.map((member) => (
-              <StaggerItem key={member.name}>
-                <article className="team-card">
-                  <div className="team-card__photo">
-                    <Image
-                      src={member.photo}
-                      alt={member.name}
-                      width={160}
-                      height={192}
+              </div>
+            </Reveal>
+
+            <Stagger className="about__creds">
+              {about.creds.map((cred) => (
+                <StaggerItem key={cred.label}>
+                  <div className="cred-card">
+                    <CountUp
+                      className="cred-card__value"
+                      to={cred.to}
+                      suffix={cred.suffix}
+                      format={cred.format}
                     />
+                    <div className="cred-card__label">{cred.label}</div>
                   </div>
-                  <div>
-                    <p className="team-card__name">{member.name}</p>
-                    <p className="team-card__role">{member.role}</p>
-                  </div>
-                </article>
-              </StaggerItem>
-            ))}
-          </Stagger>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+
+          <div className="about__team">
+            <Reveal className="about__team-intro">
+              <h3 className="about__team-title">{about.teamTitle}</h3>
+              <p className="about__location">
+                <MapPin size={17} weight="fill" color="var(--teal-600)" />{" "}
+                {about.location}
+              </p>
+            </Reveal>
+            <Stagger className="team-grid">
+              {about.team.map((member) => (
+                <StaggerItem key={member.name}>
+                  <article className="team-card">
+                    <div className="team-card__photo">
+                      <Image
+                        src={member.photo}
+                        alt={member.name}
+                        width={160}
+                        height={192}
+                      />
+                    </div>
+                    <div>
+                      <p className="team-card__name">{member.name}</p>
+                      <p className="team-card__role">{member.role}</p>
+                    </div>
+                  </article>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
         </div>
       </section>
 
@@ -239,18 +275,6 @@ export function HomePage({ content }: { content: SiteContent }) {
           <Reveal className="services__intro">
             <span className="eyebrow">{services.eyebrow}</span>
             <h2 className="section-title">{services.title}</h2>
-          </Reveal>
-
-          <Reveal>
-            <div className="services__callout">
-              <PhoneCall size={22} weight="fill" color="var(--orange-400)" />
-              <p>
-                {services.callout}
-                {services.calloutStrong ? (
-                  <strong>{services.calloutStrong}</strong>
-                ) : null}
-              </p>
-            </div>
           </Reveal>
 
           <Stagger className="services__list">

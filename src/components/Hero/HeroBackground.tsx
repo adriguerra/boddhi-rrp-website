@@ -7,6 +7,8 @@ import type { CaseStudy } from "@/types/CaseStudy";
 type HeroBackgroundProps = {
   caseStudy: CaseStudy;
   className?: string;
+  /** Fires when the active still changes. `null` means video / no still. */
+  onActiveSlideChange?: (slideSrc: string | null) => void;
 };
 
 type Layer = {
@@ -43,7 +45,11 @@ function videoPosterFor(study: CaseStudy): string {
  * Dual-layer crossfade between case studies.
  * Sequence per case: heroImages slideshow → heroVideo (once), then loop.
  */
-export function HeroBackground({ caseStudy, className }: HeroBackgroundProps) {
+export function HeroBackground({
+  caseStudy,
+  className,
+  onActiveSlideChange,
+}: HeroBackgroundProps) {
   const seq = useRef(0);
   const [layers, setLayers] = useState<Layer[]>(() => [
     { key: 0, study: caseStudy },
@@ -73,6 +79,7 @@ export function HeroBackground({ caseStudy, className }: HeroBackgroundProps) {
           study={layer.study}
           active={i === layers.length - 1}
           initial={layer.key === 0 && layers.length === 1}
+          onActiveSlideChange={onActiveSlideChange}
         />
       ))}
     </div>
@@ -92,10 +99,12 @@ function MediaLayer({
   study,
   active,
   initial,
+  onActiveSlideChange,
 }: {
   study: CaseStudy;
   active: boolean;
   initial: boolean;
+  onActiveSlideChange?: (slideSrc: string | null) => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const slides = slidesFor(study);
@@ -127,6 +136,15 @@ function MediaLayer({
     setSlideIndex(0);
     setPhase(initialPhase(hasFollowUpSlides, hasVideo));
   }, [active, hasFollowUpSlides, hasVideo, study.id]);
+
+  useEffect(() => {
+    if (!active) return;
+    if (phase === "images" && slides.length > 0) {
+      onActiveSlideChange?.(slides[slideIndex % slides.length] ?? null);
+      return;
+    }
+    onActiveSlideChange?.(null);
+  }, [active, phase, slideIndex, slides.length, study.id, onActiveSlideChange]);
 
   useEffect(() => {
     if (!active || phase !== "images" || slides.length === 0) return;
