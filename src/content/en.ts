@@ -26,7 +26,7 @@ export const en: SiteContent = {
   hero: {
     eyebrow: "Immersive, intensive, holistic tissue repair protocol",
     title: "Beat the prognosis, **accelerate return to play**",
-    sub: "Based on over 30 years' clinical practice, RRP® is a game-changing methodology to rapidly repair injured tissue. We treat acute sports injuries: ligament, muscle and tendon tears repaired without surgery in days, not months.",
+    sub: "RRP® is a game-changing methodology to rapidly repair injured tissue. We treat acute sports injuries: ligament, muscle and tendon tears repaired without surgery in days, not months.",
     ctaPrimary: "Talk to us",
     photoAlt: "Ice hockey players competing",
     proofLead: "From season-unrecoverable injury to Olympic qualification.",

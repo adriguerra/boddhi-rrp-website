@@ -26,7 +26,7 @@ export const fr: SiteContent = {
   hero: {
     eyebrow: "Protocole immersif, intensif et holistique de réparation tissulaire",
     title: "Battez le pronostic, **accélérez le retour au jeu**",
-    sub: "Fondé sur plus de 30 ans de pratique clinique, le RRP® est une méthodologie révolutionnaire pour réparer rapidement les tissus blessés. Nous traitons les blessures sportives aiguës : ligaments, muscles et tendons — sans chirurgie, en jours, pas en mois.",
+    sub: "Le RRP® est une méthodologie révolutionnaire pour réparer rapidement les tissus blessés. Nous traitons les blessures sportives aiguës : ligaments, muscles et tendons — sans chirurgie, en jours, pas en mois.",
     ctaPrimary: "Parlez-nous",
     photoAlt: "Joueurs de hockey sur glace en compétition",
     proofLead: "D'une blessure de fin de saison à une qualification olympique.",
