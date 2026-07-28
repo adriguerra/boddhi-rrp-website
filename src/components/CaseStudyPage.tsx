@@ -29,9 +29,45 @@ export function CaseStudyPage({
     <>
       <DocumentLang locale={locale} />
 
-      <NavShell>
+      <NavShell
+        menuLabelOpen={nav.menuOpen}
+        menuLabelClose={nav.menuClose}
+        mobilePanel={
+          <>
+            <nav className="nav__drawer-links" aria-label={nav.aria}>
+              {nav.links.map((link) => (
+                <Link key={link.href} href={`${home}${link.href}`}>
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="lang-switch" aria-label={nav.langAria}>
+              {locale === "en" ? (
+                <>
+                  <span className="lang-switch__current">EN</span>
+                  <span className="lang-switch__sep">|</span>
+                  <LangLink locale={locale} href={otherHref}>
+                    FR
+                  </LangLink>
+                </>
+              ) : (
+                <>
+                  <LangLink locale={locale} href={otherHref}>
+                    EN
+                  </LangLink>
+                  <span className="lang-switch__sep">|</span>
+                  <span className="lang-switch__current">FR</span>
+                </>
+              )}
+            </div>
+            <Link className="btn btn--accent btn--md" href={`${home}#contact`}>
+              {nav.cta}
+            </Link>
+          </>
+        }
+      >
         <div className="nav__inner">
-          <Link href={home}>
+          <Link href={home} className="nav__brand">
             <Image
               className="nav__logo"
               src="/assets/logo-white.png"
@@ -140,15 +176,15 @@ export function CaseStudyPage({
             <p className="cases__footnote">{cases.footnote}</p>
             <div className="case-detail__cta">
               <Link className="btn btn--accent btn--lg" href={`${home}#contact`}>
-                {contact.title}
+                {contact.cta}
               </Link>
             </div>
           </Reveal>
         </div>
       </main>
 
-      <footer className="footer">
-        <div className="footer__inner">
+      <footer className="footer footer--simple">
+        <div className="footer__bottom">
           <Image
             className="footer__logo"
             src="/assets/logo-white.png"

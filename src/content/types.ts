@@ -10,6 +10,8 @@ export type SiteContent = {
     aria: string;
     links: { href: string; label: string }[];
     cta: string;
+    menuOpen: string;
+    menuClose: string;
     langAria: string;
     otherLangLabel: string;
     otherLangHref: string;
@@ -17,46 +19,22 @@ export type SiteContent = {
   };
   hero: {
     eyebrow: string;
-    location: string;
     title: string;
-    titleAccent: string;
     sub: string;
-    subStrong: string;
-    audience: string;
     ctaPrimary: string;
-    ctaSecondary: string;
     photoAlt: string;
-    statLabelBefore: string;
-    statLabelEm: string;
-    statLabelAfter: string;
-    quote1: string;
-    quote2: string;
-    banner1: string;
-    banner2: string;
+    proofLead: string;
+    proof: string;
+    proofCta: string;
   };
-  what: {
-    badge: string;
+  protocol: {
     title: string;
-    photoCaption: string;
+    cta: string;
     phases: {
       num: string;
       title: string;
-      body: string;
+      bullets: string[];
     }[];
-  };
-  science: {
-    eyebrow: string;
-    title: string;
-    windowLine: string;
-    against: {
-      label: string;
-      lines: string[];
-    };
-    for: {
-      label: string;
-      lines: string[];
-      punch?: string;
-    };
   };
   cases: {
     badge: string;
@@ -64,10 +42,12 @@ export type SiteContent = {
     subtitle: string;
     readMore: string;
     backLabel: string;
+    closeLabel: string;
     items: {
       slug: string;
       name: string;
       team: string;
+      role: string;
       photo: string;
       injury: string;
       beforeLabel: string;
@@ -77,32 +57,39 @@ export type SiteContent = {
       videoLabel?: string;
       storyLabel?: string;
       rows: { label: string; value: string }[];
+      meta: { label: string; value: string }[];
+      percent: string;
+      percentLabel: string;
       resultLabel: string;
       result: string;
       rtpLabel: string;
       rtp: string;
       medal: string;
       medalBody: string;
+      modal: {
+        sections: { title: string; body: string }[];
+        gallery: { src: string; alt: string }[];
+      };
     }[];
     footnote: string;
   };
-  services: {
+  delivery: {
     eyebrow: string;
     title: string;
-    callout: string;
-    calloutStrong: string;
+    subtitle: string;
     items: {
+      num: string;
       title: string;
-      choice: string;
-      lead: string;
+      points: string[];
       cta: string;
-      photos: { src: string; alt: string }[];
+      photo: { src: string; alt: string };
     }[];
   };
   about: {
     badge: string;
     name: string;
     role: string;
+    bio: string;
     location: string;
     creds: {
       to: number;
@@ -121,6 +108,9 @@ export type SiteContent = {
     location: string;
   };
   footer: {
+    tagline: string;
+    columns: { title: string; links: { label: string; href: string }[] }[];
+    legal: { label: string; href: string }[];
     copy: string;
   };
 };

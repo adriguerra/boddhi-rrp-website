@@ -5,95 +5,80 @@ export const en: SiteContent = {
   meta: {
     title: "BODDHI RRP® — Rapid Repair Protocol",
     description:
-      "When weeks become days. Documented tissue repair for elite athletes. Boddhi Clinic, Geneva.",
+      "Beat the prognosis. Accelerate return to play. Documented tissue repair for elite athletes. Boddhi Clinic, Geneva.",
   },
   nav: {
     aria: "Main navigation",
     links: [
-      { href: "#cases", label: "Results" },
-      { href: "#about", label: "About" },
-      { href: "#services", label: "Access" },
+      { href: "#protocol", label: "The Protocol" },
+      { href: "#cases", label: "Impact" },
+      { href: "#delivery", label: "Delivery" },
+      { href: "#about", label: "Our Team" },
     ],
-    cta: "Book a Call",
+    cta: "Book Now",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
     langAria: "Language",
     otherLangLabel: "FR",
     otherLangHref: "/fr",
     footerLangLabel: "Version française",
   },
   hero: {
-    eyebrow: "Repair-State Medicine",
-    location: "Boddhi Clinic · Geneva",
-    title: "Beat the prognosis.",
-    titleAccent: "Return ahead of the odds.",
-    sub: "8–12 weeks becomes 7 days.",
-    subStrong: "Repair first.",
-    audience: "For elite athletes",
-    ctaPrimary: "Book a Call",
-    ctaSecondary: "See the Results",
-    photoAlt: "Athlete in motion",
-    statLabelBefore: "Up to ",
-    statLabelEm: "90% faster",
-    statLabelAfter: " return to play.",
-    quote1: "8–12 weeks of rehab → 7 days.",
-    quote2: "That's what we do.",
-    banner1: "Facing weeks on the sideline? Talk to us first.",
-    banner2: "Documented outcomes. Independently confirmed.",
+    eyebrow: "Immersive, intensive, holistic tissue repair protocol",
+    title: "Beat the prognosis, **accelerate return to play**",
+    sub: "Based on over 30 years' clinical practice, RRP® is a game-changing methodology to rapidly repair injured tissue. We treat acute sports injuries: ligament, muscle and tendon tears repaired without surgery in days, not months.",
+    ctaPrimary: "Talk to us",
+    photoAlt: "Ice hockey players competing",
+    proofLead: "From season-unrecoverable injury to Olympic qualification.",
+    proof: "Together, we beat the prognosis by **90%**.",
+    proofCta: "Discover the cases",
   },
-  what: {
-    badge: "The Protocol",
-    title: "How it works.",
-    photoCaption: "Precision Repair Acupuncture",
+  protocol: {
+    title: "Optimise tissue repair to restore performance.",
+    cta: "Get Started Now",
     phases: [
       {
-        num: "1",
-        title: "Optimal Repair State",
-        body: "Prime the body before intervention.",
+        num: "01",
+        title: "Prepare the body",
+        bullets: [
+          "Prime the Optimal Repair State",
+          "Reduce inflammation without ice",
+          "Ready tissue for signal",
+        ],
       },
       {
-        num: "2",
-        title: "Repair Signal",
-        body: "Precision Repair Acupuncture — intensive, consecutive days.",
+        num: "02",
+        title: "Targeted Tissue Repair",
+        bullets: [
+          "Precision Repair Acupuncture",
+          "Intensive consecutive sessions",
+          "Activate repair in the critical window",
+        ],
       },
       {
-        num: "3",
-        title: "Repair Lock",
-        body: "Protect the new tissue until it holds.",
+        num: "03",
+        title: "Build on a solid foundation",
+        bullets: [
+          "Lock the new tissue until it holds",
+          "Protect the repair window",
+          "Return with confidence",
+        ],
       },
     ],
   },
-  science: {
-    eyebrow: "The Science",
-    title: "Why we don't wait.",
-    windowLine: "The critical window RRP® targets directly.",
-    against: {
-      label: "The usual path",
-      lines: [
-        "Rest. Ice. Wait.",
-        "Suppress the response. Protect the injury.",
-        "Come back in 8–12 weeks.",
-      ],
-    },
-    for: {
-      label: "RRP®",
-      lines: [
-        "Heat, not ice.",
-        "Activate repair in the critical window.",
-        "Lock the tissue until it holds.",
-      ],
-      punch: "Nothing left to chance.",
-    },
-  },
   cases: {
-    badge: "Results",
-    title: "When weeks become days.",
+    badge: "Impact",
+    title: "Together we beat the prognosis by **90%**",
     subtitle: "",
-    readMore: "Read the story",
+    readMore: "See their story",
     backLabel: "Back to home",
+    closeLabel: "Close",
     items: [
       {
         slug: "kaleigh-quennec",
         name: "Kaleigh Quennec",
         team: "Swiss Olympic Ice Hockey Team",
+        role: "Forward",
         photo: "/assets/kaleigh-quennec.jpg",
         injury: "Grade 3 MCL complete distal tear",
         beforeLabel: "Told",
@@ -122,6 +107,14 @@ export const en: SiteContent = {
               "5 treatments over 7 days. Full RRP® — Optimal Repair State + Precision Repair Acupuncture.",
           },
         ],
+        meta: [
+          { label: "Team", value: "Swiss Olympic Ice Hockey" },
+          { label: "Role", value: "Forward" },
+          { label: "Injury Type", value: "Grade 3 MCL tear" },
+          { label: "Return to Play", value: "8 days" },
+        ],
+        percent: "90%",
+        percentLabel: "Faster than prognosis",
         resultLabel: "Result",
         result: "Complete repair",
         rtpLabel: "Return to play",
@@ -129,11 +122,46 @@ export const en: SiteContent = {
         medal: "Bronze Medal — Milan 2026 Winter Olympics",
         medalBody:
           "From complete MCL tear and surgical recommendation to Olympic Bronze Medal in under two weeks.",
+        modal: {
+          sections: [
+            {
+              title: "The injury",
+              body: "Grade 3 MCL — complete distal tear of the left knee. Surgical recommendation. No return to play this season. Injury occurred two weeks before the Milan 2026 Winter Olympics.",
+            },
+            {
+              title: "The intervention",
+              body: "Kaleigh completed five intensive RRP® treatments over seven days, combining Optimal Repair State preparation with Precision Repair Acupuncture.",
+            },
+            {
+              title: "The outcome",
+              body: "Complete repair and return to play in 8 days — then Olympic Bronze at Milan 2026.",
+            },
+          ],
+          gallery: [
+            {
+              src: "/case-studies/kaleigh/treatment.jpg",
+              alt: "RRP treatment session",
+            },
+            {
+              src: "/assets/acupuncture.png",
+              alt: "Precision Repair Acupuncture",
+            },
+            {
+              src: "/case-studies/kaleigh/action.jpg",
+              alt: "Athlete in action",
+            },
+            {
+              src: "/case-studies/kaleigh/slide-team.jpg",
+              alt: "Swiss Olympic ice hockey team",
+            },
+          ],
+        },
       },
       {
         slug: "kevin-mbabu",
         name: "Kevin Mbabu",
         team: "FC Midtjylland, Danish Superliga",
+        role: "Defender",
         photo: "/assets/kevin-mbabu.jpg",
         injury: "Grade 2b rectus femoris tear",
         beforeLabel: "Told",
@@ -159,6 +187,14 @@ export const en: SiteContent = {
             value: "Finished the full professional season.",
           },
         ],
+        meta: [
+          { label: "Team", value: "FC Midtjylland" },
+          { label: "Role", value: "Defender" },
+          { label: "Injury Type", value: "Grade 2b muscle tear" },
+          { label: "Return to Play", value: "7 days" },
+        ],
+        percent: "90%",
+        percentLabel: "Faster than prognosis",
         resultLabel: "Result",
         result: "Complete remission",
         rtpLabel: "Return to play",
@@ -166,46 +202,87 @@ export const en: SiteContent = {
         medal: "Danish Cup Winner",
         medalBody:
           "From a 12-week prognosis to full return-to-play in 7 days. From diagnosis to Danish Cup winner.",
+        modal: {
+          sections: [
+            {
+              title: "The injury",
+              body: "Grade IIb rectus femoris tear, with significant fibre rupture and retraction. Initial prognosis: a minimum of 12 weeks before return to play.",
+            },
+            {
+              title: "The intervention",
+              body: "Kevin completed three intensive RRP® treatments over four days, combining Optimal Repair State preparation with Precision Repair Acupuncture.",
+            },
+            {
+              title: "The outcome",
+              body: "Full return to play in 7 days, followed by completion of the professional season and a Danish Cup win.",
+            },
+          ],
+          gallery: [
+            {
+              src: "/case-studies/kevin/treatment.jpg",
+              alt: "RRP treatment — cupping therapy",
+            },
+            {
+              src: "/assets/acupuncture.png",
+              alt: "Precision Repair Acupuncture needles",
+            },
+            {
+              src: "/case-studies/kevin/action.jpg",
+              alt: "Treatment detail",
+            },
+            {
+              src: "/case-studies/kevin/slide-2.png",
+              alt: "Kevin Mbabu celebration",
+            },
+          ],
+        },
       },
     ],
     footnote: "MRI and medical letters on request — clinic@boddhiclinic.com",
   },
-  services: {
-    eyebrow: "Access",
-    title: "Choose how we start.",
-    callout: "8–12 weeks out? We've done 7 days.",
-    calloutStrong: "",
+  delivery: {
+    eyebrow: "RRP Delivery",
+    title: "RRP delivered in a dedicated, private environment",
+    subtitle:
+      "First-class care — wherever the injury happens, or at our Geneva clinic.",
     items: [
       {
-        title: "Elite Deployment",
-        choice: "We come to you",
-        lead: "Acute injury on the road. Our team on site inside 72 hours.",
-        cta: "Request deployment",
-        photos: [
-          {
-            src: "/assets/clinic/stadium.jpg",
-            alt: "Elite stadium and training ground",
-          },
+        num: "01",
+        title: "We Come To You",
+        points: [
+          "Your home",
+          "Your training facility",
+          "Your club — full RRP® on site",
+          "Team deployment inside 72 hours",
         ],
+        cta: "Request deployment",
+        photo: {
+          src: "/assets/clinic/stadium.jpg",
+          alt: "Elite training ground",
+        },
       },
       {
-        title: "On-Site Treatment",
-        choice: "You come to Geneva",
-        lead: "Full RRP® at Boddhi Clinic — for post-surgical, chronic, and high performers.",
-        cta: "Book Geneva",
-        photos: [
-          {
-            src: "/assets/clinic/treatment-room.jpg",
-            alt: "Treatment room at Boddhi Clinic",
-          },
+        num: "02",
+        title: "You Come To Us",
+        points: [
+          "Our clinic in Geneva",
+          "Private treatment environment",
+          "Preferred hotel partners",
+          "Full RRP® for acute, post-surgical & chronic",
         ],
+        cta: "Book Geneva",
+        photo: {
+          src: "/assets/clinic/treatment-room.jpg",
+          alt: "Treatment room at Boddhi Clinic",
+        },
       },
     ],
   },
   about: {
-    badge: "About",
+    badge: "Meet the Team",
     name: "Lucy Dean",
-    role: "Creator of the RRP®",
+    role: "Creator of the RRP® · Clinical Lead",
+    bio: "Lucy developed the Rapid Repair Protocol after more than a decade of elite clinical practice across China and Europe — combining neuro-acupuncture, repair-state medicine, and high-performance sport.",
     location: "Based at Boddhi Clinic, Geneva",
     creds: [
       { to: 50000, format: "comma", label: "Clinical hours" },
@@ -217,7 +294,7 @@ export const en: SiteContent = {
         label: "Neuro-acupuncture clinics in Europe",
       },
     ],
-    teamTitle: "Backed by an incredible team",
+    teamTitle: "The RRP team",
     team: [
       {
         name: "Nicolas Charlet",
@@ -242,13 +319,57 @@ export const en: SiteContent = {
     ],
   },
   contact: {
-    title: "Book a Call",
-    tagline: "The biology doesn't wait.",
-    cta: "Email us",
+    title: "Work with us",
+    tagline: "The best way to learn is to work with us.",
+    cta: "Apply Now",
     email: "clinic@boddhiclinic.com",
     location: "Boddhi Clinic, Geneva",
   },
   footer: {
+    tagline: "Faster recovery for elite athletes.",
+    columns: [
+      {
+        title: "Explore",
+        links: [
+          { label: "The Protocol", href: "#protocol" },
+          { label: "Impact", href: "#cases" },
+          { label: "Delivery", href: "#delivery" },
+          { label: "Our Team", href: "#about" },
+        ],
+      },
+      {
+        title: "Get Started",
+        links: [
+          { label: "Book Now", href: "#contact" },
+          { label: "Email us", href: "mailto:clinic@boddhiclinic.com" },
+        ],
+      },
+      {
+        title: "Information",
+        links: [
+          { label: "Boddhi Clinic", href: "#about" },
+          { label: "Geneva", href: "#contact" },
+        ],
+      },
+      {
+        title: "Social",
+        links: [
+          {
+            label: "Instagram",
+            href: "https://www.instagram.com/boddhiclinic/",
+          },
+          {
+            label: "LinkedIn",
+            href: "https://www.linkedin.com/company/boddhi-clinic/",
+          },
+        ],
+      },
+    ],
+    legal: [
+      { label: "Privacy Policy", href: "#contact" },
+      { label: "Terms", href: "#contact" },
+      { label: "Contact", href: "#contact" },
+    ],
     copy: "© 2026 Boddhi Clinic, Geneva · Repair-State Medicine · All rights reserved",
   },
 };

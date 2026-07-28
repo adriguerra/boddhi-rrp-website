@@ -1,45 +1,71 @@
 import Image from "next/image";
-import {
-  ArrowRight,
-  Check,
-  MapPin,
-  Minus,
-} from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import { AccentText } from "@/components/AccentText";
 import { CasesTeaser } from "@/components/CasesTeaser";
 import { ContactSection } from "@/components/ContactSection";
 import { CountUp } from "@/components/CountUp";
 import { DocumentLang } from "@/components/DocumentLang";
 import { FrenchPreferenceRedirect } from "@/components/FrenchPreferenceRedirect";
-import { Hero } from "@/components/Hero";
-import { MarkedText } from "@/components/MarkedText";
-import { NavShell } from "@/components/NavShell";
+import { LandingHero } from "@/components/LandingHero";
 import { LangLink } from "@/components/LangLink";
+import { NavShell } from "@/components/NavShell";
+import { ProtocolBody } from "@/components/ProtocolBody";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import type { SiteContent } from "@/content";
-import { getCaseStudies } from "@/data/caseStudies";
-import type { HeroChrome } from "@/types/CaseStudy";
 
 export function HomePage({ content }: { content: SiteContent }) {
-  const { locale, nav, hero, what, science, services, about, footer } =
-    content;
+  const { locale, nav, protocol, delivery, about, footer } = content;
   const isEn = locale === "en";
-  const caseStudies = getCaseStudies(locale);
-  const heroChrome: HeroChrome = {
-    headline: hero.title,
-    subheadline: hero.sub,
-    audience: hero.audience,
-    primaryCta: { label: hero.ctaPrimary, href: "#contact" },
-  };
+
+  const langSwitch = (
+    <div className="lang-switch" aria-label={nav.langAria}>
+      {isEn ? (
+        <>
+          <span className="lang-switch__current">EN</span>
+          <span className="lang-switch__sep">|</span>
+          <LangLink locale={locale} href={nav.otherLangHref}>
+            {nav.otherLangLabel}
+          </LangLink>
+        </>
+      ) : (
+        <>
+          <LangLink locale={locale} href={nav.otherLangHref}>
+            {nav.otherLangLabel}
+          </LangLink>
+          <span className="lang-switch__sep">|</span>
+          <span className="lang-switch__current">FR</span>
+        </>
+      )}
+    </div>
+  );
 
   return (
     <>
       <DocumentLang locale={locale} />
       {isEn ? <FrenchPreferenceRedirect /> : null}
 
-      <NavShell>
+      <NavShell
+        menuLabelOpen={nav.menuOpen}
+        menuLabelClose={nav.menuClose}
+        mobilePanel={
+          <>
+            <nav className="nav__drawer-links" aria-label={nav.aria}>
+              {nav.links.map((link) => (
+                <a key={link.href} href={link.href}>
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+            {langSwitch}
+            <a className="btn btn--accent btn--md" href="#contact">
+              {nav.cta}
+            </a>
+          </>
+        }
+      >
         <div className="nav__inner">
-          <a href="#top">
+          <a href="#top" className="nav__brand">
             <Image
               className="nav__logo"
               src="/assets/logo-white.png"
@@ -57,25 +83,7 @@ export function HomePage({ content }: { content: SiteContent }) {
             ))}
           </nav>
           <div className="nav__right">
-            <div className="lang-switch" aria-label={nav.langAria}>
-              {isEn ? (
-                <>
-                  <span className="lang-switch__current">EN</span>
-                  <span className="lang-switch__sep">|</span>
-                  <LangLink locale={locale} href={nav.otherLangHref}>
-                    {nav.otherLangLabel}
-                  </LangLink>
-                </>
-              ) : (
-                <>
-                  <LangLink locale={locale} href={nav.otherLangHref}>
-                    {nav.otherLangLabel}
-                  </LangLink>
-                  <span className="lang-switch__sep">|</span>
-                  <span className="lang-switch__current">FR</span>
-                </>
-              )}
-            </div>
+            {langSwitch}
             <a className="btn btn--accent btn--sm" href="#contact">
               {nav.cta}
             </a>
@@ -83,184 +91,153 @@ export function HomePage({ content }: { content: SiteContent }) {
         </div>
       </NavShell>
 
-      <Hero
-        caseStudies={caseStudies}
-        chrome={heroChrome}
-        intervalMs={8000}
-        scrollHref="#cases"
-        scrollLabel={isEn ? "Scroll down" : "Défiler vers le bas"}
-      />
+      <LandingHero content={content} />
+
+      <section className="section--dark protocol" id="protocol">
+        <div className="container">
+          <Reveal className="protocol__intro">
+            <h2 className="section-title section-title--light">
+              {protocol.title}
+            </h2>
+          </Reveal>
+
+          <div className="protocol__layout">
+            <div className="protocol__timeline">
+              <Stagger className="protocol__steps">
+                {protocol.phases.map((phase) => (
+                  <StaggerItem key={phase.num}>
+                    <article className="protocol-step">
+                      <span className="protocol-step__num">{phase.num}</span>
+                      <h3>{phase.title}</h3>
+                      <ul>
+                        {phase.bullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                    </article>
+                  </StaggerItem>
+                ))}
+              </Stagger>
+            </div>
+
+            <Reveal className="protocol__body" delay={0.1}>
+              <ProtocolBody />
+            </Reveal>
+          </div>
+
+          <Reveal className="protocol__cta">
+            <a className="btn btn--accent btn--lg" href="#contact">
+              {protocol.cta}
+              <ArrowRight size={18} weight="bold" aria-hidden />
+            </a>
+          </Reveal>
+        </div>
+      </section>
 
       <CasesTeaser content={content} />
 
-      <section className="section--light" id="what">
+      <section className="section--dark delivery" id="delivery">
         <div className="container">
-          <Reveal className="what__intro">
-            <span className="badge badge--teal-soft">{what.badge}</span>
-            <h2 className="section-title">{what.title}</h2>
+          <Reveal className="delivery__intro">
+            <span className="eyebrow">{delivery.eyebrow}</span>
+            <h2 className="section-title section-title--light">
+              {delivery.title}
+            </h2>
+            <p className="delivery__subtitle">{delivery.subtitle}</p>
           </Reveal>
 
-          <div className="what__layout">
-            <Reveal>
-              <figure className="what__photo">
-                <Image
-                  src="/assets/acupuncture.png"
-                  alt={what.photoCaption}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 42vw"
-                  style={{ objectFit: "cover" }}
-                />
-                <figcaption>{what.photoCaption}</figcaption>
-              </figure>
-            </Reveal>
-
-            <Stagger className="what__phases">
-              {what.phases.map((phase) => (
-                <StaggerItem key={phase.num}>
-                <div className="phase-card">
-                  <h3>
-                    <span className="phase-card__num">{phase.num}</span>
-                    {phase.title}
-                  </h3>
-                  <p>{phase.body}</p>
-                </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </div>
+          <Stagger className="delivery__grid">
+            {delivery.items.map((item) => (
+              <StaggerItem key={item.num}>
+                <a href="#contact" className="delivery-card">
+                  <div className="delivery-card__media">
+                    <Image
+                      src={item.photo.src}
+                      alt={item.photo.alt}
+                      fill
+                      sizes="(max-width: 900px) 100vw, 50vw"
+                      className="delivery-card__img"
+                    />
+                  </div>
+                  <div className="delivery-card__body">
+                    <span className="delivery-card__num">{item.num}</span>
+                    <h3>{item.title}</h3>
+                    <ul>
+                      {item.points.map((p) => (
+                        <li key={p}>{p}</li>
+                      ))}
+                    </ul>
+                    <span className="delivery-card__cta">
+                      {item.cta}
+                      <ArrowRight size={16} weight="bold" aria-hidden />
+                    </span>
+                  </div>
+                </a>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 
-      <section className="section--dark science" id="science">
+      <section className="section--light about" id="about">
         <div className="container">
-          <Reveal className="science__intro">
-            <span className="eyebrow">{science.eyebrow}</span>
-            <h2 className="section-title">{science.title}</h2>
+          <Reveal>
+            <span className="badge badge--teal-soft">{about.badge}</span>
           </Reveal>
 
-          <div className="science__contrast">
-            <Reveal className="science__box science__box--usual">
-              <MarkedText
-                as="h3"
-                className="science__box-title"
-                text={science.against.label}
-              />
-              <ul>
-                {science.against.lines.map((line) => (
-                  <li key={line}>
-                    <Minus
-                      className="science__box-icon"
-                      size={20}
-                      weight="bold"
-                      aria-hidden
-                    />
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal className="science__box science__box--rrp" delay={0.08}>
-              <MarkedText
-                as="h3"
-                className="science__box-title"
-                text={science.for.label}
-              />
-              <ul>
-                {science.for.lines.map((line) => (
-                  <li key={line}>
-                    <Check
-                      className="science__box-icon"
-                      size={20}
-                      weight="bold"
-                      aria-hidden
-                    />
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
-              {science.for.punch ? (
-                <p className="science__box-punch">{science.for.punch}</p>
-              ) : null}
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.1}>
-            <div className="science__window">
-              <div className="science__window-stat">
-                <div className="value">72h</div>
-              </div>
-              <MarkedText
-                as="p"
-                className="science__window-line"
-                text={science.windowLine}
+          <Reveal className="about-lead">
+            <div className="about-lead__photo">
+              <Image
+                src="/assets/lucy-dean.jpg"
+                alt={about.name}
+                width={320}
+                height={400}
               />
             </div>
+            <div className="about-lead__content">
+              <h2 className="about-lead__name">{about.name}</h2>
+              <AccentText
+                as="p"
+                className="about-lead__role"
+                text={about.role}
+              />
+              <p className="about-lead__bio">{about.bio}</p>
+              <Stagger className="about-lead__creds">
+                {about.creds.map((cred) => (
+                  <StaggerItem key={cred.label}>
+                    <div className="cred-chip">
+                      <CountUp
+                        className="cred-chip__value"
+                        to={cred.to}
+                        suffix={cred.suffix}
+                        format={cred.format}
+                      />
+                      <div className="cred-chip__label">{cred.label}</div>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </Stagger>
+            </div>
           </Reveal>
-        </div>
-      </section>
 
-      <section className="section--light" id="about">
-        <div className="container">
-          <div className="about__grid">
-            <Reveal className="about__lucy">
-              <span className="badge badge--teal-soft">{about.badge}</span>
-              <div className="about__head">
-                <div className="about__photo">
-                  <Image
-                    src="/assets/lucy-dean.jpg"
-                    alt={about.name}
-                    width={280}
-                    height={336}
-                    priority={false}
-                  />
-                </div>
-                <div className="about__identity">
-                  <h2 className="about__name">{about.name}</h2>
-                  <MarkedText as="p" className="about__role" text={about.role} />
-                </div>
-              </div>
+          <div className="about-team">
+            <Reveal>
+              <h3 className="about-team__title">{about.teamTitle}</h3>
             </Reveal>
-
-            <Stagger className="about__creds">
-              {about.creds.map((cred) => (
-                <StaggerItem key={cred.label}>
-                  <div className="cred-card">
-                    <CountUp
-                      className="cred-card__value"
-                      to={cred.to}
-                      suffix={cred.suffix}
-                      format={cred.format}
-                    />
-                    <div className="cred-card__label">{cred.label}</div>
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </div>
-
-          <div className="about__team">
-            <Reveal className="about__team-intro">
-              <h3 className="about__team-title">{about.teamTitle}</h3>
-              <p className="about__location">
-                <MapPin size={17} weight="fill" color="var(--teal-600)" />{" "}
-                {about.location}
-              </p>
-            </Reveal>
-            <Stagger className="team-grid">
+            <Stagger className="about-team__grid">
               {about.team.map((member) => (
                 <StaggerItem key={member.name}>
-                  <article className="team-card">
-                    <div className="team-card__photo">
-                      <Image
-                        src={member.photo}
-                        alt={member.name}
-                        width={160}
-                        height={192}
-                      />
-                    </div>
+                  <article className="team-pill">
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      width={72}
+                      height={72}
+                      className="team-pill__photo"
+                    />
                     <div>
-                      <p className="team-card__name">{member.name}</p>
-                      <p className="team-card__role">{member.role}</p>
+                      <p className="team-pill__name">{member.name}</p>
+                      <p className="team-pill__role">{member.role}</p>
                     </div>
                   </article>
                 </StaggerItem>
@@ -270,81 +247,58 @@ export function HomePage({ content }: { content: SiteContent }) {
         </div>
       </section>
 
-      <section className="section--dark" id="services">
-        <div className="container">
-          <Reveal className="services__intro">
-            <span className="eyebrow">{services.eyebrow}</span>
-            <h2 className="section-title">{services.title}</h2>
-          </Reveal>
-
-          <Stagger className="services__list">
-            {services.items.map((item) => {
-              const multi = item.photos.length > 1;
-              return (
-                <StaggerItem key={item.title}>
-                  <a
-                    href="#contact"
-                    className={[
-                      "service",
-                      multi ? "service--multi" : "service--single",
-                    ].join(" ")}
-                  >
-                    <div
-                      className="service__media"
-                      data-count={item.photos.length}
-                    >
-                      {item.photos.map((photo) => (
-                        <div key={photo.src} className="service__shot">
-                          <Image
-                            src={photo.src}
-                            alt={photo.alt}
-                            fill
-                            sizes={
-                              multi
-                                ? "(max-width: 1024px) 50vw, 280px"
-                                : "(max-width: 1024px) 90vw, 560px"
-                            }
-                            className="service__img"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                    <div className="service__body">
-                      <span className="service__choice">{item.choice}</span>
-                      <h3>{item.title}</h3>
-                      <p className="service__lead">{item.lead}</p>
-                      <span className="service__cta">
-                        {item.cta}
-                        <ArrowRight size={16} weight="bold" aria-hidden />
-                      </span>
-                    </div>
-                  </a>
-                </StaggerItem>
-              );
-            })}
-          </Stagger>
-        </div>
-      </section>
-
       <ContactSection content={content} />
 
       <footer className="footer">
-        <div className="footer__inner">
-          <Image
-            className="footer__logo"
-            src="/assets/logo-white.png"
-            alt="BODDHI RRP"
-            width={120}
-            height={30}
-          />
-          <LangLink
-            locale={locale}
-            href={nav.otherLangHref}
-            className="footer__lang"
-          >
-            {nav.footerLangLabel}
-          </LangLink>
+        <div className="footer__top">
+          <div className="footer__brand">
+            <Image
+              className="footer__logo"
+              src="/assets/logo-white.png"
+              alt="BODDHI RRP"
+              width={140}
+              height={36}
+            />
+            <p className="footer__tagline">{footer.tagline}</p>
+            <LangLink
+              locale={locale}
+              href={nav.otherLangHref}
+              className="footer__lang"
+            >
+              {nav.footerLangLabel}
+            </LangLink>
+          </div>
+          <div className="footer__cols">
+            {footer.columns.map((col) => (
+              <div key={col.title} className="footer__col">
+                <h4>{col.title}</h4>
+                <ul>
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        {...(link.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="footer__bottom">
           <span className="footer__copy">{footer.copy}</span>
+          <div className="footer__legal">
+            {footer.legal.map((item) => (
+              <a key={item.label} href={item.href}>
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
       </footer>
     </>

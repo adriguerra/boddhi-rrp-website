@@ -5,95 +5,80 @@ export const fr: SiteContent = {
   meta: {
     title: "BODDHI RRP® — Rapid Repair Protocol",
     description:
-      "Quand les semaines deviennent des jours. Réparation tissulaire documentée pour athlètes d'élite. Boddhi Clinic, Genève.",
+      "Battez le pronostic. Accélérez le retour au jeu. Réparation tissulaire documentée pour athlètes d'élite. Boddhi Clinic, Genève.",
   },
   nav: {
     aria: "Navigation principale",
     links: [
-      { href: "#cases", label: "Résultats" },
-      { href: "#about", label: "À propos" },
-      { href: "#services", label: "Accès" },
+      { href: "#protocol", label: "Le protocole" },
+      { href: "#cases", label: "Impact" },
+      { href: "#delivery", label: "Accès" },
+      { href: "#about", label: "L'équipe" },
     ],
-    cta: "Réserver un appel",
+    cta: "Réserver",
+    menuOpen: "Ouvrir le menu",
+    menuClose: "Fermer le menu",
     langAria: "Langue",
     otherLangLabel: "EN",
     otherLangHref: "/",
     footerLangLabel: "English version",
   },
   hero: {
-    eyebrow: "Médecine de l'état réparateur",
-    location: "Boddhi Clinic · Genève",
-    title: "Battez le pronostic.",
-    titleAccent: "Revenez avant l'impossible.",
-    sub: "8–12 semaines deviennent 7 jours.",
-    subStrong: "Réparer d'abord.",
-    audience: "Pour les athlètes d'élite",
-    ctaPrimary: "Réserver un appel",
-    ctaSecondary: "Voir les résultats",
-    photoAlt: "Athlète en mouvement",
-    statLabelBefore: "Jusqu'à ",
-    statLabelEm: "90 % plus rapide",
-    statLabelAfter: " au retour au jeu.",
-    quote1: "8–12 semaines de rééducation → 7 jours.",
-    quote2: "C'est ce que nous faisons.",
-    banner1: "Des semaines d'arrêt annoncées ? Parlez-nous d'abord.",
-    banner2: "Résultats documentés. Confirmés indépendamment.",
+    eyebrow: "Protocole immersif, intensif et holistique de réparation tissulaire",
+    title: "Battez le pronostic, **accélérez le retour au jeu**",
+    sub: "Fondé sur plus de 30 ans de pratique clinique, le RRP® est une méthodologie révolutionnaire pour réparer rapidement les tissus blessés. Nous traitons les blessures sportives aiguës : ligaments, muscles et tendons — sans chirurgie, en jours, pas en mois.",
+    ctaPrimary: "Parlez-nous",
+    photoAlt: "Joueurs de hockey sur glace en compétition",
+    proofLead: "D'une blessure de fin de saison à une qualification olympique.",
+    proof: "Ensemble, nous battons le pronostic de **90 %**.",
+    proofCta: "Découvrir les cas",
   },
-  what: {
-    badge: "Le protocole",
-    title: "Comment ça marche.",
-    photoCaption: "Precision Repair Acupuncture",
+  protocol: {
+    title: "Optimiser la réparation tissulaire pour restaurer la performance.",
+    cta: "Commencer maintenant",
     phases: [
       {
-        num: "1",
-        title: "État de réparation optimal",
-        body: "Préparer le corps avant l'intervention.",
+        num: "01",
+        title: "Préparer le corps",
+        bullets: [
+          "Amorcer l'état de réparation optimal",
+          "Réduire l'inflammation sans glace",
+          "Préparer le tissu au signal",
+        ],
       },
       {
-        num: "2",
-        title: "Signal de réparation",
-        body: "Precision Repair Acupuncture — intensif, jours consécutifs.",
+        num: "02",
+        title: "Réparation tissulaire ciblée",
+        bullets: [
+          "Precision Repair Acupuncture",
+          "Séances intensives consécutives",
+          "Activer la réparation dans la fenêtre critique",
+        ],
       },
       {
-        num: "3",
-        title: "Verrouillage",
-        body: "Protéger le nouveau tissu jusqu'à ce qu'il tienne.",
+        num: "03",
+        title: "Construire sur des bases solides",
+        bullets: [
+          "Verrouiller le nouveau tissu jusqu'à ce qu'il tienne",
+          "Protéger la fenêtre de réparation",
+          "Revenir en confiance",
+        ],
       },
     ],
   },
-  science: {
-    eyebrow: "La science",
-    title: "Pourquoi on n'attend pas.",
-    windowLine: "La fenêtre critique que le RRP® cible directement.",
-    against: {
-      label: "Le chemin habituel",
-      lines: [
-        "Repos. Glace. Attente.",
-        "Supprimer la réponse. Protéger la blessure.",
-        "Revenir dans 8 à 12 semaines.",
-      ],
-    },
-    for: {
-      label: "RRP®",
-      lines: [
-        "La chaleur, pas la glace.",
-        "Activer la réparation dans la fenêtre critique.",
-        "Verrouiller le tissu jusqu'à ce qu'il tienne.",
-      ],
-      punch: "Rien n'est laissé au hasard.",
-    },
-  },
   cases: {
-    badge: "Résultats",
-    title: "Quand les semaines deviennent des jours.",
+    badge: "Impact",
+    title: "Ensemble, nous battons le pronostic de **90 %**",
     subtitle: "",
-    readMore: "Lire l'histoire",
+    readMore: "Voir leur histoire",
     backLabel: "Retour à l'accueil",
+    closeLabel: "Fermer",
     items: [
       {
         slug: "kaleigh-quennec",
         name: "Kaleigh Quennec",
         team: "Équipe olympique suisse de hockey sur glace",
+        role: "Attaquante",
         photo: "/assets/kaleigh-quennec.jpg",
         injury: "LCM grade 3 rupture distale complète",
         beforeLabel: "Pronostic",
@@ -123,6 +108,14 @@ export const fr: SiteContent = {
               "5 traitements en 7 jours. RRP® complet : état de réparation optimal + Precision Repair Acupuncture.",
           },
         ],
+        meta: [
+          { label: "Équipe", value: "Hockey olympique suisse" },
+          { label: "Rôle", value: "Attaquante" },
+          { label: "Blessure", value: "LCM grade 3" },
+          { label: "Retour au jeu", value: "8 jours" },
+        ],
+        percent: "90%",
+        percentLabel: "Plus rapide que le pronostic",
         resultLabel: "Résultat",
         result: "Réparation complète",
         rtpLabel: "Retour au jeu",
@@ -131,11 +124,46 @@ export const fr: SiteContent = {
           "Médaille de bronze · Jeux olympiques d'hiver de Milan 2026",
         medalBody:
           "D'une rupture complète du LCM et d'une recommandation chirurgicale à une médaille de bronze olympique en moins de deux semaines.",
+        modal: {
+          sections: [
+            {
+              title: "La blessure",
+              body: "LCM grade 3 : rupture distale complète du genou gauche. Recommandation chirurgicale. Pas de retour au jeu cette saison. Blessure survenue deux semaines avant les Jeux olympiques d'hiver de Milan 2026.",
+            },
+            {
+              title: "L'intervention",
+              body: "Kaleigh a suivi cinq traitements RRP® intensifs en sept jours, alliant préparation à l'état de réparation optimal et Precision Repair Acupuncture.",
+            },
+            {
+              title: "Le résultat",
+              body: "Réparation complète et retour au jeu en 8 jours — puis médaille de bronze olympique à Milan 2026.",
+            },
+          ],
+          gallery: [
+            {
+              src: "/case-studies/kaleigh/treatment.jpg",
+              alt: "Séance de traitement RRP",
+            },
+            {
+              src: "/assets/acupuncture.png",
+              alt: "Precision Repair Acupuncture",
+            },
+            {
+              src: "/case-studies/kaleigh/action.jpg",
+              alt: "Athlète en action",
+            },
+            {
+              src: "/case-studies/kaleigh/slide-team.jpg",
+              alt: "Équipe olympique suisse de hockey",
+            },
+          ],
+        },
       },
       {
         slug: "kevin-mbabu",
         name: "Kevin Mbabu",
         team: "FC Midtjylland, Superliga danoise",
+        role: "Défenseur",
         photo: "/assets/kevin-mbabu.jpg",
         injury: "Déchirure du droit fémoral grade 2b",
         beforeLabel: "Pronostic",
@@ -161,6 +189,14 @@ export const fr: SiteContent = {
             value: "A terminé l'intégralité de la saison professionnelle.",
           },
         ],
+        meta: [
+          { label: "Équipe", value: "FC Midtjylland" },
+          { label: "Rôle", value: "Défenseur" },
+          { label: "Blessure", value: "Déchirure musculaire grade 2b" },
+          { label: "Retour au jeu", value: "7 jours" },
+        ],
+        percent: "90%",
+        percentLabel: "Plus rapide que le pronostic",
         resultLabel: "Résultat",
         result: "Rémission complète",
         rtpLabel: "Retour au jeu",
@@ -168,47 +204,88 @@ export const fr: SiteContent = {
         medal: "Vainqueur de la Coupe du Danemark",
         medalBody:
           "D'un pronostic de 12 semaines à un retour au jeu complet en 7 jours. Du diagnostic à la victoire en Coupe du Danemark.",
+        modal: {
+          sections: [
+            {
+              title: "La blessure",
+              body: "Déchirure du droit fémoral grade IIb, avec rupture importante des fibres et rétraction. Pronostic initial : minimum 12 semaines avant le retour au jeu.",
+            },
+            {
+              title: "L'intervention",
+              body: "Kevin a suivi trois traitements RRP® intensifs en quatre jours, alliant préparation à l'état de réparation optimal et Precision Repair Acupuncture.",
+            },
+            {
+              title: "Le résultat",
+              body: "Retour au jeu complet en 7 jours, puis fin de saison professionnelle et victoire en Coupe du Danemark.",
+            },
+          ],
+          gallery: [
+            {
+              src: "/case-studies/kevin/treatment.jpg",
+              alt: "Traitement RRP — ventouses",
+            },
+            {
+              src: "/assets/acupuncture.png",
+              alt: "Aiguilles Precision Repair Acupuncture",
+            },
+            {
+              src: "/case-studies/kevin/action.jpg",
+              alt: "Détail du traitement",
+            },
+            {
+              src: "/case-studies/kevin/slide-2.png",
+              alt: "Célébration Kevin Mbabu",
+            },
+          ],
+        },
       },
     ],
     footnote:
       "IRM et attestations médicales sur demande : clinic@boddhiclinic.com",
   },
-  services: {
-    eyebrow: "Accès",
-    title: "Choisissez comment commencer.",
-    callout: "8–12 semaines d'arrêt ? Nous avons fait 7 jours.",
-    calloutStrong: "",
+  delivery: {
+    eyebrow: "Accès RRP",
+    title: "Le RRP livré dans un environnement dédié et privé",
+    subtitle:
+      "Des soins d'exception — là où survient la blessure, ou à notre clinique de Genève.",
     items: [
       {
-        title: "Déploiement élite",
-        choice: "Nous venons à vous",
-        lead: "Blessure aiguë sur la route. Notre équipe sur place sous 72 heures.",
-        cta: "Demander un déploiement",
-        photos: [
-          {
-            src: "/assets/clinic/stadium.jpg",
-            alt: "Stade et terrain d'entraînement élite",
-          },
+        num: "01",
+        title: "Nous venons à vous",
+        points: [
+          "Votre domicile",
+          "Votre centre d'entraînement",
+          "Votre club — RRP® complet sur site",
+          "Déploiement de l'équipe sous 72 heures",
         ],
+        cta: "Demander un déploiement",
+        photo: {
+          src: "/assets/clinic/stadium.jpg",
+          alt: "Terrain d'entraînement élite",
+        },
       },
       {
-        title: "Traitement sur place",
-        choice: "Vous venez à Genève",
-        lead: "RRP® complet à la Boddhi Clinic — post-chirurgie, chronique, haute performance.",
-        cta: "Réserver Genève",
-        photos: [
-          {
-            src: "/assets/clinic/treatment-room.jpg",
-            alt: "Salle de traitement à la Boddhi Clinic",
-          },
+        num: "02",
+        title: "Vous venez à nous",
+        points: [
+          "Notre clinique à Genève",
+          "Environnement de traitement privé",
+          "Hôtels partenaires privilégiés",
+          "RRP® complet : aigu, post-chirurgie & chronique",
         ],
+        cta: "Réserver Genève",
+        photo: {
+          src: "/assets/clinic/treatment-room.jpg",
+          alt: "Salle de traitement à la Boddhi Clinic",
+        },
       },
     ],
   },
   about: {
-    badge: "À propos",
+    badge: "L'équipe",
     name: "Lucy Dean",
-    role: "Créatrice du RRP®",
+    role: "Créatrice du RRP® · Directrice clinique",
+    bio: "Lucy a développé le Rapid Repair Protocol après plus d'une décennie de pratique clinique d'élite en Chine et en Europe — alliant neuro-acupuncture, médecine de l'état réparateur et sport de haut niveau.",
     location: "Basée à la Boddhi Clinic, Genève",
     creds: [
       { to: 50000, format: "comma", label: "Heures cliniques" },
@@ -220,7 +297,7 @@ export const fr: SiteContent = {
         label: "Cliniques de neuro-acupuncture en Europe",
       },
     ],
-    teamTitle: "Soutenue par une équipe remarquable",
+    teamTitle: "L'équipe RRP",
     team: [
       {
         name: "Nicolas Charlet",
@@ -245,13 +322,57 @@ export const fr: SiteContent = {
     ],
   },
   contact: {
-    title: "Réserver un appel",
-    tagline: "La biologie n'attend pas.",
-    cta: "Écrivez-nous",
+    title: "Travaillez avec nous",
+    tagline: "La meilleure façon d'apprendre, c'est de travailler avec nous.",
+    cta: "Postuler",
     email: "clinic@boddhiclinic.com",
     location: "Boddhi Clinic, Genève",
   },
   footer: {
+    tagline: "Une récupération plus rapide pour les athlètes d'élite.",
+    columns: [
+      {
+        title: "Explorer",
+        links: [
+          { label: "Le protocole", href: "#protocol" },
+          { label: "Impact", href: "#cases" },
+          { label: "Accès", href: "#delivery" },
+          { label: "L'équipe", href: "#about" },
+        ],
+      },
+      {
+        title: "Commencer",
+        links: [
+          { label: "Réserver", href: "#contact" },
+          { label: "Nous écrire", href: "mailto:clinic@boddhiclinic.com" },
+        ],
+      },
+      {
+        title: "Informations",
+        links: [
+          { label: "Boddhi Clinic", href: "#about" },
+          { label: "Genève", href: "#contact" },
+        ],
+      },
+      {
+        title: "Réseaux",
+        links: [
+          {
+            label: "Instagram",
+            href: "https://www.instagram.com/boddhiclinic/",
+          },
+          {
+            label: "LinkedIn",
+            href: "https://www.linkedin.com/company/boddhi-clinic/",
+          },
+        ],
+      },
+    ],
+    legal: [
+      { label: "Confidentialité", href: "#contact" },
+      { label: "Conditions", href: "#contact" },
+      { label: "Contact", href: "#contact" },
+    ],
     copy: "© 2026 Boddhi Clinic, Genève · Médecine de l'état réparateur · Tous droits réservés",
   },
 };
