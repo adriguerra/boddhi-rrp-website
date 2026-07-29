@@ -10,7 +10,7 @@ export const en: SiteContent = {
   nav: {
     aria: "Main navigation",
     links: [
-      { href: "#protocol", label: "The Protocol" },
+      { href: "#protocol", label: "Protocol" },
       { href: "#access", label: "Access" },
       { href: "#about", label: "About" },
     ],
@@ -424,7 +424,7 @@ export const en: SiteContent = {
       {
         title: "Explore",
         links: [
-          { label: "The Protocol", href: "#protocol" },
+          { label: "Protocol", href: "#protocol" },
           { label: "Access", href: "#access" },
           { label: "About", href: "#about" },
         ],

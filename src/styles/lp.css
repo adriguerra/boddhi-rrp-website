@@ -1455,7 +1455,7 @@ button.science-principle__media:focus-visible {
 }
 .delivery-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 106, 19, 0.4);
+  border-color: rgba(245, 242, 235, 0.12);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
   color: inherit;
 }
@@ -1597,10 +1597,7 @@ button.science-principle__media:focus-visible {
 }
 .about-lead__photo:hover {
   transform: translateY(-2px) scale(1.01);
-  border-color: var(--orange-400);
-  box-shadow:
-    0 8px 18px rgba(10, 31, 32, 0.1),
-    0 0 0 3px rgba(255, 106, 19, 0.12);
+  box-shadow: 0 8px 18px rgba(10, 31, 32, 0.1);
 }
 .about-lead__photo:hover img {
   transform: scale(1.05);
@@ -1657,10 +1654,7 @@ button.science-principle__media:focus-visible {
 .cred-chip:hover {
   transform: translateY(-3px);
   background: var(--teal-600);
-  border-color: rgba(255, 106, 19, 0.45);
-  box-shadow:
-    0 10px 22px rgba(10, 31, 32, 0.14),
-    0 0 0 1px rgba(255, 106, 19, 0.12);
+  box-shadow: 0 10px 22px rgba(10, 31, 32, 0.14);
 }
 .cred-chip__value {
   font-family: var(--font-display);
@@ -1754,10 +1748,7 @@ button.science-principle__media:focus-visible {
 }
 .team-pill:hover .team-pill__photo-wrap {
   transform: translateY(-2px) scale(1.02);
-  border-color: var(--orange-400);
-  box-shadow:
-    0 8px 18px rgba(10, 31, 32, 0.1),
-    0 0 0 3px rgba(255, 106, 19, 0.12);
+  box-shadow: 0 8px 18px rgba(10, 31, 32, 0.1);
 }
 .team-pill:hover .team-pill__photo {
   transform: scale(1.05);

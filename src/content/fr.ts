@@ -10,7 +10,7 @@ export const fr: SiteContent = {
   nav: {
     aria: "Navigation principale",
     links: [
-      { href: "#protocol", label: "Le protocole" },
+      { href: "#protocol", label: "Protocole" },
       { href: "#access", label: "Accès" },
       { href: "#about", label: "À propos" },
     ],
@@ -429,7 +429,7 @@ export const fr: SiteContent = {
       {
         title: "Explorer",
         links: [
-          { label: "Le protocole", href: "#protocol" },
+          { label: "Protocole", href: "#protocol" },
           { label: "Accès", href: "#access" },
           { label: "À propos", href: "#about" },
         ],
