@@ -51,6 +51,7 @@ export type SiteContent = {
     phases: {
       num: string;
       title: string;
+      subtitle: string;
       bullets: string[];
     }[];
   };
@@ -98,6 +99,7 @@ export type SiteContent = {
     items: {
       num: string;
       title: string;
+      subtitle: string;
       points: string[];
       cta: string;
       photo: { src: string; alt: string };
@@ -117,6 +119,7 @@ export type SiteContent = {
       format?: "comma";
     }[];
     teamTitle: string;
+    teamIntro: string[];
     team: { name: string; role: string; photo: string }[];
   };
   proofBridge: {

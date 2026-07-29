@@ -243,6 +243,22 @@ function StepBody({
         >
           {phase.title}
         </motion.h3>
+        <motion.p
+          className="protocol-step__subtitle"
+          initial={false}
+          animate={
+            active
+              ? { opacity: 1, y: 0, color: "var(--orange-400)" }
+              : { opacity: 0.9, y: 6, color: "var(--teal-300)" }
+          }
+          transition={{
+            duration: 0.4,
+            delay: active ? 0.1 : 0,
+            ease: easeOut,
+          }}
+        >
+          {phase.subtitle}
+        </motion.p>
         <ul>
           {phase.bullets.map((b, bi) =>
             animate ? (

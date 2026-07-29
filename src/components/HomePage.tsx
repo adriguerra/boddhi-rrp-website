@@ -148,8 +148,8 @@ export function HomePage({ content }: { content: SiteContent }) {
                     />
                   </div>
                   <div className="delivery-card__body">
-                    <span className="delivery-card__num">{item.num}</span>
                     <h3>{item.title}</h3>
+                    <p className="delivery-card__subtitle">{item.subtitle}</p>
                     <ul>
                       {item.points.map((p) => (
                         <li key={p}>{p}</li>
@@ -211,20 +211,30 @@ export function HomePage({ content }: { content: SiteContent }) {
           </Reveal>
 
           <div className="about-team">
-            <Reveal>
+            <Reveal className="about-team__copy">
               <h3 className="about-team__title">{about.teamTitle}</h3>
+              {about.teamIntro.map((paragraph) => (
+                <AccentText
+                  key={paragraph}
+                  as="p"
+                  className="about-team__intro"
+                  text={paragraph}
+                />
+              ))}
             </Reveal>
             <Stagger className="about-team__grid">
               {about.team.map((member) => (
                 <StaggerItem key={member.name}>
                   <article className="team-pill">
-                    <Image
-                      src={member.photo}
-                      alt={member.name}
-                      width={112}
-                      height={112}
-                      className="team-pill__photo"
-                    />
+                    <span className="team-pill__photo-wrap">
+                      <Image
+                        src={member.photo}
+                        alt={member.name}
+                        width={96}
+                        height={96}
+                        className="team-pill__photo"
+                      />
+                    </span>
                     <div>
                       <p className="team-pill__name">{member.name}</p>
                       <p className="team-pill__role">{member.role}</p>
