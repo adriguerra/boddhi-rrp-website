@@ -169,8 +169,9 @@ export function HomePage({ content }: { content: SiteContent }) {
 
       <section className="section--light about" id="about">
         <div className="container">
-          <Reveal>
+          <Reveal className="about__intro">
             <span className="badge badge--teal-soft">{about.badge}</span>
+            <h2 className="about__title">{about.title}</h2>
           </Reveal>
 
           <Reveal className="about-lead">
@@ -183,12 +184,13 @@ export function HomePage({ content }: { content: SiteContent }) {
               />
             </div>
             <div className="about-lead__content">
-              <h2 className="about-lead__name">{about.name}</h2>
+              <h3 className="about-lead__name">{about.name}</h3>
               <AccentText
                 as="p"
                 className="about-lead__role"
                 text={about.role}
               />
+              <p className="about-lead__location">{about.location}</p>
               <p className="about-lead__bio">{about.bio}</p>
               <Stagger className="about-lead__creds">
                 {about.creds.map((cred) => (

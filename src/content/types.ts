@@ -35,6 +35,19 @@ export type SiteContent = {
     title: string;
     subtitle: string;
     cta: string;
+    science: {
+      title: string;
+      closeLabel: string;
+      principles: {
+        label: string;
+        title: string;
+        body: string[];
+        poster: string;
+        posterAlt: string;
+        video?: string;
+        videoLabel?: string;
+      }[];
+    };
     phases: {
       num: string;
       title: string;
@@ -92,6 +105,7 @@ export type SiteContent = {
   };
   about: {
     badge: string;
+    title: string;
     name: string;
     role: string;
     bio: string;

@@ -87,9 +87,7 @@ export function ProtocolSteps({
         <motion.span
           className="protocol__rail-progress"
           style={
-            reduce
-              ? { clipPath: "inset(0 0 0% 0)" }
-              : { clipPath: railClip }
+            reduce ? { clipPath: "inset(0 0 0% 0)" } : { clipPath: railClip }
           }
         />
       </div>
@@ -138,7 +136,10 @@ function ProtocolStep({
         data-reached="true"
         role="listitem"
       >
-        <span className="protocol-step__marker protocol-step__marker--static" aria-hidden />
+        <span
+          className="protocol-step__marker protocol-step__marker--static"
+          aria-hidden
+        />
         <div className="protocol-step__content">
           <StepBody phase={phase} active animate={false} />
         </div>
@@ -233,11 +234,7 @@ function StepBody({
       <div className="protocol-step__main">
         <motion.h3
           initial={false}
-          animate={
-            active
-              ? { opacity: 1, y: 0 }
-              : { opacity: 0.9, y: 8 }
-          }
+          animate={active ? { opacity: 1, y: 0 } : { opacity: 0.9, y: 8 }}
           transition={{
             duration: 0.45,
             delay: active ? 0.07 : 0,

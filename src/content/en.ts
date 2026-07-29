@@ -40,7 +40,36 @@ export const en: SiteContent = {
     title: "Optimise tissue repair to restore performance.",
     subtitle:
       "A 3-stage protocol over 4–14 days for acute muscle, ligament and tendon tears.",
-    cta: "See how to access RRP",
+    cta: "Discover the science",
+    science: {
+      title: "Two principles.\nEverything else follows.",
+      closeLabel: "Close",
+      principles: [
+        {
+          label: "Principle 1",
+          title: "Vascular activation & immune modulation",
+          body: [
+            "Repair depends on biological resources delivered through the vascular system — immune cells, growth factors, oxygen, nutrients. Without optimal delivery, it fails before it begins.",
+            "RRP® maximizes tissue perfusion, vasodilation, and immune-cell recruitment at every stage.",
+            "Heat, not ice. Activation, not suppression.",
+          ],
+          poster: "/assets/science/principle-1-poster.jpg",
+          posterAlt:
+            "Precision Repair Acupuncture needles placed along the lower leg",
+        },
+        {
+          label: "Principle 2",
+          title: "Strategic Repair Lock",
+          body: [
+            "Newly formed tissue is vulnerable.",
+            "RRP® locks repair in — strategic immobilization, controlled loading, biological support — until the structure holds.",
+            "Precise. Deliberate. Nothing left to chance.",
+          ],
+          poster: "/assets/science/principle-2-poster.jpg",
+          posterAlt: "Athletic taping applied to lock repair around the knee",
+        },
+      ],
+    },
     phases: [
       {
         num: "1",
@@ -285,6 +314,7 @@ export const en: SiteContent = {
   },
   about: {
     badge: "About",
+    title: "The clinician behind RRP®",
     name: "Lucy Dean",
     role: "Creator of the RRP® · Clinical Lead",
     bio: "Lucy developed the Rapid Repair Protocol after more than a decade of elite clinical practice across China and Europe. She brings together neuro-acupuncture, tissue-repair science, and high-performance sport.",

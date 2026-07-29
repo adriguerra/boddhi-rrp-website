@@ -40,7 +40,37 @@ export const fr: SiteContent = {
     title: "Optimiser la réparation tissulaire pour restaurer la performance.",
     subtitle:
       "Un protocole en 3 étapes sur 4 à 14 jours pour les déchirures musculaires, ligamentaires et tendineuses aiguës.",
-    cta: "Voir comment accéder au RRP",
+    cta: "Découvrir la science",
+    science: {
+      title: "Deux principes.\nTout le reste en découle.",
+      closeLabel: "Fermer",
+      principles: [
+        {
+          label: "Principe 1",
+          title: "Activation vasculaire & modulation immunitaire",
+          body: [
+            "La réparation dépend des ressources biologiques acheminées par le système vasculaire — cellules immunitaires, facteurs de croissance, oxygène, nutriments. Sans une livraison optimale, elle échoue avant même de commencer.",
+            "Le RRP® maximise la perfusion tissulaire, la vasodilatation et le recrutement des cellules immunitaires à chaque étape.",
+            "La chaleur, pas la glace. L'activation, pas la suppression.",
+          ],
+          poster: "/assets/science/principle-1-poster.jpg",
+          posterAlt:
+            "Aiguilles de Precision Repair Acupuncture placées le long de la jambe",
+        },
+        {
+          label: "Principe 2",
+          title: "Verrouillage stratégique de la réparation",
+          body: [
+            "Le tissu nouvellement formé est vulnérable.",
+            "Le RRP® verrouille la réparation — immobilisation stratégique, charge contrôlée, soutien biologique — jusqu'à ce que la structure tienne.",
+            "Précis. Délibéré. Rien n'est laissé au hasard.",
+          ],
+          poster: "/assets/science/principle-2-poster.jpg",
+          posterAlt:
+            "Strapping sportif appliqué pour verrouiller la réparation autour du genou",
+        },
+      ],
+    },
     phases: [
       {
         num: "1",
@@ -288,6 +318,7 @@ export const fr: SiteContent = {
   },
   about: {
     badge: "À propos",
+    title: "La clinicienne derrière le RRP®",
     name: "Lucy Dean",
     role: "Créatrice du RRP® · Directrice clinique",
     bio: "Lucy a développé le Rapid Repair Protocol après plus d'une décennie de pratique clinique d'élite en Chine et en Europe. Elle réunit neuro-acupuncture, science de la réparation tissulaire et sport de haut niveau.",

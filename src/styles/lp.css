@@ -723,10 +723,12 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: var(--gray-100);
+  font: inherit;
   font-size: 14px;
   font-weight: var(--fw-bold);
   letter-spacing: 0.04em;
   text-decoration: none;
+  cursor: pointer;
   transition:
     gap 0.25s var(--ease-out),
     color 0.25s var(--ease-out),
@@ -1179,6 +1181,224 @@
   }
 }
 
+/* ---------- Science modal ---------- */
+.science-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(7, 22, 24, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: caseModalIn 0.28s var(--ease-out);
+}
+.science-modal__panel {
+  position: relative;
+  width: min(1080px, 100%);
+  max-height: min(860px, calc(100svh - 48px));
+  overflow: auto;
+  background: #12211e;
+  border-radius: 28px;
+  border: 1px solid rgba(141, 200, 206, 0.12);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+  padding: clamp(32px, 4.5vw, 56px);
+  animation: casePanelIn 0.34s var(--ease-out);
+}
+.science-modal__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  background: rgba(245, 242, 235, 0.08);
+  color: var(--gray-100);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.science-modal__close:hover {
+  background: rgba(245, 242, 235, 0.16);
+}
+.science-modal__close:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}
+.science-modal__title {
+  margin: 0 0 clamp(28px, 4vh, 40px);
+  padding-right: 48px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 44px);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--gray-100);
+  white-space: pre-line;
+}
+.science-modal__principles {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.science-principle {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.85fr) minmax(0, 1.35fr) minmax(180px, 0.9fr);
+  gap: clamp(20px, 3vw, 36px);
+  align-items: start;
+  padding: clamp(24px, 3.5vh, 32px) 0;
+  border-top: 1px solid rgba(141, 200, 206, 0.16);
+}
+.science-principle:last-child {
+  padding-bottom: 0;
+}
+.science-principle__label {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+  color: rgba(245, 242, 235, 0.72);
+}
+.science-principle__title {
+  margin: 0;
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: var(--fw-extrabold);
+  line-height: 1.25;
+  color: var(--teal-300);
+}
+.science-principle__body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.science-principle__body p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--gray-100);
+  max-width: 48ch;
+}
+.science-principle__media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 0;
+  background: #0a1f20;
+  cursor: default;
+}
+button.science-principle__media {
+  cursor: pointer;
+}
+button.science-principle__media:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}
+.science-principle__poster {
+  object-fit: cover;
+}
+.science-principle__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.science-principle__play::before {
+  content: "";
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: rgba(245, 242, 235, 0.92);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+.science-principle__play svg {
+  position: relative;
+  z-index: 1;
+  color: #0a1f20;
+  margin-left: 2px;
+}
+.science-modal__video {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(7, 22, 24, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.science-modal__video-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  background: rgba(245, 242, 235, 0.1);
+  color: var(--gray-100);
+  cursor: pointer;
+}
+.science-modal__video-close:hover {
+  background: rgba(245, 242, 235, 0.18);
+}
+.science-modal__video-stage {
+  width: min(920px, 100%);
+}
+.science-modal__player {
+  display: block;
+  width: 100%;
+  max-height: min(70svh, 560px);
+  border-radius: 16px;
+  background: #000;
+}
+
+@media (max-width: 900px) {
+  .science-modal {
+    padding: 12px;
+    align-items: stretch;
+  }
+  .science-modal__panel {
+    max-height: calc(100svh - 24px);
+    border-radius: 20px;
+    padding: 28px 20px 32px;
+  }
+  .science-principle {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .science-principle__media {
+    max-width: 360px;
+  }
+  .science-principle__body p {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .science-modal,
+  .science-modal__panel {
+    animation: none;
+  }
+}
+
 /* ---------- Delivery ---------- */
 .delivery__intro {
   max-width: 720px;
@@ -1315,10 +1535,24 @@
 }
 
 /* ---------- About / team ---------- */
+.about__intro {
+  max-width: 640px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
 .about .badge {
   display: block;
   width: fit-content;
-  margin: 0 auto 28px;
+  margin: 0 auto 14px;
+}
+.about__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--gray-900);
 }
 .about-lead {
   display: grid;
@@ -1354,10 +1588,16 @@
   line-height: 1.05;
 }
 .about-lead__role {
-  margin: 0 0 16px;
+  margin: 0 0 8px;
   font-size: 15px;
   font-weight: var(--fw-bold);
   color: var(--teal-600);
+}
+.about-lead__location {
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  color: var(--gray-500);
 }
 .about-lead__bio {
   margin: 0 0 24px;

@@ -3,6 +3,7 @@
 import { ArrowRight } from "@phosphor-icons/react";
 import { useCallback, useState } from "react";
 import { ProtocolSteps } from "@/components/ProtocolSteps";
+import { ScienceModal } from "@/components/ScienceModal";
 import { Reveal } from "@/components/motion/Reveal";
 import type { SiteContent } from "@/content";
 
@@ -10,6 +11,7 @@ type Protocol = SiteContent["protocol"];
 
 export function ProtocolStory({ protocol }: { protocol: Protocol }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [scienceOpen, setScienceOpen] = useState(false);
   const onActiveChange = useCallback((index: number) => {
     setActiveIndex(index);
   }, []);
@@ -25,11 +27,22 @@ export function ProtocolStory({ protocol }: { protocol: Protocol }) {
       </div>
 
       <Reveal className="protocol__cta">
-        <a className="protocol__cta-link" href="#access">
+        <button
+          type="button"
+          className="protocol__cta-link"
+          onClick={() => setScienceOpen(true)}
+        >
           <span>{protocol.cta}</span>
           <ArrowRight size={18} weight="bold" aria-hidden />
-        </a>
+        </button>
       </Reveal>
+
+      {scienceOpen ? (
+        <ScienceModal
+          science={protocol.science}
+          onClose={() => setScienceOpen(false)}
+        />
+      ) : null}
     </>
   );
 }
