@@ -11,11 +11,10 @@ export const fr: SiteContent = {
     aria: "Navigation principale",
     links: [
       { href: "#protocol", label: "Le protocole" },
-      { href: "#cases", label: "Impact" },
-      { href: "#delivery", label: "Accès" },
-      { href: "#about", label: "L'équipe" },
+      { href: "#access", label: "Accès" },
+      { href: "#about", label: "À propos" },
     ],
-    cta: "Réserver",
+    cta: "Réserver un appel",
     menuOpen: "Ouvrir le menu",
     menuClose: "Fermer le menu",
     langAria: "Langue",
@@ -24,21 +23,27 @@ export const fr: SiteContent = {
     footerLangLabel: "English version",
   },
   hero: {
-    eyebrow: "Protocole immersif, intensif et holistique de réparation tissulaire",
-    title: "Battez le pronostic, **accélérez le retour au jeu**",
-    sub: "Le RRP® est une méthodologie révolutionnaire pour réparer rapidement les tissus blessés. Nous traitons les blessures sportives aiguës : ligaments, muscles et tendons — sans chirurgie, en jours, pas en mois.",
-    ctaPrimary: "Parlez-nous",
-    photoAlt: "Joueurs de hockey sur glace en compétition",
+    eyebrow: "Pour les athlètes d'élite avec blessures aiguës",
+    title: "Battez le pronostic.\n**Accélérez le retour.**",
+    sub: "Ligaments, muscles et tendons — sans chirurgie, en jours pas en mois.",
+    ctaPrimary: "Réserver un appel",
+    ctaWatchVideo: "Voir la vidéo",
+    ctaReadStory: "Lire l'histoire",
+    photoAlt: "Precision Repair Acupuncture",
+    scrollLabel: "Défiler vers le bas",
     proofLead: "D'une blessure de fin de saison à une qualification olympique.",
     proof: "Ensemble, nous battons le pronostic de **90 %**.",
     proofCta: "Découvrir les cas",
   },
   protocol: {
+    eyebrow: "Comment fonctionne le RRP",
     title: "Optimiser la réparation tissulaire pour restaurer la performance.",
-    cta: "Commencer maintenant",
+    subtitle:
+      "Un protocole en 3 étapes sur 4 à 14 jours pour les déchirures musculaires, ligamentaires et tendineuses aiguës.",
+    cta: "Voir comment accéder au RRP",
     phases: [
       {
-        num: "01",
+        num: "1",
         title: "Préparer le corps",
         bullets: [
           "Amorcer l'état de réparation optimal",
@@ -47,7 +52,7 @@ export const fr: SiteContent = {
         ],
       },
       {
-        num: "02",
+        num: "2",
         title: "Réparation tissulaire ciblée",
         bullets: [
           "Precision Repair Acupuncture",
@@ -56,7 +61,7 @@ export const fr: SiteContent = {
         ],
       },
       {
-        num: "03",
+        num: "3",
         title: "Construire sur des bases solides",
         bullets: [
           "Verrouiller le nouveau tissu jusqu'à ce qu'il tienne",
@@ -244,13 +249,13 @@ export const fr: SiteContent = {
       "IRM et attestations médicales sur demande : clinic@boddhiclinic.com",
   },
   delivery: {
-    eyebrow: "Accès RRP",
+    eyebrow: "Accès",
     title: "Le RRP livré dans un environnement dédié et privé",
     subtitle:
       "Des soins d'exception — là où survient la blessure, ou à notre clinique de Genève.",
     items: [
       {
-        num: "01",
+        num: "1",
         title: "Nous venons à vous",
         points: [
           "Votre domicile",
@@ -265,7 +270,7 @@ export const fr: SiteContent = {
         },
       },
       {
-        num: "02",
+        num: "2",
         title: "Vous venez à nous",
         points: [
           "Notre clinique à Genève",
@@ -282,10 +287,10 @@ export const fr: SiteContent = {
     ],
   },
   about: {
-    badge: "L'équipe",
+    badge: "À propos",
     name: "Lucy Dean",
     role: "Créatrice du RRP® · Directrice clinique",
-    bio: "Lucy a développé le Rapid Repair Protocol après plus d'une décennie de pratique clinique d'élite en Chine et en Europe — alliant neuro-acupuncture, médecine de l'état réparateur et sport de haut niveau.",
+    bio: "Lucy a développé le Rapid Repair Protocol après plus d'une décennie de pratique clinique d'élite en Chine et en Europe. Elle réunit neuro-acupuncture, science de la réparation tissulaire et sport de haut niveau.",
     location: "Basée à la Boddhi Clinic, Genève",
     creds: [
       { to: 50000, format: "comma", label: "Heures cliniques" },
@@ -297,7 +302,7 @@ export const fr: SiteContent = {
         label: "Cliniques de neuro-acupuncture en Europe",
       },
     ],
-    teamTitle: "L'équipe RRP",
+    teamTitle: "Soutenu par une équipe exceptionnelle",
     team: [
       {
         name: "Nicolas Charlet",
@@ -321,12 +326,66 @@ export const fr: SiteContent = {
       },
     ],
   },
+  proofBridge: {
+    text: "Documenté avec des athlètes d'élite — du hockey olympique au football de haut niveau.",
+    cta: "Voir leurs histoires",
+    href: "#top",
+  },
   contact: {
-    title: "Travaillez avec nous",
-    tagline: "La meilleure façon d'apprendre, c'est de travailler avec nous.",
-    cta: "Postuler",
+    title: "Examinons le cas",
+    tagline:
+      "Partagez le diagnostic et le pronostic. Nous vous dirons si le RRP peut accélérer le retour.",
+    cta: "Réserver un appel",
     email: "clinic@boddhiclinic.com",
     location: "Boddhi Clinic, Genève",
+    calendar: {
+      eventLabel: "Appel découverte",
+      duration: "30 min",
+      monthLabel: "Août 2026",
+      weekdays: ["Lu", "Ma", "Me", "Je", "Ve", "Sa", "Di"],
+      days: [
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+      ],
+      selectedDay: 12,
+      timesLabel: "Horaires disponibles",
+      times: ["09:00", "09:30", "10:00", "11:00", "14:00", "15:30"],
+      selectedTime: "10:00",
+    },
   },
   footer: {
     tagline: "Une récupération plus rapide pour les athlètes d'élite.",
@@ -335,15 +394,14 @@ export const fr: SiteContent = {
         title: "Explorer",
         links: [
           { label: "Le protocole", href: "#protocol" },
-          { label: "Impact", href: "#cases" },
-          { label: "Accès", href: "#delivery" },
-          { label: "L'équipe", href: "#about" },
+          { label: "Accès", href: "#access" },
+          { label: "À propos", href: "#about" },
         ],
       },
       {
         title: "Commencer",
         links: [
-          { label: "Réserver", href: "#contact" },
+          { label: "Réserver un appel", href: "#contact" },
           { label: "Nous écrire", href: "mailto:clinic@boddhiclinic.com" },
         ],
       },

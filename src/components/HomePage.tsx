@@ -1,22 +1,24 @@
 import Image from "next/image";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { AccentText } from "@/components/AccentText";
-import { CasesTeaser } from "@/components/CasesTeaser";
 import { ContactSection } from "@/components/ContactSection";
 import { CountUp } from "@/components/CountUp";
 import { DocumentLang } from "@/components/DocumentLang";
 import { FrenchPreferenceRedirect } from "@/components/FrenchPreferenceRedirect";
-import { LandingHero } from "@/components/LandingHero";
+import { Hero } from "@/components/Hero";
 import { LangLink } from "@/components/LangLink";
 import { NavShell } from "@/components/NavShell";
-import { ProtocolBody } from "@/components/ProtocolBody";
+import { ProtocolStory } from "@/components/ProtocolStory";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import type { SiteContent } from "@/content";
+import { getCaseStudies } from "@/data/caseStudies";
 
 export function HomePage({ content }: { content: SiteContent }) {
-  const { locale, nav, protocol, delivery, about, footer } = content;
+  const { locale, nav, hero, protocol, delivery, about, proofBridge, footer, cases } =
+    content;
   const isEn = locale === "en";
+  const caseStudies = getCaseStudies(locale);
 
   const langSwitch = (
     <div className="lang-switch" aria-label={nav.langAria}>
@@ -91,52 +93,38 @@ export function HomePage({ content }: { content: SiteContent }) {
         </div>
       </NavShell>
 
-      <LandingHero content={content} />
+      <Hero
+        caseStudies={caseStudies}
+        caseItems={cases.items}
+        closeLabel={cases.closeLabel}
+        chrome={{
+          eyebrow: hero.eyebrow,
+          title: hero.title,
+          sub: hero.sub,
+          cta: { label: hero.ctaPrimary, href: "#contact" },
+          watchVideoCta: hero.ctaWatchVideo,
+          readStoryCta: hero.ctaReadStory,
+        }}
+        intervalMs={8000}
+        scrollHref="#protocol"
+        scrollLabel={hero.scrollLabel}
+      />
 
       <section className="section--dark protocol" id="protocol">
         <div className="container">
           <Reveal className="protocol__intro">
+            <span className="eyebrow">{protocol.eyebrow}</span>
             <h2 className="section-title section-title--light">
               {protocol.title}
             </h2>
+            <p className="protocol__subtitle">{protocol.subtitle}</p>
           </Reveal>
 
-          <div className="protocol__layout">
-            <div className="protocol__timeline">
-              <Stagger className="protocol__steps">
-                {protocol.phases.map((phase) => (
-                  <StaggerItem key={phase.num}>
-                    <article className="protocol-step">
-                      <span className="protocol-step__num">{phase.num}</span>
-                      <h3>{phase.title}</h3>
-                      <ul>
-                        {phase.bullets.map((b) => (
-                          <li key={b}>{b}</li>
-                        ))}
-                      </ul>
-                    </article>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </div>
-
-            <Reveal className="protocol__body" delay={0.1}>
-              <ProtocolBody />
-            </Reveal>
-          </div>
-
-          <Reveal className="protocol__cta">
-            <a className="btn btn--accent btn--lg" href="#contact">
-              {protocol.cta}
-              <ArrowRight size={18} weight="bold" aria-hidden />
-            </a>
-          </Reveal>
+          <ProtocolStory protocol={protocol} />
         </div>
       </section>
 
-      <CasesTeaser content={content} />
-
-      <section className="section--dark delivery" id="delivery">
+      <section className="section--dark delivery" id="access">
         <div className="container">
           <Reveal className="delivery__intro">
             <span className="eyebrow">{delivery.eyebrow}</span>
@@ -231,8 +219,8 @@ export function HomePage({ content }: { content: SiteContent }) {
                     <Image
                       src={member.photo}
                       alt={member.name}
-                      width={72}
-                      height={72}
+                      width={112}
+                      height={112}
                       className="team-pill__photo"
                     />
                     <div>
@@ -244,6 +232,18 @@ export function HomePage({ content }: { content: SiteContent }) {
               ))}
             </Stagger>
           </div>
+        </div>
+      </section>
+
+      <section className="proof-bridge" aria-label={proofBridge.cta}>
+        <div className="container">
+          <Reveal className="proof-bridge__inner">
+            <p className="proof-bridge__text">{proofBridge.text}</p>
+            <a className="proof-bridge__cta" href={proofBridge.href}>
+              <span>{proofBridge.cta}</span>
+              <ArrowRight size={16} weight="bold" aria-hidden />
+            </a>
+          </Reveal>
         </div>
       </section>
 

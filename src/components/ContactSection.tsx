@@ -1,4 +1,5 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import { CalendarMock } from "@/components/CalendarMock";
 import { Reveal } from "@/components/motion/Reveal";
 import type { SiteContent } from "@/content";
 
@@ -11,6 +12,13 @@ export function ContactSection({ content }: { content: SiteContent }) {
         <Reveal>
           <h2>{contact.title}</h2>
           <p className="contact__tagline">{contact.tagline}</p>
+        </Reveal>
+
+        <Reveal delay={0.08}>
+          <CalendarMock {...contact.calendar} />
+        </Reveal>
+
+        <Reveal delay={0.14}>
           <div className="contact__ctas">
             <a
               className="btn btn--accent btn--lg"

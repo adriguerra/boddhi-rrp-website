@@ -1,13 +1,23 @@
 import Image from "next/image";
 
+const HOTSPOTS = ["brain", "stomach", "knee"] as const;
+
 /**
- * Anatomical figure — glow only at brain, stomach, and knee,
- * with a soft backglow behind the body.
+ * Anatomical figure — glow emphasis follows the active protocol phase.
  */
-export function ProtocolBody({ className }: { className?: string }) {
+export function ProtocolBody({
+  className,
+  activeIndex = 0,
+}: {
+  className?: string;
+  activeIndex?: number;
+}) {
+  const phase = Math.min(Math.max(activeIndex, 0), HOTSPOTS.length - 1);
+
   return (
     <div
       className={["protocol__body-figure", className].filter(Boolean).join(" ")}
+      data-phase={phase}
       aria-hidden
     >
       <div className="protocol__body-backglow" />
@@ -18,7 +28,7 @@ export function ProtocolBody({ className }: { className?: string }) {
         width={493}
         height={1024}
         className="protocol__body-img"
-        sizes="(max-width: 1024px) 220px, 320px"
+        sizes="(max-width: 1024px) 260px, 380px"
         priority={false}
       />
 
@@ -46,25 +56,25 @@ export function ProtocolBody({ className }: { className?: string }) {
         </defs>
 
         <g className="protocol__hotspots" filter="url(#hotspotBlur)">
-          {/* Brain */}
           <circle
             className="protocol__hotspot protocol__hotspot--brain"
+            data-active={phase === 0 ? "true" : "false"}
             cx="246"
             cy="92"
             r="36"
             fill="url(#hotspotCore)"
           />
-          {/* Stomach / lower abdomen */}
           <circle
             className="protocol__hotspot protocol__hotspot--stomach"
+            data-active={phase === 1 ? "true" : "false"}
             cx="246"
             cy="520"
             r="44"
             fill="url(#hotspotCore)"
           />
-          {/* Knee (figure's left / viewer's right) */}
           <circle
             className="protocol__hotspot protocol__hotspot--knee"
+            data-active={phase === 2 ? "true" : "false"}
             cx="318"
             cy="780"
             r="30"

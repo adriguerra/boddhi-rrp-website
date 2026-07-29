@@ -114,7 +114,7 @@ export function CaseStudyPage({
       <main className="case-detail">
         <div className="case-detail__inner">
           <Reveal>
-            <Link href={`${home}#cases`} className="case-detail__back">
+            <Link href={home} className="case-detail__back">
               <ArrowLeft size={16} weight="bold" /> {cases.backLabel}
             </Link>
           </Reveal>

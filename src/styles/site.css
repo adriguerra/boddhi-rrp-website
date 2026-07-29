@@ -19,7 +19,7 @@ a:hover { color: var(--teal-200); }
 a.btn,
 a.btn:hover { color: inherit; }
 a.btn--hero,
-a.btn--hero:hover { color: #0A1F20; }
+a.btn--hero:hover { color: inherit; }
 ::selection { background: var(--orange-500); color: #fff; }
 
 img { max-width: 100%; }
@@ -1965,7 +1965,7 @@ section { scroll-margin-top: 72px; }
   font-family: var(--font-display);
   font-size: 24px;
   color: var(--teal-300);
-  margin: 24px 0 40px;
+  margin: 24px 0 36px;
 }
 .contact__ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .contact__ctas + .contact__ctas { margin-top: 14px; }

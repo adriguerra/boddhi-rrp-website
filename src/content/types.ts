@@ -22,13 +22,18 @@ export type SiteContent = {
     title: string;
     sub: string;
     ctaPrimary: string;
+    ctaWatchVideo: string;
+    ctaReadStory: string;
     photoAlt: string;
+    scrollLabel: string;
     proofLead: string;
     proof: string;
     proofCta: string;
   };
   protocol: {
+    eyebrow: string;
     title: string;
+    subtitle: string;
     cta: string;
     phases: {
       num: string;
@@ -100,12 +105,28 @@ export type SiteContent = {
     teamTitle: string;
     team: { name: string; role: string; photo: string }[];
   };
+  proofBridge: {
+    text: string;
+    cta: string;
+    href: string;
+  };
   contact: {
     title: string;
     tagline: string;
     cta: string;
     email: string;
     location: string;
+    calendar: {
+      eventLabel: string;
+      duration: string;
+      monthLabel: string;
+      weekdays: string[];
+      days: (number | null)[];
+      selectedDay: number;
+      timesLabel: string;
+      times: string[];
+      selectedTime: string;
+    };
   };
   footer: {
     tagline: string;

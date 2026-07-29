@@ -11,11 +11,10 @@ export const en: SiteContent = {
     aria: "Main navigation",
     links: [
       { href: "#protocol", label: "The Protocol" },
-      { href: "#cases", label: "Impact" },
-      { href: "#delivery", label: "Delivery" },
-      { href: "#about", label: "Our Team" },
+      { href: "#access", label: "Access" },
+      { href: "#about", label: "About" },
     ],
-    cta: "Book Now",
+    cta: "Book a Call",
     menuOpen: "Open menu",
     menuClose: "Close menu",
     langAria: "Language",
@@ -24,21 +23,27 @@ export const en: SiteContent = {
     footerLangLabel: "Version française",
   },
   hero: {
-    eyebrow: "Immersive, intensive, holistic tissue repair protocol",
-    title: "Beat the prognosis, **accelerate return to play**",
-    sub: "RRP® is a game-changing methodology to rapidly repair injured tissue. We treat acute sports injuries: ligament, muscle and tendon tears repaired without surgery in days, not months.",
-    ctaPrimary: "Talk to us",
-    photoAlt: "Ice hockey players competing",
+    eyebrow: "For elite athletes with acute injuries",
+    title: "Beat the prognosis.\n**Accelerate return.**",
+    sub: "Ligament, muscle and tendon tears — without surgery, in days not months.",
+    ctaPrimary: "Book a Call",
+    ctaWatchVideo: "Watch Video",
+    ctaReadStory: "Read Story",
+    photoAlt: "Precision Repair Acupuncture",
+    scrollLabel: "Scroll down",
     proofLead: "From season-unrecoverable injury to Olympic qualification.",
     proof: "Together, we beat the prognosis by **90%**.",
     proofCta: "Discover the cases",
   },
   protocol: {
+    eyebrow: "How RRP works",
     title: "Optimise tissue repair to restore performance.",
-    cta: "Get Started Now",
+    subtitle:
+      "A 3-stage protocol over 4–14 days for acute muscle, ligament and tendon tears.",
+    cta: "See how to access RRP",
     phases: [
       {
-        num: "01",
+        num: "1",
         title: "Prepare the body",
         bullets: [
           "Prime the Optimal Repair State",
@@ -47,7 +52,7 @@ export const en: SiteContent = {
         ],
       },
       {
-        num: "02",
+        num: "2",
         title: "Targeted Tissue Repair",
         bullets: [
           "Precision Repair Acupuncture",
@@ -56,7 +61,7 @@ export const en: SiteContent = {
         ],
       },
       {
-        num: "03",
+        num: "3",
         title: "Build on a solid foundation",
         bullets: [
           "Lock the new tissue until it holds",
@@ -241,13 +246,13 @@ export const en: SiteContent = {
     footnote: "MRI and medical letters on request — clinic@boddhiclinic.com",
   },
   delivery: {
-    eyebrow: "RRP Delivery",
+    eyebrow: "Access",
     title: "RRP delivered in a dedicated, private environment",
     subtitle:
       "First-class care — wherever the injury happens, or at our Geneva clinic.",
     items: [
       {
-        num: "01",
+        num: "1",
         title: "We Come To You",
         points: [
           "Your home",
@@ -262,7 +267,7 @@ export const en: SiteContent = {
         },
       },
       {
-        num: "02",
+        num: "2",
         title: "You Come To Us",
         points: [
           "Our clinic in Geneva",
@@ -279,10 +284,10 @@ export const en: SiteContent = {
     ],
   },
   about: {
-    badge: "Meet the Team",
+    badge: "About",
     name: "Lucy Dean",
     role: "Creator of the RRP® · Clinical Lead",
-    bio: "Lucy developed the Rapid Repair Protocol after more than a decade of elite clinical practice across China and Europe — combining neuro-acupuncture, repair-state medicine, and high-performance sport.",
+    bio: "Lucy developed the Rapid Repair Protocol after more than a decade of elite clinical practice across China and Europe. She brings together neuro-acupuncture, tissue-repair science, and high-performance sport.",
     location: "Based at Boddhi Clinic, Geneva",
     creds: [
       { to: 50000, format: "comma", label: "Clinical hours" },
@@ -294,7 +299,7 @@ export const en: SiteContent = {
         label: "Neuro-acupuncture clinics in Europe",
       },
     ],
-    teamTitle: "The RRP team",
+    teamTitle: "Backed by an incredible team",
     team: [
       {
         name: "Nicolas Charlet",
@@ -318,12 +323,66 @@ export const en: SiteContent = {
       },
     ],
   },
+  proofBridge: {
+    text: "Documented with elite athletes — from Olympic ice hockey to top-flight football.",
+    cta: "See their stories",
+    href: "#top",
+  },
   contact: {
-    title: "Work with us",
-    tagline: "The best way to learn is to work with us.",
-    cta: "Apply Now",
+    title: "Let’s review the case",
+    tagline:
+      "Share the diagnosis and prognosis. We’ll tell you if RRP can accelerate return.",
+    cta: "Book a Call",
     email: "clinic@boddhiclinic.com",
     location: "Boddhi Clinic, Geneva",
+    calendar: {
+      eventLabel: "Discovery Call",
+      duration: "30 min",
+      monthLabel: "August 2026",
+      weekdays: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+      days: [
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+      ],
+      selectedDay: 12,
+      timesLabel: "Available times",
+      times: ["09:00", "09:30", "10:00", "11:00", "14:00", "15:30"],
+      selectedTime: "10:00",
+    },
   },
   footer: {
     tagline: "Faster recovery for elite athletes.",
@@ -332,15 +391,14 @@ export const en: SiteContent = {
         title: "Explore",
         links: [
           { label: "The Protocol", href: "#protocol" },
-          { label: "Impact", href: "#cases" },
-          { label: "Delivery", href: "#delivery" },
-          { label: "Our Team", href: "#about" },
+          { label: "Access", href: "#access" },
+          { label: "About", href: "#about" },
         ],
       },
       {
         title: "Get Started",
         links: [
-          { label: "Book Now", href: "#contact" },
+          { label: "Book a Call", href: "#contact" },
           { label: "Email us", href: "mailto:clinic@boddhiclinic.com" },
         ],
       },

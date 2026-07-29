@@ -6,6 +6,10 @@ type HeroStatsProps = {
   className?: string;
 };
 
+/**
+ * Claim-slot layout: smaller struck prognosis stacked above
+ * teal arrow + punchline return; outcome under with medal/trophy.
+ */
 export function HeroStats({ caseStudy, className }: HeroStatsProps) {
   const Icon =
     caseStudy.outcomeIcon === "trophy"
@@ -16,12 +20,14 @@ export function HeroStats({ caseStudy, className }: HeroStatsProps) {
 
   return (
     <div className={className}>
-      <p className="case-hero__arc">
+      <p className="case-hero__arc case-hero__arc--claim">
         <span className="case-hero__prognosis">{caseStudy.prognosis}</span>
-        <span className="case-hero__arc-sep" aria-hidden>
-          →
+        <span className="case-hero__rtp-row">
+          <span className="case-hero__arc-arrow" aria-hidden>
+            →
+          </span>
+          <span className="case-hero__rtp">{caseStudy.returnToPlay}</span>
         </span>
-        <span className="case-hero__rtp">{caseStudy.returnToPlay}</span>
       </p>
       <p
         className={[
@@ -36,7 +42,7 @@ export function HeroStats({ caseStudy, className }: HeroStatsProps) {
         {Icon ? (
           <Icon
             className="case-hero__outcome-icon"
-            size={22}
+            size={24}
             weight="fill"
             aria-hidden
           />
