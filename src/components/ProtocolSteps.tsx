@@ -220,7 +220,7 @@ function StepBody({
         initial={false}
         animate={
           active
-            ? { scale: 1, color: "var(--orange-400)" }
+            ? { scale: 1, color: "var(--orange-500)" }
             : { scale: 0.92, color: "var(--teal-300)" }
         }
         transition={{
@@ -248,7 +248,7 @@ function StepBody({
           initial={false}
           animate={
             active
-              ? { opacity: 1, y: 0, color: "var(--orange-400)" }
+              ? { opacity: 1, y: 0, color: "var(--orange-500)" }
               : { opacity: 0.9, y: 6, color: "var(--teal-300)" }
           }
           transition={{

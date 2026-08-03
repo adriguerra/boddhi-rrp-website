@@ -281,7 +281,7 @@ export const en: SiteContent = {
     eyebrow: "Access",
     title: "RRP delivered in a dedicated,\nprivate environment",
     subtitle:
-      "First-class care — wherever the injury happens, or at our Geneva clinic.",
+      "First-class care — wherever the injury happens, or at a recovery suite in Geneva.",
     items: [
       {
         num: "01",
@@ -324,8 +324,8 @@ export const en: SiteContent = {
     location: "Based at Boddhi Clinic, Geneva",
     creds: [
       { to: 50000, format: "comma", label: "Clinical hours" },
-      { to: 15, suffix: " yrs", label: "Advanced education" },
-      { to: 12, suffix: " yrs", label: "In China" },
+      { to: 28, suffix: " years", label: "Advanced education" },
+      { to: 12, suffix: " years", label: "In China" },
       {
         to: 1,
         suffix: " of 3",
@@ -358,7 +358,7 @@ export const en: SiteContent = {
     ],
   },
   proofBridge: {
-    text: "Documented with elite athletes — from Olympic ice hockey to top-flight football.",
+    text: "Documented with elite athletes — from Olympic ice hockey to premier league football.",
     cta: "See their stories",
     href: "#top",
   },

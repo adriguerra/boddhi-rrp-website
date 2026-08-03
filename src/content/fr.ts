@@ -286,7 +286,7 @@ export const fr: SiteContent = {
     eyebrow: "Accès",
     title: "Le RRP livré dans un environnement\ndédié et privé",
     subtitle:
-      "Des soins d'exception — là où survient la blessure, ou à notre clinique de Genève.",
+      "Des soins d'exception — là où survient la blessure, ou dans une suite de récupération à Genève.",
     items: [
       {
         num: "01",
@@ -329,7 +329,7 @@ export const fr: SiteContent = {
     location: "Basée à la Boddhi Clinic, Genève",
     creds: [
       { to: 50000, format: "comma", label: "Heures cliniques" },
-      { to: 15, suffix: " ans", label: "Formation avancée" },
+      { to: 28, suffix: " ans", label: "Formation avancée" },
       { to: 12, suffix: " ans", label: "En Chine" },
       {
         to: 1,
@@ -363,7 +363,7 @@ export const fr: SiteContent = {
     ],
   },
   proofBridge: {
-    text: "Documenté avec des athlètes d'élite — du hockey olympique au football de haut niveau.",
+    text: "Documenté avec des athlètes d'élite — du hockey olympique au football de Premier League.",
     cta: "Voir leurs histoires",
     href: "#top",
   },
