@@ -11,7 +11,7 @@ export const en: SiteContent = {
     aria: "Main navigation",
     links: [
       { href: "#protocol", label: "Protocol" },
-      { href: "#cases", label: "Impact" },
+      { href: "#cases", label: "Success Stories" },
       { href: "#access", label: "Access" },
       { href: "#about", label: "About" },
     ],
@@ -33,8 +33,8 @@ export const en: SiteContent = {
     photoAlt: "Precision Repair Acupuncture",
     scrollLabel: "Scroll down",
     proofLead: "From season-unrecoverable injury to Olympic qualification.",
-    proof: "Together, we beat the prognosis by **90%**.",
-    proofCta: "Discover the cases",
+    proof: "From season over to Olympic medalist.",
+    proofCta: "Read more",
   },
   protocol: {
     badge: "How RRP works",
@@ -105,7 +105,7 @@ export const en: SiteContent = {
     ],
   },
   cases: {
-    badge: "Impact",
+    badge: "Success Stories",
     title: "Together we beat the prognosis by **90%**",
     subtitle: "",
     readMore: "See their story",
@@ -369,6 +369,9 @@ export const en: SiteContent = {
       "Share the diagnosis and prognosis. We’ll tell you if RRP can accelerate return.",
     cta: "Book a Call",
     email: "clinic@boddhiclinic.com",
+    phone: "+41 22 758 22 88",
+    phoneHref: "tel:+41227582288",
+    phoneLabel: "Or call",
     location: "Boddhi Clinic, Geneva",
     calendar: {
       eventLabel: "Discovery Call",
@@ -421,12 +424,14 @@ export const en: SiteContent = {
   },
   footer: {
     tagline: "Faster recovery for elite athletes.",
+    phone: "+41 22 758 22 88",
+    phoneHref: "tel:+41227582288",
     columns: [
       {
         title: "Explore",
         links: [
           { label: "Protocol", href: "#protocol" },
-          { label: "Impact", href: "#cases" },
+          { label: "Success Stories", href: "#cases" },
           { label: "Access", href: "#access" },
           { label: "About", href: "#about" },
         ],

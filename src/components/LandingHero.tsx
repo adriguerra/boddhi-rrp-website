@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CaretDown } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, CaretDown } from "@phosphor-icons/react/dist/ssr";
 import { AccentText } from "@/components/AccentText";
 import type { SiteContent } from "@/content";
 
@@ -28,13 +28,15 @@ export function LandingHero({ content }: { content: SiteContent }) {
           <a className="btn btn--ghost btn--hero" href="#contact">
             {hero.ctaPrimary}
           </a>
-          <p className="lp-hero__proof">
-            <AccentText as="span" text={hero.proof} />
-            <a className="lp-hero__proof-link" href="#cases">
-              {hero.proofCta}
-            </a>
-          </p>
         </div>
+
+        <aside className="lp-hero__proof">
+          <AccentText as="p" className="lp-hero__proof-text" text={hero.proof} />
+          <a className="lp-hero__proof-link" href="#cases">
+            <span>{hero.proofCta}</span>
+            <ArrowRight size={16} weight="bold" aria-hidden />
+          </a>
+        </aside>
       </div>
 
       <a

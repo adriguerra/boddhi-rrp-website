@@ -27,6 +27,10 @@ export function ContactSection({ content }: { content: SiteContent }) {
               {contact.cta} <ArrowRight size={18} weight="bold" />
             </a>
           </div>
+          <p className="contact__phone">
+            <span>{contact.phoneLabel}</span>{" "}
+            <a href={contact.phoneHref}>{contact.phone}</a>
+          </p>
         </Reveal>
       </div>
     </section>

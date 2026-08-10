@@ -245,6 +245,9 @@ export function HomePage({ content }: { content: SiteContent }) {
               height={36}
             />
             <p className="footer__tagline">{footer.tagline}</p>
+            <a className="footer__phone" href={footer.phoneHref}>
+              {footer.phone}
+            </a>
             <LangLink
               locale={locale}
               href={nav.otherLangHref}

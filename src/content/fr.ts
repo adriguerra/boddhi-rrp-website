@@ -11,7 +11,7 @@ export const fr: SiteContent = {
     aria: "Navigation principale",
     links: [
       { href: "#protocol", label: "Protocole" },
-      { href: "#cases", label: "Impact" },
+      { href: "#cases", label: "Histoires de succès" },
       { href: "#access", label: "Accès" },
       { href: "#about", label: "À propos" },
     ],
@@ -33,8 +33,8 @@ export const fr: SiteContent = {
     photoAlt: "Precision Repair Acupuncture",
     scrollLabel: "Défiler vers le bas",
     proofLead: "D'une blessure de fin de saison à une qualification olympique.",
-    proof: "Ensemble, nous battons le pronostic de **90 %**.",
-    proofCta: "Découvrir les cas",
+    proof: "De fin de saison à médaillée olympique.",
+    proofCta: "En savoir plus",
   },
   protocol: {
     badge: "Comment fonctionne le RRP",
@@ -107,7 +107,7 @@ export const fr: SiteContent = {
     ],
   },
   cases: {
-    badge: "Impact",
+    badge: "Histoires de succès",
     title: "Ensemble, nous battons le pronostic de **90 %**",
     subtitle: "",
     readMore: "Voir leur histoire",
@@ -374,6 +374,9 @@ export const fr: SiteContent = {
       "Partagez le diagnostic et le pronostic. Nous vous dirons si le RRP peut accélérer le retour.",
     cta: "Réserver un appel",
     email: "clinic@boddhiclinic.com",
+    phone: "+41 22 758 22 88",
+    phoneHref: "tel:+41227582288",
+    phoneLabel: "Ou appelez",
     location: "Boddhi Clinic, Genève",
     calendar: {
       eventLabel: "Appel découverte",
@@ -426,12 +429,14 @@ export const fr: SiteContent = {
   },
   footer: {
     tagline: "Une récupération plus rapide pour les athlètes d'élite.",
+    phone: "+41 22 758 22 88",
+    phoneHref: "tel:+41227582288",
     columns: [
       {
         title: "Explorer",
         links: [
           { label: "Protocole", href: "#protocol" },
-          { label: "Impact", href: "#cases" },
+          { label: "Histoires de succès", href: "#cases" },
           { label: "Accès", href: "#access" },
           { label: "À propos", href: "#about" },
         ],

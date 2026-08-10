@@ -132,6 +132,9 @@ export type SiteContent = {
     tagline: string;
     cta: string;
     email: string;
+    phone: string;
+    phoneHref: string;
+    phoneLabel: string;
     location: string;
     calendar: {
       eventLabel: string;
@@ -147,6 +150,8 @@ export type SiteContent = {
   };
   footer: {
     tagline: string;
+    phone: string;
+    phoneHref: string;
     columns: { title: string; links: { label: string; href: string }[] }[];
     legal: { label: string; href: string }[];
     copy: string;

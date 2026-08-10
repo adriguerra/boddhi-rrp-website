@@ -1,12 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight } from "@phosphor-icons/react";
+import { ArrowRight, Medal, Trophy } from "@phosphor-icons/react";
 import { useMemo, useState } from "react";
-import { AccentText } from "@/components/AccentText";
 import { CaseStudyModal } from "@/components/CaseStudyModal";
 import { Reveal } from "@/components/motion/Reveal";
-import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import type { SiteContent } from "@/content";
 import { getCaseStudies } from "@/data/caseStudies";
 import type { CaseStudy } from "@/types/CaseStudy";
@@ -26,6 +24,30 @@ function coverFor(study: CaseStudy) {
   );
 }
 
+function OutcomeIcon({ study }: { study: CaseStudy }) {
+  if (study.outcomeIcon === "trophy") {
+    return (
+      <Trophy
+        className="impact-case__outcome-icon impact-case__outcome-icon--trophy"
+        size={22}
+        weight="fill"
+        aria-hidden
+      />
+    );
+  }
+  if (study.outcomeIcon === "medal") {
+    return (
+      <Medal
+        className="impact-case__outcome-icon impact-case__outcome-icon--medal"
+        size={22}
+        weight="fill"
+        aria-hidden
+      />
+    );
+  }
+  return null;
+}
+
 export function ImpactSection({ content }: { content: SiteContent }) {
   const { locale, cases } = content;
   const studies = useMemo(() => getCaseStudies(locale), [locale]);
@@ -37,17 +59,13 @@ export function ImpactSection({ content }: { content: SiteContent }) {
   return (
     <>
       <section className="section--dark impact" id="cases">
-        <div className="container">
+        <div className="container impact__container">
           <Reveal className="impact__intro">
             <span className="badge badge--teal-soft-dark">{cases.badge}</span>
-            <AccentText
-              as="h2"
-              className="section-title section-title--light impact__title"
-              text={cases.title}
-            />
+            <h2 className="sr-only">{cases.badge}</h2>
           </Reveal>
 
-          <Stagger className="impact__grid">
+          <div className="impact__grid">
             {studies.map((study) => {
               const slug = STUDY_TO_SLUG[study.id];
               const item = cases.items.find((c) => c.slug === slug);
@@ -55,55 +73,56 @@ export function ImpactSection({ content }: { content: SiteContent }) {
               if (!slug || !item || !cover) return null;
 
               return (
-                <StaggerItem key={study.id}>
-                  <article className="impact-case">
+                <article key={study.id} className="impact-case">
+                  <Image
+                    src={cover}
+                    alt=""
+                    fill
+                    sizes="(max-width: 900px) 100vw, 50vw"
+                    className="impact-case__img"
+                    style={{ objectPosition: study.focalPoint ?? "center" }}
+                  />
+                  <span className="impact-case__veil" aria-hidden />
+
+                  <div className="impact-case__body">
+                    <h3 className="impact-case__name">{study.athlete}</h3>
+                    <p className="impact-case__result">
+                      <span className="impact-case__prognosis">
+                        {study.prognosis}
+                      </span>
+                      <span className="impact-case__arrow" aria-hidden>
+                        →
+                      </span>
+                      <span className="impact-case__rtp">
+                        {study.returnToPlay}
+                      </span>
+                    </p>
+                    <p
+                      className={[
+                        "impact-case__outcome",
+                        study.outcomeIcon
+                          ? `impact-case__outcome--${study.outcomeIcon}`
+                          : "",
+                      ]
+                        .filter(Boolean)
+                        .join(" ")}
+                    >
+                      <OutcomeIcon study={study} />
+                      <span>{study.outcome}</span>
+                    </p>
                     <button
                       type="button"
-                      className="impact-case__media"
+                      className="impact-case__cta"
                       onClick={() => setOpenSlug(slug)}
-                      aria-label={`${cases.readMore}: ${study.athlete}`}
                     >
-                      <Image
-                        src={cover}
-                        alt=""
-                        fill
-                        sizes="(max-width: 900px) 100vw, 50vw"
-                        className="impact-case__img"
-                        style={{ objectPosition: study.focalPoint ?? "center" }}
-                      />
-                      <span className="impact-case__veil" aria-hidden />
+                      {cases.readMore}
+                      <ArrowRight size={16} weight="bold" aria-hidden />
                     </button>
-
-                    <div className="impact-case__body">
-                      <p className="impact-case__team">{study.team}</p>
-                      <h3 className="impact-case__name">{study.athlete}</h3>
-                      <p className="impact-case__injury">{study.injury}</p>
-                      <p className="impact-case__result">
-                        <span className="impact-case__prognosis">
-                          {study.prognosis}
-                        </span>
-                        <span className="impact-case__arrow" aria-hidden>
-                          →
-                        </span>
-                        <span className="impact-case__rtp">
-                          {study.returnToPlay}
-                        </span>
-                      </p>
-                      <p className="impact-case__outcome">{study.outcome}</p>
-                      <button
-                        type="button"
-                        className="impact-case__cta"
-                        onClick={() => setOpenSlug(slug)}
-                      >
-                        {cases.readMore}
-                        <ArrowRight size={16} weight="bold" aria-hidden />
-                      </button>
-                    </div>
-                  </article>
-                </StaggerItem>
+                  </div>
+                </article>
               );
             })}
-          </Stagger>
+          </div>
         </div>
       </section>
 
