@@ -544,6 +544,7 @@
   font-weight: var(--fw-medium);
   line-height: 1.5;
   color: var(--gray-300);
+  white-space: pre-line;
 }
 .protocol__layout {
   position: relative;
