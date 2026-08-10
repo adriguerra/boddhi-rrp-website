@@ -11,6 +11,7 @@ export const en: SiteContent = {
     aria: "Main navigation",
     links: [
       { href: "#protocol", label: "Protocol" },
+      { href: "#cases", label: "Impact" },
       { href: "#access", label: "Access" },
       { href: "#about", label: "About" },
     ],
@@ -36,7 +37,7 @@ export const en: SiteContent = {
     proofCta: "Discover the cases",
   },
   protocol: {
-    eyebrow: "How RRP works",
+    badge: "How RRP works",
     title: "Optimise tissue repair to restore performance.",
     subtitle:
       "RRP® is a 3-stage protocol over 4–14 days for acute muscle, ligament and tendon tears. We use precision acupuncture to amplify the body’s natural tissue-repair response.",
@@ -278,7 +279,7 @@ export const en: SiteContent = {
     footnote: "MRI and medical letters on request — clinic@boddhiclinic.com",
   },
   delivery: {
-    eyebrow: "Access",
+    badge: "Access",
     title: "RRP delivered in a dedicated,\nprivate environment",
     subtitle:
       "First-class care — wherever the injury happens, or at a recovery suite in Geneva.",
@@ -425,6 +426,7 @@ export const en: SiteContent = {
         title: "Explore",
         links: [
           { label: "Protocol", href: "#protocol" },
+          { label: "Impact", href: "#cases" },
           { label: "Access", href: "#access" },
           { label: "About", href: "#about" },
         ],

@@ -28,6 +28,12 @@ export function LandingHero({ content }: { content: SiteContent }) {
           <a className="btn btn--ghost btn--hero" href="#contact">
             {hero.ctaPrimary}
           </a>
+          <p className="lp-hero__proof">
+            <AccentText as="span" text={hero.proof} />
+            <a className="lp-hero__proof-link" href="#cases">
+              {hero.proofCta}
+            </a>
+          </p>
         </div>
       </div>
 

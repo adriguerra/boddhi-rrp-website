@@ -11,6 +11,7 @@ export const fr: SiteContent = {
     aria: "Navigation principale",
     links: [
       { href: "#protocol", label: "Protocole" },
+      { href: "#cases", label: "Impact" },
       { href: "#access", label: "Accès" },
       { href: "#about", label: "À propos" },
     ],
@@ -36,7 +37,7 @@ export const fr: SiteContent = {
     proofCta: "Découvrir les cas",
   },
   protocol: {
-    eyebrow: "Comment fonctionne le RRP",
+    badge: "Comment fonctionne le RRP",
     title: "Optimiser la réparation tissulaire pour restaurer la performance.",
     subtitle:
       "Le RRP® est un protocole en 3 étapes sur 4 à 14 jours pour les déchirures musculaires, ligamentaires et tendineuses aiguës. Nous utilisons l’acupuncture de précision pour amplifier la réponse naturelle de réparation tissulaire du corps.",
@@ -283,7 +284,7 @@ export const fr: SiteContent = {
       "IRM et attestations médicales sur demande : clinic@boddhiclinic.com",
   },
   delivery: {
-    eyebrow: "Accès",
+    badge: "Accès",
     title: "Le RRP livré dans un environnement\ndédié et privé",
     subtitle:
       "Des soins d'exception — là où survient la blessure, ou dans une suite de récupération à Genève.",
@@ -430,6 +431,7 @@ export const fr: SiteContent = {
         title: "Explorer",
         links: [
           { label: "Protocole", href: "#protocol" },
+          { label: "Impact", href: "#cases" },
           { label: "Accès", href: "#access" },
           { label: "À propos", href: "#about" },
         ],

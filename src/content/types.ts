@@ -31,7 +31,7 @@ export type SiteContent = {
     proofCta: string;
   };
   protocol: {
-    eyebrow: string;
+    badge: string;
     title: string;
     subtitle: string;
     cta: string;
@@ -93,7 +93,7 @@ export type SiteContent = {
     footnote: string;
   };
   delivery: {
-    eyebrow: string;
+    badge: string;
     title: string;
     subtitle: string;
     items: {

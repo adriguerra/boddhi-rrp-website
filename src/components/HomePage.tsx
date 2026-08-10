@@ -5,20 +5,18 @@ import { ContactSection } from "@/components/ContactSection";
 import { CountUp } from "@/components/CountUp";
 import { DocumentLang } from "@/components/DocumentLang";
 import { FrenchPreferenceRedirect } from "@/components/FrenchPreferenceRedirect";
-import { Hero } from "@/components/Hero";
+import { ImpactSection } from "@/components/ImpactSection";
+import { LandingHero } from "@/components/LandingHero";
 import { LangLink } from "@/components/LangLink";
 import { NavShell } from "@/components/NavShell";
 import { ProtocolStory } from "@/components/ProtocolStory";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import type { SiteContent } from "@/content";
-import { getCaseStudies } from "@/data/caseStudies";
 
 export function HomePage({ content }: { content: SiteContent }) {
-  const { locale, nav, hero, protocol, delivery, about, proofBridge, footer, cases } =
-    content;
+  const { locale, nav, protocol, delivery, about, footer } = content;
   const isEn = locale === "en";
-  const caseStudies = getCaseStudies(locale);
 
   const langSwitch = (
     <div className="lang-switch" aria-label={nav.langAria}>
@@ -93,27 +91,12 @@ export function HomePage({ content }: { content: SiteContent }) {
         </div>
       </NavShell>
 
-      <Hero
-        caseStudies={caseStudies}
-        caseItems={cases.items}
-        closeLabel={cases.closeLabel}
-        chrome={{
-          eyebrow: hero.eyebrow,
-          title: hero.title,
-          sub: hero.sub,
-          cta: { label: hero.ctaPrimary, href: "#contact" },
-          watchVideoCta: hero.ctaWatchVideo,
-          readStoryCta: hero.ctaReadStory,
-        }}
-        intervalMs={8000}
-        scrollHref="#protocol"
-        scrollLabel={hero.scrollLabel}
-      />
+      <LandingHero content={content} />
 
       <section className="section--dark protocol" id="protocol">
         <div className="container">
           <Reveal className="protocol__intro">
-            <span className="eyebrow">{protocol.eyebrow}</span>
+            <span className="badge badge--teal-soft-dark">{protocol.badge}</span>
             <h2 className="section-title section-title--light">
               {protocol.title}
             </h2>
@@ -124,10 +107,12 @@ export function HomePage({ content }: { content: SiteContent }) {
         </div>
       </section>
 
+      <ImpactSection content={content} />
+
       <section className="section--dark delivery" id="access">
         <div className="container">
           <Reveal className="delivery__intro">
-            <span className="eyebrow">{delivery.eyebrow}</span>
+            <span className="badge badge--teal-soft-dark">{delivery.badge}</span>
             <h2 className="section-title section-title--light">
               {delivery.title}
             </h2>
@@ -244,18 +229,6 @@ export function HomePage({ content }: { content: SiteContent }) {
               ))}
             </Stagger>
           </div>
-        </div>
-      </section>
-
-      <section className="proof-bridge" aria-label={proofBridge.cta}>
-        <div className="container">
-          <Reveal className="proof-bridge__inner">
-            <p className="proof-bridge__text">{proofBridge.text}</p>
-            <a className="proof-bridge__cta" href={proofBridge.href}>
-              <span>{proofBridge.cta}</span>
-              <ArrowRight size={16} weight="bold" aria-hidden />
-            </a>
-          </Reveal>
         </div>
       </section>
 

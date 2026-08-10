@@ -89,6 +89,10 @@ section { scroll-margin-top: 72px; }
 .badge--teal-soft { background: var(--teal-100); color: var(--teal-700); }
 .badge--orange-soft { background: var(--orange-100); color: var(--orange-700); }
 .badge--graphite-soft { background: var(--gray-200); color: var(--gray-800); }
+.badge--teal-soft-dark {
+  background: rgba(196, 227, 230, 0.14);
+  color: var(--teal-200);
+}
 
 /* ---------- Eyebrows ---------- */
 .eyebrow {
