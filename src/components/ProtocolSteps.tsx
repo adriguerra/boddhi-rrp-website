@@ -29,7 +29,7 @@ export function ProtocolSteps({
 
   const { scrollYProgress } = useScroll({
     target: stepsRef,
-    offset: ["start 0.65", "end 0.4"],
+    offset: ["start 0.7", "end 0.45"],
   });
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 90,
@@ -71,8 +71,8 @@ export function ProtocolSteps({
         pickActive();
       },
       {
-        threshold: [0.2, 0.35, 0.5, 0.65, 0.8],
-        rootMargin: "-18% 0px -18% 0px",
+        threshold: [0.25, 0.4, 0.55, 0.7, 0.85],
+        rootMargin: "-20% 0px -35% 0px",
       },
     );
 
@@ -96,7 +96,6 @@ export function ProtocolSteps({
         <ProtocolStep
           key={phase.num}
           phase={phase}
-          side={index % 2 === 0 ? "right" : "left"}
           active={reduce ? true : activeIndex === index}
           reached={reduce ? true : index <= activeIndex}
           reduce={Boolean(reduce)}
@@ -111,27 +110,22 @@ export function ProtocolSteps({
 
 function ProtocolStep({
   phase,
-  side,
   active,
   reached,
   reduce,
   setRef,
 }: {
   phase: Phase;
-  side: "left" | "right";
   active: boolean;
   reached: boolean;
   reduce: boolean;
   setRef: (el: HTMLElement | null) => void;
 }) {
-  const outwardX = side === "left" ? -28 : 28;
-
   if (reduce) {
     return (
       <article
         ref={setRef}
         className="protocol-step"
-        data-side={side}
         data-active="true"
         data-reached="true"
         role="listitem"
@@ -153,7 +147,6 @@ function ProtocolStep({
     <article
       ref={setRef}
       className="protocol-step"
-      data-side={side}
       data-active={active ? "true" : "false"}
       data-reached={reached ? "true" : "false"}
       role="listitem"
@@ -166,7 +159,7 @@ function ProtocolStep({
         animate={{
           x: "-50%",
           y: "-50%",
-          scale: !reached ? 0.72 : active ? 1.08 : 1,
+          scale: !reached ? 0.78 : active ? 1.06 : 1,
           opacity: !reached ? 0.45 : 1,
           color: active
             ? "var(--gray-100)"
@@ -202,15 +195,10 @@ function ProtocolStep({
         initial={false}
         animate={
           active
-            ? { opacity: 1, x: 0, y: 0, filter: "blur(0px)" }
-            : {
-                opacity: 0.2,
-                x: outwardX,
-                y: 14,
-                filter: "blur(1.5px)",
-              }
+            ? { opacity: 1, y: 0, filter: "blur(0px)" }
+            : { opacity: 0.48, y: 8, filter: "blur(0.4px)" }
         }
-        transition={{ duration: 0.55, ease: easeOut }}
+        transition={{ duration: 0.45, ease: easeOut }}
       >
         <StepBody phase={phase} active={active} animate={active} />
       </motion.div>
@@ -231,10 +219,10 @@ function StepBody({
     <div className="protocol-step__main">
       <motion.h3
         initial={false}
-        animate={active ? { opacity: 1, y: 0 } : { opacity: 0.9, y: 8 }}
+        animate={active ? { opacity: 1, y: 0 } : { opacity: 0.92, y: 4 }}
         transition={{
-          duration: 0.45,
-          delay: active ? 0.07 : 0,
+          duration: 0.4,
+          delay: active ? 0.05 : 0,
           ease: easeOut,
         }}
       >
@@ -246,11 +234,11 @@ function StepBody({
         animate={
           active
             ? { opacity: 1, y: 0, color: "var(--orange-500)" }
-            : { opacity: 0.9, y: 6, color: "var(--teal-300)" }
+            : { opacity: 0.9, y: 4, color: "var(--teal-300)" }
         }
         transition={{
-          duration: 0.4,
-          delay: active ? 0.1 : 0,
+          duration: 0.35,
+          delay: active ? 0.08 : 0,
           ease: easeOut,
         }}
       >
@@ -261,11 +249,11 @@ function StepBody({
           animate ? (
             <motion.li
               key={b}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.45,
-                delay: 0.14 + bi * 0.08,
+                duration: 0.4,
+                delay: 0.1 + bi * 0.06,
                 ease: easeOut,
               }}
             >

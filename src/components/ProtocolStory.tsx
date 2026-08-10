@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "@phosphor-icons/react";
 import { useCallback, useState } from "react";
+import { ProtocolBody } from "@/components/ProtocolBody";
 import { ProtocolSteps } from "@/components/ProtocolSteps";
 import { ScienceModal } from "@/components/ScienceModal";
 import { Reveal } from "@/components/motion/Reveal";
@@ -18,12 +19,18 @@ export function ProtocolStory({ protocol }: { protocol: Protocol }) {
 
   return (
     <>
-      <div className="protocol__layout protocol__layout--zigzag">
-        <ProtocolSteps
-          phases={protocol.phases}
-          activeIndex={activeIndex}
-          onActiveChange={onActiveChange}
-        />
+      <div className="protocol__layout">
+        <div className="protocol__timeline">
+          <ProtocolSteps
+            phases={protocol.phases}
+            activeIndex={activeIndex}
+            onActiveChange={onActiveChange}
+          />
+        </div>
+
+        <div className="protocol__body">
+          <ProtocolBody activeIndex={activeIndex} />
+        </div>
       </div>
 
       <Reveal className="protocol__cta">

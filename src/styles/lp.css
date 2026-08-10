@@ -776,26 +776,31 @@
   color: var(--gray-300);
 }
 .protocol__layout {
-  position: relative;
+  --protocol-rail-x: 26px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(220px, 0.7fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
   max-width: 1100px;
   margin: 0 auto;
 }
-.protocol__layout--zigzag {
-  --protocol-rail-x: 50%;
+.protocol__timeline {
+  position: relative;
+  min-width: 0;
 }
 .protocol__steps {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 18px;
   position: relative;
   padding-left: 0;
 }
-/* Center rail: dotted line grows with scroll */
+/* Left rail: dotted line grows with scroll */
 .protocol__rail {
   position: absolute;
-  left: var(--protocol-rail-x, 50%);
-  top: 4%;
-  bottom: 2%;
+  left: var(--protocol-rail-x);
+  top: 18px;
+  bottom: 18px;
   width: 3px;
   transform: translateX(-50%);
   pointer-events: none;
@@ -824,48 +829,29 @@
 }
 .protocol-step {
   position: relative;
-  min-height: min(40svh, 400px);
   display: flex;
-  align-items: center;
-  padding: 2.5vh 0;
+  align-items: stretch;
+  padding: 0 0 0 56px;
   background: transparent;
   border: none;
   border-radius: 0;
   box-shadow: none;
-}
-.protocol-step[data-side="left"] {
-  justify-content: flex-start;
-  padding-right: calc(50% + 52px);
-}
-.protocol-step[data-side="right"] {
-  justify-content: flex-end;
-  padding-left: calc(50% + 52px);
-}
-/* First step sits right under the intro */
-.protocol-step:first-child {
-  min-height: min(34svh, 320px);
-  padding-top: 8px;
-  padding-bottom: 4vh;
-}
-.protocol-step:last-child {
   min-height: 0;
-  padding-top: 2vh;
-  padding-bottom: 0;
 }
 .protocol-step__marker {
   position: absolute;
-  left: var(--protocol-rail-x, 50%);
-  top: 50%;
+  left: var(--protocol-rail-x);
+  top: 28px;
   z-index: 1;
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
   border: 1.5px solid rgba(87, 173, 181, 0.45);
   background: rgba(10, 31, 32, 1);
   color: rgba(245, 242, 235, 0.55);
-  font-size: 22px;
+  font-size: 18px;
   font-weight: var(--fw-extrabold);
   letter-spacing: -0.03em;
   line-height: 1;
@@ -874,7 +860,7 @@
     box-shadow;
 }
 .protocol-step__marker--static {
-  transform: translate(-50%, -50%) scale(1.08);
+  transform: translate(-50%, -50%) scale(1.06);
   opacity: 1;
   color: var(--gray-100);
   background: var(--orange-500);
@@ -884,7 +870,6 @@
     0 0 18px rgba(255, 106, 19, 0.55);
 }
 .protocol-step__content {
-  max-width: 440px;
   width: 100%;
   will-change: opacity, transform, filter;
 }
@@ -892,24 +877,29 @@
   min-width: 0;
   padding: 20px 22px 22px;
   border-radius: 16px;
-  background: rgba(245, 242, 235, 0.06);
+  background: rgba(245, 242, 235, 0.05);
   border: 1px solid rgba(245, 242, 235, 0.1);
+  transition:
+    background var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
 }
 .protocol-step[data-active="true"] .protocol-step__main {
-  background: rgba(245, 242, 235, 0.09);
-  border-color: rgba(245, 242, 235, 0.14);
+  background: rgba(255, 106, 19, 0.08);
+  border-color: rgba(255, 106, 19, 0.45);
+  box-shadow: 0 0 0 1px rgba(255, 106, 19, 0.12);
 }
 .protocol-step h3 {
   margin: 0 0 8px;
-  font-size: clamp(28px, 3.4vw, 40px);
+  font-size: clamp(22px, 2.4vw, 28px);
   font-weight: var(--fw-extrabold);
   color: var(--gray-100);
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.02em;
 }
 .protocol-step__subtitle {
   margin: 0 0 14px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: clamp(14px, 1.4vw, 16px);
   font-weight: var(--fw-bold);
   line-height: 1.4;
   color: var(--teal-300);
@@ -926,7 +916,7 @@
 .protocol-step li {
   position: relative;
   padding-left: 18px;
-  font-size: clamp(15px, 1.35vw, 17px);
+  font-size: clamp(14px, 1.3vw, 16px);
   line-height: 1.45;
   color: var(--gray-300);
 }
@@ -945,9 +935,98 @@
   background: var(--orange-500);
 }
 
-/* Body figure unused in zigzag layout — kept for a future asset swap */
 .protocol__body {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: sticky;
+  top: max(88px, 12vh);
+  align-self: start;
+}
+.protocol__body-figure {
+  position: relative;
+  width: min(100%, 360px);
+  line-height: 0;
+}
+.protocol__body-backglow {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  translate: -50% -50%;
+  width: 78%;
+  height: 88%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(255, 180, 80, 0.28), transparent 42%),
+    radial-gradient(ellipse at 50% 48%, rgba(255, 106, 19, 0.22), transparent 50%),
+    radial-gradient(ellipse at 62% 72%, rgba(255, 140, 50, 0.2), transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(40, 106, 115, 0.35), transparent 68%);
+  filter: blur(18px);
+  z-index: 0;
+  pointer-events: none;
+  animation: bodyBackglow 4.8s var(--ease-in-out) infinite;
+}
+.protocol__body-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.protocol__body-fx {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+.protocol__hotspot {
+  transform-origin: center;
+  transform-box: fill-box;
+  opacity: 0.22;
+  transition: opacity 0.45s var(--ease-out);
+}
+.protocol__hotspot[data-active="true"] {
+  opacity: 1;
+  animation: hotspotPulse 2.8s var(--ease-in-out) infinite;
+}
+@keyframes hotspotPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.16);
+  }
+}
+@keyframes bodyBackglow {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .protocol__hotspot,
+  .protocol__body-backglow {
+    animation: none;
+  }
+  .protocol__hotspot {
+    opacity: 0.35;
+    transform: none;
+  }
+  .protocol__hotspot[data-active="true"] {
+    opacity: 0.9;
+  }
+  .protocol__body-backglow {
+    opacity: 0.85;
+  }
 }
 
 .protocol__cta-link {
@@ -2234,32 +2313,21 @@ button.science-principle__media:focus-visible {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
-  .protocol__layout--zigzag {
-    --protocol-rail-x: 28px;
+  .protocol__layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .protocol__body {
+    order: -1;
+    position: relative;
+    top: auto;
+    justify-content: center;
+  }
+  .protocol__body-figure {
+    width: min(220px, 52vw);
   }
   .protocol-step {
-    min-height: min(36svh, 340px);
-    padding: 2.5vh 0;
-  }
-  .protocol-step[data-side="left"],
-  .protocol-step[data-side="right"] {
-    justify-content: flex-start;
-    padding-left: 56px;
-    padding-right: 0;
-  }
-  .protocol-step:first-child {
-    min-height: min(30svh, 280px);
-    padding-top: 4px;
-    padding-bottom: 3.5vh;
-  }
-  .protocol-step:last-child {
-    min-height: 0;
-    padding-top: 1.5vh;
-    padding-bottom: 0;
-  }
-  .protocol__rail {
-    top: 6%;
-    bottom: 4%;
+    padding-left: 52px;
   }
   .protocol__rail-track {
     background-image: radial-gradient(
@@ -2408,20 +2476,23 @@ button.science-principle__media:focus-visible {
   .case-hero--names[data-slide="brand"] .case-hero__dots {
     bottom: 88px;
   }
-  .protocol__layout--zigzag {
-    --protocol-rail-x: 26px;
+  .protocol__layout {
+    --protocol-rail-x: 22px;
   }
-  .protocol-step[data-side="left"],
-  .protocol-step[data-side="right"] {
-    padding-left: 52px;
+  .protocol-step {
+    padding-left: 46px;
   }
   .protocol-step__marker {
-    width: 44px;
-    height: 44px;
-    font-size: 19px;
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+    top: 26px;
   }
   .protocol-step h3 {
-    font-size: clamp(24px, 7vw, 32px);
+    font-size: clamp(20px, 6vw, 24px);
+  }
+  .protocol__body-figure {
+    width: min(180px, 48vw);
   }
   .impact-card__row {
     grid-template-columns: 1fr;
