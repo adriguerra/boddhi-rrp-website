@@ -39,7 +39,7 @@ export const en: SiteContent = {
     eyebrow: "How RRP works",
     title: "Optimise tissue repair to restore performance.",
     subtitle:
-      "RRP® is a 3-stage protocol over 4–14 days for acute muscle, ligament and tendon tears.\nWe use precision acupuncture to amplify the body’s natural tissue-repair response.",
+      "RRP® is a 3-stage protocol over 4–14 days for acute muscle, ligament and tendon tears. We use precision acupuncture to amplify the body’s natural tissue-repair response.",
     cta: "Discover the science",
     science: {
       title: "Two principles.\nEverything else follows.",

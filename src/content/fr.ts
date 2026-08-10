@@ -39,7 +39,7 @@ export const fr: SiteContent = {
     eyebrow: "Comment fonctionne le RRP",
     title: "Optimiser la réparation tissulaire pour restaurer la performance.",
     subtitle:
-      "Le RRP® est un protocole en 3 étapes sur 4 à 14 jours pour les déchirures musculaires, ligamentaires et tendineuses aiguës.\nNous utilisons l’acupuncture de précision pour amplifier la réponse naturelle de réparation tissulaire du corps.",
+      "Le RRP® est un protocole en 3 étapes sur 4 à 14 jours pour les déchirures musculaires, ligamentaires et tendineuses aiguës. Nous utilisons l’acupuncture de précision pour amplifier la réponse naturelle de réparation tissulaire du corps.",
     cta: "Découvrir la science",
     science: {
       title: "Deux principes.\nTout le reste en découle.",
