@@ -539,7 +539,7 @@
 }
 .protocol__subtitle {
   margin: 16px auto 0;
-  max-width: 42ch;
+  max-width: 52ch;
   font-size: clamp(16px, 1.5vw, 18px);
   font-weight: var(--fw-medium);
   line-height: 1.5;
@@ -594,10 +594,10 @@
 }
 .protocol-step {
   position: relative;
-  min-height: min(58svh, 560px);
+  min-height: min(40svh, 400px);
   display: flex;
   align-items: center;
-  padding: 5vh 0;
+  padding: 2.5vh 0;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -605,77 +605,72 @@
 }
 .protocol-step[data-side="left"] {
   justify-content: flex-start;
-  padding-right: calc(50% + 36px);
+  padding-right: calc(50% + 52px);
 }
 .protocol-step[data-side="right"] {
   justify-content: flex-end;
-  padding-left: calc(50% + 36px);
+  padding-left: calc(50% + 52px);
 }
 /* First step sits right under the intro */
 .protocol-step:first-child {
-  min-height: min(48svh, 460px);
-  align-items: flex-start;
+  min-height: min(34svh, 320px);
   padding-top: 8px;
-  padding-bottom: 8vh;
+  padding-bottom: 4vh;
 }
 .protocol-step:last-child {
   min-height: 0;
-  align-items: flex-start;
-  padding-top: 4vh;
+  padding-top: 2vh;
   padding-bottom: 0;
 }
 .protocol-step__marker {
   position: absolute;
   left: var(--protocol-rail-x, 50%);
   top: 50%;
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: rgba(87, 173, 181, 0.35);
-  box-shadow: 0 0 0 4px rgba(10, 31, 32, 1);
   z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(87, 173, 181, 0.45);
+  background: rgba(10, 31, 32, 1);
+  color: rgba(245, 242, 235, 0.55);
+  font-size: 22px;
+  font-weight: var(--fw-extrabold);
+  letter-spacing: -0.03em;
+  line-height: 1;
   pointer-events: none;
-  will-change: transform, opacity;
+  will-change: transform, opacity, color, background-color, border-color,
+    box-shadow;
 }
 .protocol-step__marker--static {
-  transform: translate(-50%, -50%) scale(1.2);
+  transform: translate(-50%, -50%) scale(1.08);
   opacity: 1;
+  color: var(--gray-100);
   background: var(--orange-500);
+  border-color: var(--orange-500);
   box-shadow:
     0 0 0 4px rgba(10, 31, 32, 1),
-    0 0 16px rgba(255, 106, 19, 0.55);
-}
-.protocol-step:first-child .protocol-step__marker {
-  top: 1.6rem;
-}
-.protocol-step:last-child .protocol-step__marker {
-  top: calc(4vh + 1.6rem);
+    0 0 18px rgba(255, 106, 19, 0.55);
 }
 .protocol-step__content {
   max-width: 440px;
   width: 100%;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  column-gap: 14px;
-  align-items: start;
   will-change: opacity, transform, filter;
-}
-.protocol-step__num {
-  flex-shrink: 0;
-  display: inline-block;
-  font-size: clamp(32px, 4vw, 46px);
-  font-weight: var(--fw-extrabold);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--teal-300);
-  margin-top: 0.06em;
-  will-change: transform, color;
 }
 .protocol-step__main {
   min-width: 0;
+  padding: 20px 22px 22px;
+  border-radius: 16px;
+  background: rgba(245, 242, 235, 0.06);
+  border: 1px solid rgba(245, 242, 235, 0.1);
+}
+.protocol-step[data-active="true"] .protocol-step__main {
+  background: rgba(245, 242, 235, 0.09);
+  border-color: rgba(245, 242, 235, 0.14);
 }
 .protocol-step h3 {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-size: clamp(28px, 3.4vw, 40px);
   font-weight: var(--fw-extrabold);
   color: var(--gray-100);
@@ -683,7 +678,7 @@
   letter-spacing: -0.02em;
 }
 .protocol-step__subtitle {
-  margin: 0 0 20px;
+  margin: 0 0 14px;
   font-size: clamp(15px, 1.5vw, 17px);
   font-weight: var(--fw-bold);
   line-height: 1.4;
@@ -696,7 +691,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 .protocol-step li {
   position: relative;
@@ -1997,35 +1992,31 @@ button.science-principle__media:focus-visible {
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .protocol__layout--zigzag {
-    --protocol-rail-x: 7px;
+    --protocol-rail-x: 28px;
   }
   .protocol-step {
-    min-height: min(52svh, 480px);
-    padding: 5vh 0;
+    min-height: min(36svh, 340px);
+    padding: 2.5vh 0;
   }
   .protocol-step[data-side="left"],
   .protocol-step[data-side="right"] {
     justify-content: flex-start;
-    padding-left: 28px;
+    padding-left: 56px;
     padding-right: 0;
   }
   .protocol-step:first-child {
-    min-height: min(44svh, 400px);
+    min-height: min(30svh, 280px);
     padding-top: 4px;
-    padding-bottom: 6vh;
+    padding-bottom: 3.5vh;
   }
   .protocol-step:last-child {
     min-height: 0;
-    padding-top: 3vh;
+    padding-top: 1.5vh;
     padding-bottom: 0;
-  }
-  .protocol-step:last-child .protocol-step__marker {
-    top: calc(3vh + 1.4rem);
   }
   .protocol__rail {
     top: 6%;
     bottom: 4%;
-    transform: none;
   }
   .protocol__rail-track {
     background-image: radial-gradient(
@@ -2156,14 +2147,16 @@ button.science-principle__media:focus-visible {
     bottom: 88px;
   }
   .protocol__layout--zigzag {
-    --protocol-rail-x: 5px;
+    --protocol-rail-x: 26px;
   }
   .protocol-step[data-side="left"],
   .protocol-step[data-side="right"] {
-    padding-left: 22px;
+    padding-left: 52px;
   }
-  .protocol-step__num {
-    font-size: clamp(28px, 8vw, 36px);
+  .protocol-step__marker {
+    width: 44px;
+    height: 44px;
+    font-size: 19px;
   }
   .protocol-step h3 {
     font-size: clamp(24px, 7vw, 32px);

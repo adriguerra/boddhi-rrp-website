@@ -39,7 +39,7 @@ export const fr: SiteContent = {
     eyebrow: "Comment fonctionne le RRP",
     title: "Optimiser la réparation tissulaire pour restaurer la performance.",
     subtitle:
-      "Un protocole en 3 étapes sur 4 à 14 jours pour les déchirures musculaires, ligamentaires et tendineuses aiguës.",
+      "Le RRP® est un protocole en 3 étapes sur 4 à 14 jours pour les déchirures musculaires, ligamentaires et tendineuses aiguës. Nous utilisons l’acupuncture de précision pour amplifier la réponse naturelle de réparation tissulaire du corps.",
     cta: "Découvrir la science",
     science: {
       title: "Deux principes.\nTout le reste en découle.",
@@ -73,7 +73,7 @@ export const fr: SiteContent = {
     },
     phases: [
       {
-        num: "01",
+        num: "1",
         title: "Préparer le corps",
         subtitle: "Créer les conditions optimales de réparation",
         bullets: [
@@ -83,7 +83,7 @@ export const fr: SiteContent = {
         ],
       },
       {
-        num: "02",
+        num: "2",
         title: "Réparation tissulaire ciblée",
         subtitle:
           "Déclencher des signaux neurologiques pour accélérer la réparation du site lésé",
@@ -94,7 +94,7 @@ export const fr: SiteContent = {
         ],
       },
       {
-        num: "03",
+        num: "3",
         title: "Immobilisation stratégique",
         subtitle: "Protéger la réparation pour la croissance tissulaire",
         bullets: [
@@ -171,7 +171,7 @@ export const fr: SiteContent = {
             },
             {
               title: "L'intervention",
-              body: "Kaleigh a suivi cinq traitements RRP® intensifs en sept jours, alliant préparation à l'état de réparation optimal et Precision Repair Acupuncture.",
+              body: "Kaleigh a suivi cinq traitements RRP® en sept jours, alliant préparation à l'état de réparation optimal et Precision Repair Acupuncture.",
             },
             {
               title: "Le résultat",
@@ -251,7 +251,7 @@ export const fr: SiteContent = {
             },
             {
               title: "L'intervention",
-              body: "Kevin a suivi trois traitements RRP® intensifs en quatre jours, alliant préparation à l'état de réparation optimal et Precision Repair Acupuncture.",
+              body: "Kevin a suivi trois traitements RRP® en quatre jours, alliant préparation à l'état de réparation optimal et Precision Repair Acupuncture.",
             },
             {
               title: "Le résultat",
@@ -328,7 +328,7 @@ export const fr: SiteContent = {
     bio: "Lucy a développé le Rapid Repair Protocol après plus d'une décennie de pratique clinique d'élite en Chine et en Europe. Elle réunit neuro-acupuncture, science de la réparation tissulaire et sport de haut niveau.",
     location: "Basée à la Boddhi Clinic, Genève",
     creds: [
-      { to: 50000, format: "comma", label: "Heures cliniques" },
+      { to: 50000, format: "comma", suffix: "+", label: "Heures cliniques" },
       { to: 28, suffix: " ans", label: "Formation avancée" },
       { to: 12, suffix: " ans", label: "En Chine" },
       {

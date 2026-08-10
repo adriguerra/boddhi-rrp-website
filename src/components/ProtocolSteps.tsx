@@ -139,7 +139,9 @@ function ProtocolStep({
         <span
           className="protocol-step__marker protocol-step__marker--static"
           aria-hidden
-        />
+        >
+          {phase.num}
+        </span>
         <div className="protocol-step__content">
           <StepBody phase={phase} active animate={false} />
         </div>
@@ -164,15 +166,25 @@ function ProtocolStep({
         animate={{
           x: "-50%",
           y: "-50%",
-          scale: !reached ? 0.6 : active ? 1.2 : 1,
-          opacity: !reached ? 0.35 : 1,
+          scale: !reached ? 0.72 : active ? 1.08 : 1,
+          opacity: !reached ? 0.45 : 1,
+          color: active
+            ? "var(--gray-100)"
+            : reached
+              ? "var(--teal-200)"
+              : "rgba(245, 242, 235, 0.55)",
           backgroundColor: active
             ? "var(--orange-500)"
             : reached
-              ? "rgba(87, 173, 181, 0.7)"
-              : "rgba(87, 173, 181, 0.35)",
+              ? "rgba(87, 173, 181, 0.85)"
+              : "rgba(10, 31, 32, 1)",
+          borderColor: active
+            ? "var(--orange-500)"
+            : reached
+              ? "rgba(87, 173, 181, 0.9)"
+              : "rgba(87, 173, 181, 0.45)",
           boxShadow: active
-            ? "0 0 0 4px rgba(10, 31, 32, 1), 0 0 16px rgba(255, 106, 19, 0.55)"
+            ? "0 0 0 4px rgba(10, 31, 32, 1), 0 0 18px rgba(255, 106, 19, 0.55)"
             : "0 0 0 4px rgba(10, 31, 32, 1)",
         }}
         transition={{
@@ -181,7 +193,9 @@ function ProtocolStep({
           damping: 16,
           mass: 0.45,
         }}
-      />
+      >
+        {phase.num}
+      </motion.span>
 
       <motion.div
         className="protocol-step__content"
@@ -214,72 +228,54 @@ function StepBody({
   animate: boolean;
 }) {
   return (
-    <>
-      <motion.span
-        className="protocol-step__num"
+    <div className="protocol-step__main">
+      <motion.h3
+        initial={false}
+        animate={active ? { opacity: 1, y: 0 } : { opacity: 0.9, y: 8 }}
+        transition={{
+          duration: 0.45,
+          delay: active ? 0.07 : 0,
+          ease: easeOut,
+        }}
+      >
+        {phase.title}
+      </motion.h3>
+      <motion.p
+        className="protocol-step__subtitle"
         initial={false}
         animate={
           active
-            ? { scale: 1, color: "var(--orange-500)" }
-            : { scale: 0.92, color: "var(--teal-300)" }
+            ? { opacity: 1, y: 0, color: "var(--orange-500)" }
+            : { opacity: 0.9, y: 6, color: "var(--teal-300)" }
         }
         transition={{
-          scale: { duration: 0.4, ease: easeOut },
-          color: { duration: 0.28, ease: easeOut },
+          duration: 0.4,
+          delay: active ? 0.1 : 0,
+          ease: easeOut,
         }}
-        style={{ originX: 0.5, originY: 0.5 }}
       >
-        {phase.num}
-      </motion.span>
-      <div className="protocol-step__main">
-        <motion.h3
-          initial={false}
-          animate={active ? { opacity: 1, y: 0 } : { opacity: 0.9, y: 8 }}
-          transition={{
-            duration: 0.45,
-            delay: active ? 0.07 : 0,
-            ease: easeOut,
-          }}
-        >
-          {phase.title}
-        </motion.h3>
-        <motion.p
-          className="protocol-step__subtitle"
-          initial={false}
-          animate={
-            active
-              ? { opacity: 1, y: 0, color: "var(--orange-500)" }
-              : { opacity: 0.9, y: 6, color: "var(--teal-300)" }
-          }
-          transition={{
-            duration: 0.4,
-            delay: active ? 0.1 : 0,
-            ease: easeOut,
-          }}
-        >
-          {phase.subtitle}
-        </motion.p>
-        <ul>
-          {phase.bullets.map((b, bi) =>
-            animate ? (
-              <motion.li
-                key={b}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.45,
-                  delay: 0.14 + bi * 0.08,
-                  ease: easeOut,
-                }}
-              >
-                {b}
-              </motion.li>
-            ) : (
-              <li key={b}>{b}</li>
-            ),
-          )}
-        </ul>
-      </div>
-    </>
+        {phase.subtitle}
+      </motion.p>
+      <ul>
+        {phase.bullets.map((b, bi) =>
+          animate ? (
+            <motion.li
+              key={b}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.45,
+                delay: 0.14 + bi * 0.08,
+                ease: easeOut,
+              }}
+            >
+              {b}
+            </motion.li>
+          ) : (
+            <li key={b}>{b}</li>
+          ),
+        )}
+      </ul>
+    </div>
   );
 }

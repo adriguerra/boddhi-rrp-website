@@ -39,7 +39,7 @@ export const en: SiteContent = {
     eyebrow: "How RRP works",
     title: "Optimise tissue repair to restore performance.",
     subtitle:
-      "A 3-stage protocol over 4–14 days for acute muscle, ligament and tendon tears.",
+      "RRP® is a 3-stage protocol over 4–14 days for acute muscle, ligament and tendon tears. We use precision acupuncture to amplify the body’s natural tissue-repair response.",
     cta: "Discover the science",
     science: {
       title: "Two principles.\nEverything else follows.",
@@ -72,7 +72,7 @@ export const en: SiteContent = {
     },
     phases: [
       {
-        num: "01",
+        num: "1",
         title: "Prepare the body",
         subtitle: "Create the optimal conditions for repair",
         bullets: [
@@ -82,7 +82,7 @@ export const en: SiteContent = {
         ],
       },
       {
-        num: "02",
+        num: "2",
         title: "Targeted Tissue Repair",
         subtitle: "Spark neuro signals to accelerate injury site repair",
         bullets: [
@@ -92,7 +92,7 @@ export const en: SiteContent = {
         ],
       },
       {
-        num: "03",
+        num: "3",
         title: "Strategic immobilisation",
         subtitle: "Protect the repair for tissue growth",
         bullets: [
@@ -167,7 +167,7 @@ export const en: SiteContent = {
             },
             {
               title: "The intervention",
-              body: "Kaleigh completed five intensive RRP® treatments over seven days, combining Optimal Repair State preparation with Precision Repair Acupuncture.",
+              body: "Kaleigh completed five RRP® treatments over seven days, combining Optimal Repair State preparation with Precision Repair Acupuncture.",
             },
             {
               title: "The outcome",
@@ -247,7 +247,7 @@ export const en: SiteContent = {
             },
             {
               title: "The intervention",
-              body: "Kevin completed three intensive RRP® treatments over four days, combining Optimal Repair State preparation with Precision Repair Acupuncture.",
+              body: "Kevin completed three RRP® treatments over four days, combining Optimal Repair State preparation with Precision Repair Acupuncture.",
             },
             {
               title: "The outcome",
@@ -323,7 +323,7 @@ export const en: SiteContent = {
     bio: "Lucy developed the Rapid Repair Protocol after more than a decade of elite clinical practice across China and Europe. She brings together neuro-acupuncture, tissue-repair science, and high-performance sport.",
     location: "Based at Boddhi Clinic, Geneva",
     creds: [
-      { to: 50000, format: "comma", label: "Clinical hours" },
+      { to: 50000, format: "comma", suffix: "+", label: "Clinical hours" },
       { to: 28, suffix: " years", label: "Advanced education" },
       { to: 12, suffix: " years", label: "In China" },
       {
