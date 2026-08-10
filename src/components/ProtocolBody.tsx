@@ -25,7 +25,7 @@ export function ProtocolBody({
       <Image
         src="/assets/protocol-body.png"
         alt=""
-        width={493}
+        width={441}
         height={1024}
         className="protocol__body-img"
         sizes="(max-width: 1024px) 260px, 380px"
@@ -34,7 +34,7 @@ export function ProtocolBody({
 
       <svg
         className="protocol__body-fx"
-        viewBox="0 0 493 1024"
+        viewBox="0 0 441 1024"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -59,25 +59,25 @@ export function ProtocolBody({
           <circle
             className="protocol__hotspot protocol__hotspot--brain"
             data-active={phase === 0 ? "true" : "false"}
-            cx="246"
-            cy="92"
-            r="36"
+            cx="220"
+            cy="85"
+            r="34"
             fill="url(#hotspotCore)"
           />
           <circle
             className="protocol__hotspot protocol__hotspot--stomach"
             data-active={phase === 1 ? "true" : "false"}
-            cx="246"
-            cy="520"
-            r="44"
+            cx="250"
+            cy="547"
+            r="42"
             fill="url(#hotspotCore)"
           />
           <circle
             className="protocol__hotspot protocol__hotspot--knee"
             data-active={phase === 2 ? "true" : "false"}
-            cx="318"
-            cy="780"
-            r="30"
+            cx="260"
+            cy="760"
+            r="28"
             fill="url(#hotspotCore)"
           />
         </g>

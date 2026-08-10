@@ -108,7 +108,7 @@ export const fr: SiteContent = {
   },
   cases: {
     badge: "Histoires de succès",
-    title: "Ensemble, nous battons le pronostic de **90 %**",
+    title: "Ils ont battu le pronostic et gagné.",
     subtitle: "",
     readMore: "Voir leur histoire",
     backLabel: "Retour à l'accueil",

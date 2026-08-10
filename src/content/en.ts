@@ -106,7 +106,7 @@ export const en: SiteContent = {
   },
   cases: {
     badge: "Success Stories",
-    title: "Together we beat the prognosis by **90%**",
+    title: "They beat the prognosis and won.",
     subtitle: "",
     readMore: "See their story",
     backLabel: "Back to home",

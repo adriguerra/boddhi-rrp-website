@@ -26,17 +26,18 @@ export function LandingHero({ content }: { content: SiteContent }) {
           <AccentText as="h1" className="lp-hero__title" text={hero.title} />
           <p className="lp-hero__sub">{hero.sub}</p>
           <a className="btn btn--ghost btn--hero" href="#contact">
-            {hero.ctaPrimary}
+            <ArrowRight size={16} weight="bold" aria-hidden />
+            <span>{hero.ctaPrimary}</span>
           </a>
         </div>
 
-        <aside className="lp-hero__proof">
+        <a className="lp-hero__proof" href="#cases">
           <AccentText as="p" className="lp-hero__proof-text" text={hero.proof} />
-          <a className="lp-hero__proof-link" href="#cases">
+          <span className="lp-hero__proof-link">
             <span>{hero.proofCta}</span>
             <ArrowRight size={16} weight="bold" aria-hidden />
-          </a>
-        </aside>
+          </span>
+        </a>
       </div>
 
       <a
