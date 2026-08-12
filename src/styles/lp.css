@@ -791,7 +791,7 @@
 .protocol__cta {
   display: flex;
   justify-content: center;
-  margin-top: clamp(28px, 5vh, 48px);
+  margin-top: clamp(44px, 7vh, 72px);
   margin-bottom: 0;
 }
 .delivery .container {
@@ -799,7 +799,7 @@
 }
 .protocol__intro {
   max-width: 640px;
-  margin: 0 auto clamp(24px, 3.5vh, 40px);
+  margin: 0 auto clamp(40px, 5.5vh, 64px);
   text-align: center;
 }
 .protocol__intro .badge {
@@ -821,29 +821,35 @@
 .protocol__layout {
   --protocol-rail-x: 26px;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(220px, 0.7fr);
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.05fr);
   gap: clamp(28px, 4vw, 56px);
-  align-items: start;
+  align-items: stretch;
   max-width: 1100px;
   margin: 0 auto;
 }
 .protocol__timeline {
   position: relative;
   min-width: 0;
-}
-.protocol__steps {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  position: relative;
-  padding-left: 0;
 }
-/* Left rail: dotted line grows with scroll */
+.protocol__steps {
+  --protocol-step-inset: clamp(36px, 5vh, 56px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  position: relative;
+  padding: var(--protocol-step-inset) 0;
+  min-height: 100%;
+}
+/* Left rail: dotted line grows with scroll — starts above the first marker */
 .protocol__rail {
   position: absolute;
   left: var(--protocol-rail-x);
-  top: 18px;
-  bottom: 18px;
+  top: max(0px, calc(var(--protocol-step-inset) - 20px));
+  bottom: calc(var(--protocol-step-inset) + 22px);
   width: 3px;
   transform: translateX(-50%);
   pointer-events: none;
@@ -884,7 +890,7 @@
 .protocol-step__marker {
   position: absolute;
   left: var(--protocol-rail-x);
-  top: 28px;
+  top: 24px;
   z-index: 1;
   display: grid;
   place-items: center;
@@ -918,8 +924,8 @@
 }
 .protocol-step__main {
   min-width: 0;
-  padding: 20px 22px 22px;
-  border-radius: 16px;
+  padding: 16px 20px 18px;
+  border-radius: 14px;
   background: rgba(245, 242, 235, 0.05);
   border: 1px solid rgba(245, 242, 235, 0.1);
   transition:
@@ -933,16 +939,16 @@
   box-shadow: 0 0 0 1px rgba(255, 106, 19, 0.12);
 }
 .protocol-step h3 {
-  margin: 0 0 8px;
-  font-size: clamp(22px, 2.4vw, 28px);
+  margin: 0 0 6px;
+  font-size: clamp(20px, 2.2vw, 26px);
   font-weight: var(--fw-extrabold);
   color: var(--gray-100);
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 .protocol-step__subtitle {
-  margin: 0 0 14px;
-  font-size: clamp(14px, 1.4vw, 16px);
+  margin: 0 0 10px;
+  font-size: clamp(13px, 1.35vw, 15px);
   font-weight: var(--fw-bold);
   line-height: 1.4;
   color: var(--teal-300);
@@ -954,13 +960,13 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 .protocol-step li {
   position: relative;
-  padding-left: 18px;
-  font-size: clamp(14px, 1.3vw, 16px);
-  line-height: 1.45;
+  padding-left: 16px;
+  font-size: clamp(13px, 1.25vw, 15px);
+  line-height: 1.4;
   color: var(--gray-300);
 }
 .protocol-step li::before {
@@ -2409,15 +2415,22 @@ button.science-principle__media:focus-visible {
   .protocol__layout {
     grid-template-columns: 1fr;
     gap: 28px;
+    align-items: start;
   }
   .protocol__body {
-    order: -1;
     position: relative;
     top: auto;
     justify-content: center;
   }
   .protocol__body-figure {
     width: min(220px, 52vw);
+  }
+  .protocol__steps {
+    --protocol-step-inset: clamp(12px, 2vh, 24px);
+    min-height: 0;
+    height: auto;
+    justify-content: flex-start;
+    gap: 28px;
   }
   .protocol-step {
     padding-left: 52px;
@@ -2579,10 +2592,10 @@ button.science-principle__media:focus-visible {
     width: 38px;
     height: 38px;
     font-size: 16px;
-    top: 26px;
+    top: 22px;
   }
   .protocol-step h3 {
-    font-size: clamp(20px, 6vw, 24px);
+    font-size: clamp(18px, 5.5vw, 22px);
   }
   .protocol__body-figure {
     width: min(180px, 48vw);
