@@ -62,7 +62,7 @@ export function ImpactSection({ content }: { content: SiteContent }) {
         <div className="container impact__container">
           <Reveal className="impact__intro">
             <span className="badge badge--teal-soft-dark">{cases.badge}</span>
-            <h2 className="sr-only">{cases.badge}</h2>
+            <h2 className="section-title section-title--light">{cases.title}</h2>
           </Reveal>
 
           <div className="impact__grid">

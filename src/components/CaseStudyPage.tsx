@@ -121,13 +121,6 @@ export function CaseStudyPage({
 
           <Reveal>
             <header className="case-detail__hero">
-              <Image
-                src={item.photo}
-                alt={item.name}
-                width={200}
-                height={200}
-                className="case-detail__photo"
-              />
               <div>
                 <span className="badge badge--orange-soft">{cases.badge}</span>
                 <h1>{item.name}</h1>

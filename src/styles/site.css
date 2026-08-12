@@ -2142,7 +2142,7 @@ section { scroll-margin-top: 72px; }
 .vertical-video__overlay {
   position: fixed;
   inset: 0;
-  z-index: 80;
+  z-index: 90;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -26,7 +26,7 @@ export const fr: SiteContent = {
   hero: {
     eyebrow: "Pour les athlètes d'élite avec blessures aiguës",
     title: "Battez le pronostic.\n**Accélérez le retour.**",
-    sub: "Ligaments, muscles et tendons — sans chirurgie, en jours pas en mois.",
+    sub: "Nous réparons, sans chirurgie, en jours pas en mois.",
     ctaPrimary: "Réserver un appel",
     ctaWatchVideo: "Voir la vidéo",
     ctaReadStory: "Lire l'histoire",
@@ -76,22 +76,21 @@ export const fr: SiteContent = {
       {
         num: "1",
         title: "Préparer le corps",
-        subtitle: "Créer les conditions optimales de réparation",
+        subtitle: "Athlète placé dans un état immersif de tissu optimal",
         bullets: [
           "Protocole de récupération quotidien guidé",
           "Plan nutritionnel et de sommeil personnalisé",
-          "Conditionnement du corps entier",
+          "Créer les conditions optimales de réparation",
         ],
       },
       {
         num: "2",
         title: "Réparation tissulaire ciblée",
-        subtitle:
-          "Déclencher des signaux neurologiques pour accélérer la réparation du site lésé",
+        subtitle: "Mobiliser la réponse immunitaire innée pour la réparation",
         bullets: [
-          "Precision Repair Acupuncture (PRA)",
-          "Stimulation thermique",
-          "Soutien biologique ciblé",
+          "Voies de neuro-signalisation activées",
+          "Precision Repair Acupuncture au site de la blessure",
+          "Stimulation thermique ciblée",
         ],
       },
       {
@@ -108,7 +107,7 @@ export const fr: SiteContent = {
   },
   cases: {
     badge: "Histoires de succès",
-    title: "Ensemble, nous battons le pronostic de **90 %**",
+    title: "Ils ont battu le pronostic et gagné.",
     subtitle: "",
     readMore: "Voir leur histoire",
     backLabel: "Retour à l'accueil",
@@ -125,7 +124,6 @@ export const fr: SiteContent = {
         before: "Chirurgie. Saison terminée.",
         video: "/assets/videos/kaleigh-fr.mp4",
         videoPoster: "/assets/videos/kaleigh-poster.jpg",
-        videoLabel: "Regarder",
         storyLabel: "Témoignage",
         rows: [
           {
@@ -179,24 +177,7 @@ export const fr: SiteContent = {
               body: "Réparation complète et retour au jeu en 8 jours — puis médaille de bronze olympique à Milan 2026.",
             },
           ],
-          gallery: [
-            {
-              src: "/case-studies/kaleigh/treatment.jpg",
-              alt: "Séance de traitement RRP",
-            },
-            {
-              src: "/assets/acupuncture.png",
-              alt: "Precision Repair Acupuncture",
-            },
-            {
-              src: "/case-studies/kaleigh/action.jpg",
-              alt: "Athlète en action",
-            },
-            {
-              src: "/case-studies/kaleigh/slide-team.jpg",
-              alt: "Équipe olympique suisse de hockey",
-            },
-          ],
+          gallery: [],
         },
       },
       {
@@ -261,20 +242,20 @@ export const fr: SiteContent = {
           ],
           gallery: [
             {
-              src: "/case-studies/kevin/treatment.jpg",
-              alt: "Traitement RRP — ventouses",
-            },
-            {
-              src: "/assets/acupuncture.png",
-              alt: "Aiguilles Precision Repair Acupuncture",
-            },
-            {
               src: "/case-studies/kevin/action.jpg",
               alt: "Détail du traitement",
             },
             {
               src: "/case-studies/kevin/slide-2.png",
               alt: "Célébration Kevin Mbabu",
+            },
+            {
+              src: "/case-studies/kevin/treatment-leg.png",
+              alt: "Precision Repair Acupuncture avec stimulation thermique",
+            },
+            {
+              src: "/case-studies/kevin/treatment-thermal.png",
+              alt: "Stimulation thermique ciblée sur le site de la blessure",
             },
           ],
         },

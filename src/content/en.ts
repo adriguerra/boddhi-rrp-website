@@ -26,7 +26,7 @@ export const en: SiteContent = {
   hero: {
     eyebrow: "For elite athletes with acute injuries",
     title: "Beat the prognosis.\n**Accelerate return.**",
-    sub: "Ligament, muscle and tendon tears — without surgery, in days not months.",
+    sub: "We repair, without surgery, in days not months.",
     ctaPrimary: "Book a Call",
     ctaWatchVideo: "Watch Video",
     ctaReadStory: "Read Story",
@@ -75,21 +75,21 @@ export const en: SiteContent = {
       {
         num: "1",
         title: "Prepare the body",
-        subtitle: "Create the optimal conditions for repair",
+        subtitle: "Athlete placed in immersive state of optimal tissue",
         bullets: [
           "Guided daily recovery protocol",
           "Personalised nutrition and sleep plan",
-          "Full-body conditioning",
+          "Create the optimal conditions for repair",
         ],
       },
       {
         num: "2",
         title: "Targeted Tissue Repair",
-        subtitle: "Spark neuro signals to accelerate injury site repair",
+        subtitle: "Mobilize the innate immune response for repair",
         bullets: [
-          "Precision Repair Acupuncture (PRA)",
-          "Thermal stimulation",
-          "Targeted biological support",
+          "Neuro-signaling pathways activated",
+          "Precision Repair Acupuncture at injury site",
+          "Targeted thermal stimulation",
         ],
       },
       {
@@ -106,7 +106,7 @@ export const en: SiteContent = {
   },
   cases: {
     badge: "Success Stories",
-    title: "Together we beat the prognosis by **90%**",
+    title: "They beat the prognosis and won.",
     subtitle: "",
     readMore: "See their story",
     backLabel: "Back to home",
@@ -123,7 +123,6 @@ export const en: SiteContent = {
         before: "Surgery. Season over.",
         video: "/assets/videos/kaleigh-en.mp4",
         videoPoster: "/assets/videos/kaleigh-poster.jpg",
-        videoLabel: "Watch",
         storyLabel: "Success story",
         rows: [
           {
@@ -175,24 +174,7 @@ export const en: SiteContent = {
               body: "Complete repair and return to play in 8 days — then Olympic Bronze at Milan 2026.",
             },
           ],
-          gallery: [
-            {
-              src: "/case-studies/kaleigh/treatment.jpg",
-              alt: "RRP treatment session",
-            },
-            {
-              src: "/assets/acupuncture.png",
-              alt: "Precision Repair Acupuncture",
-            },
-            {
-              src: "/case-studies/kaleigh/action.jpg",
-              alt: "Athlete in action",
-            },
-            {
-              src: "/case-studies/kaleigh/slide-team.jpg",
-              alt: "Swiss Olympic ice hockey team",
-            },
-          ],
+          gallery: [],
         },
       },
       {
@@ -257,20 +239,20 @@ export const en: SiteContent = {
           ],
           gallery: [
             {
-              src: "/case-studies/kevin/treatment.jpg",
-              alt: "RRP treatment — cupping therapy",
-            },
-            {
-              src: "/assets/acupuncture.png",
-              alt: "Precision Repair Acupuncture needles",
-            },
-            {
               src: "/case-studies/kevin/action.jpg",
               alt: "Treatment detail",
             },
             {
               src: "/case-studies/kevin/slide-2.png",
               alt: "Kevin Mbabu celebration",
+            },
+            {
+              src: "/case-studies/kevin/treatment-leg.png",
+              alt: "Precision Repair Acupuncture with thermal stimulation",
+            },
+            {
+              src: "/case-studies/kevin/treatment-thermal.png",
+              alt: "Targeted thermal stimulation on injury site",
             },
           ],
         },

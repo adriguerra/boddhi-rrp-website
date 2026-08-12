@@ -24,7 +24,8 @@ export function ContactSection({ content }: { content: SiteContent }) {
               className="btn btn--accent btn--lg"
               href={`mailto:${contact.email}`}
             >
-              {contact.cta} <ArrowRight size={18} weight="bold" />
+              <ArrowRight size={18} weight="bold" aria-hidden />
+              <span>{contact.cta}</span>
             </a>
           </div>
           <p className="contact__phone">
