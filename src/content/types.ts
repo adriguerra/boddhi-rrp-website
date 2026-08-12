@@ -136,17 +136,7 @@ export type SiteContent = {
     phoneHref: string;
     phoneLabel: string;
     location: string;
-    calendar: {
-      eventLabel: string;
-      duration: string;
-      monthLabel: string;
-      weekdays: string[];
-      days: (number | null)[];
-      selectedDay: number;
-      timesLabel: string;
-      times: string[];
-      selectedTime: string;
-    };
+    calLink: string;
   };
   footer: {
     tagline: string;

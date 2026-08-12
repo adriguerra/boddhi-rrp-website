@@ -2070,7 +2070,7 @@ button.science-principle__media:focus-visible {
 
 /* ---------- Contact tweak ---------- */
 .contact__inner {
-  max-width: 720px;
+  max-width: 1120px;
 }
 .contact h2 {
   font-size: clamp(40px, 6vw, 64px);
@@ -2109,7 +2109,36 @@ button.science-principle__media:focus-visible {
   transform: translateX(0);
 }
 
-/* Calendar booking mock */
+.contact__cal {
+  width: 100%;
+  max-width: 1080px;
+  height: 720px;
+  margin: 28px auto 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0A1F20;
+  border: 1px solid rgba(245, 242, 235, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+.contact__cal > div {
+  height: 100%;
+}
+
+.contact__email {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 15px;
+}
+.contact__email a {
+  color: var(--gray-300);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.contact__email a:hover {
+  color: var(--gray-100);
+}
+
+/* Calendar booking mock (unused — kept for reference styles) */
 .cal-mock {
   width: min(100%, 420px);
   margin: 0 auto;
