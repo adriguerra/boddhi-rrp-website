@@ -18,11 +18,10 @@ export function ContactSection({ content }: { content: SiteContent }) {
         </Reveal>
 
         <Reveal delay={0.14}>
-          <p className="contact__phone">
-            <span>{contact.phoneLabel}</span>{" "}
+          <p className="contact__reach">
+            {contact.phoneLabel}{" "}
             <a href={contact.phoneHref}>{contact.phone}</a>
-          </p>
-          <p className="contact__email">
+            {" · "}
             <a href={`mailto:${contact.email}`}>{contact.email}</a>
           </p>
         </Reveal>

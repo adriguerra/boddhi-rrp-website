@@ -2076,8 +2076,29 @@ button.science-principle__media:focus-visible {
   font-size: clamp(40px, 6vw, 64px);
 }
 .contact__tagline {
-  max-width: 28ch;
+  max-width: 42ch;
   margin: 24px auto 36px;
+}
+.contact__reach {
+  margin: 28px auto 0;
+  max-width: 48ch;
+  font-size: clamp(16px, 1.5vw, 18px);
+  font-weight: var(--fw-semibold);
+  line-height: 1.45;
+  color: var(--gray-200);
+}
+.contact__reach a {
+  color: var(--gray-100);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 106, 19, 0.55);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    text-decoration-color var(--dur-fast) var(--ease-out);
+}
+.contact__reach a:hover {
+  color: var(--orange-400);
+  text-decoration-color: var(--orange-400);
 }
 .contact__ctas {
   margin-top: 36px;
@@ -2122,20 +2143,6 @@ button.science-principle__media:focus-visible {
 }
 .contact__cal > div {
   height: 100%;
-}
-
-.contact__email {
-  margin: 10px 0 0;
-  text-align: center;
-  font-size: 15px;
-}
-.contact__email a {
-  color: var(--gray-300);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.contact__email a:hover {
-  color: var(--gray-100);
 }
 
 /* Calendar booking mock (unused — kept for reference styles) */
