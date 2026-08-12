@@ -1361,6 +1361,23 @@
   gap: clamp(28px, 4vw, 48px);
   align-items: start;
 }
+.case-modal__layout--copy-only {
+  grid-template-columns: 1fr;
+}
+.case-modal__media {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+.case-modal__video {
+  width: min(100%, 320px);
+}
+.case-modal__video .vertical-video__frame {
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
 .case-modal__title {
   font-family: var(--font-display);
   font-weight: 400;
@@ -1436,9 +1453,16 @@
     grid-template-columns: 1fr;
     gap: 28px;
   }
+  .case-modal__gallery,
+  .case-modal__media {
+    order: -1;
+  }
   .case-modal__gallery {
     min-height: 320px;
-    order: -1;
+  }
+  .case-modal__video {
+    width: min(100%, 280px);
+    margin-inline: auto;
   }
   .case-modal__section p {
     max-width: none;

@@ -5,6 +5,7 @@ import { useCallback, useEffect, useId, useRef } from "react";
 import { createPortal } from "react-dom";
 import { X } from "@phosphor-icons/react";
 import { AccentText } from "@/components/AccentText";
+import { VerticalVideo } from "@/components/VerticalVideo";
 import type { SiteContent } from "@/content";
 
 type CaseItem = SiteContent["cases"]["items"][number];
@@ -23,6 +24,8 @@ export function CaseStudyModal({
   const titleId = useId();
   const closeRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const hasVideo = Boolean(item.video);
+  const hasGallery = item.modal.gallery.length > 0;
 
   const close = useCallback(() => {
     onClose();
@@ -30,7 +33,10 @@ export function CaseStudyModal({
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
+      if (e.key !== "Escape") return;
+      // Nested video player owns Escape while open
+      if (document.querySelector(".vertical-video__overlay")) return;
+      close();
     };
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -66,7 +72,13 @@ export function CaseStudyModal({
           <X size={22} weight="bold" />
         </button>
 
-        <div className="case-modal__layout">
+        <div
+          className={
+            hasVideo || hasGallery
+              ? "case-modal__layout"
+              : "case-modal__layout case-modal__layout--copy-only"
+          }
+        >
           <div className="case-modal__copy">
             <h2 id={titleId} className="case-modal__title">
               {item.name}
@@ -79,23 +91,35 @@ export function CaseStudyModal({
             ))}
           </div>
 
-          <div className="case-modal__gallery" aria-hidden={false}>
-            {item.modal.gallery.map((shot, i) => (
-              <div
-                key={`${shot.src}-${i}`}
-                className="case-modal__shot"
-                data-i={i}
-              >
-                <Image
-                  src={shot.src}
-                  alt={shot.alt}
-                  fill
-                  sizes="(max-width: 900px) 50vw, 28vw"
-                  className="case-modal__img"
-                />
-              </div>
-            ))}
-          </div>
+          {hasVideo && item.video ? (
+            <div className="case-modal__media">
+              <VerticalVideo
+                src={item.video}
+                poster={item.videoPoster ?? item.photo}
+                label={item.videoLabel}
+                name={item.name}
+                className="case-modal__video"
+              />
+            </div>
+          ) : hasGallery ? (
+            <div className="case-modal__gallery" aria-hidden={false}>
+              {item.modal.gallery.map((shot, i) => (
+                <div
+                  key={`${shot.src}-${i}`}
+                  className="case-modal__shot"
+                  data-i={i}
+                >
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    sizes="(max-width: 900px) 50vw, 28vw"
+                    className="case-modal__img"
+                  />
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </div>,
