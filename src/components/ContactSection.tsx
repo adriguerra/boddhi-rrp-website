@@ -1,5 +1,4 @@
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
-import { CalendarMock } from "@/components/CalendarMock";
+import { CalInline } from "@/components/CalInline";
 import { Reveal } from "@/components/motion/Reveal";
 import type { SiteContent } from "@/content";
 
@@ -15,22 +14,15 @@ export function ContactSection({ content }: { content: SiteContent }) {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <CalendarMock {...contact.calendar} />
+          <CalInline calLink={contact.calLink} />
         </Reveal>
 
         <Reveal delay={0.14}>
-          <div className="contact__ctas">
-            <a
-              className="btn btn--accent btn--lg"
-              href={`mailto:${contact.email}`}
-            >
-              <ArrowRight size={18} weight="bold" aria-hidden />
-              <span>{contact.cta}</span>
-            </a>
-          </div>
-          <p className="contact__phone">
-            <span>{contact.phoneLabel}</span>{" "}
+          <p className="contact__reach">
+            {contact.phoneLabel}{" "}
             <a href={contact.phoneHref}>{contact.phone}</a>
+            {" · "}
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
           </p>
         </Reveal>
       </div>
