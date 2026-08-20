@@ -54,9 +54,6 @@ export const en: SiteContent = {
             "RRP® maximizes tissue perfusion, vasodilation, and immune-cell recruitment at every stage.",
             "Heat, not ice. Activation, not suppression.",
           ],
-          poster: "/assets/science/principle-1-poster.jpg",
-          posterAlt:
-            "Precision Repair Acupuncture needles placed along the lower leg",
         },
         {
           label: "Principle 2",
@@ -66,15 +63,13 @@ export const en: SiteContent = {
             "RRP® locks repair in — strategic immobilization, controlled loading, biological support — until the structure holds.",
             "Precise. Deliberate. Nothing left to chance.",
           ],
-          poster: "/assets/science/principle-2-poster.jpg",
-          posterAlt: "Athletic taping applied to lock repair around the knee",
         },
       ],
     },
     phases: [
       {
         num: "1",
-        title: "Prepare the body",
+        title: "Optimal tissue repair",
         subtitle: "Athlete placed in immersive state of optimal tissue",
         bullets: [
           "Guided daily recovery protocol",

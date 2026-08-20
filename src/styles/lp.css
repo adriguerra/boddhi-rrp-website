@@ -1639,7 +1639,7 @@
 }
 .science-principle {
   display: grid;
-  grid-template-columns: minmax(160px, 0.85fr) minmax(0, 1.35fr) minmax(180px, 0.9fr);
+  grid-template-columns: minmax(160px, 0.85fr) minmax(0, 1.35fr);
   gap: clamp(20px, 3vw, 36px);
   align-items: start;
   padding: clamp(24px, 3.5vh, 32px) 0;
@@ -1674,91 +1674,6 @@
   color: var(--gray-100);
   max-width: 48ch;
 }
-.science-principle__media {
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border: none;
-  border-radius: 14px;
-  overflow: hidden;
-  padding: 0;
-  background: #0a1f20;
-  cursor: default;
-}
-button.science-principle__media {
-  cursor: pointer;
-}
-button.science-principle__media:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring-shadow);
-}
-.science-principle__poster {
-  object-fit: cover;
-}
-.science-principle__play {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  pointer-events: none;
-}
-.science-principle__play::before {
-  content: "";
-  position: absolute;
-  width: 52px;
-  height: 52px;
-  border-radius: 999px;
-  background: rgba(245, 242, 235, 0.92);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-}
-.science-principle__play svg {
-  position: relative;
-  z-index: 1;
-  color: #0a1f20;
-  margin-left: 2px;
-}
-.science-modal__video {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  background: rgba(7, 22, 24, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.science-modal__video-close {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  z-index: 2;
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 999px;
-  background: rgba(245, 242, 235, 0.1);
-  color: var(--gray-100);
-  cursor: pointer;
-}
-.science-modal__video-close:hover {
-  background: rgba(245, 242, 235, 0.18);
-}
-.science-modal__video-stage {
-  width: min(920px, 100%);
-}
-.science-modal__player {
-  display: block;
-  width: 100%;
-  max-height: min(70svh, 560px);
-  border-radius: 16px;
-  background: #000;
-}
 
 @media (max-width: 900px) {
   .science-modal {
@@ -1773,9 +1688,6 @@ button.science-principle__media:focus-visible {
   .science-principle {
     grid-template-columns: 1fr;
     gap: 16px;
-  }
-  .science-principle__media {
-    max-width: 360px;
   }
   .science-principle__body p {
     max-width: none;

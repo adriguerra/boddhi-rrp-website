@@ -42,10 +42,6 @@ export type SiteContent = {
         label: string;
         title: string;
         body: string[];
-        poster: string;
-        posterAlt: string;
-        video?: string;
-        videoLabel?: string;
       }[];
     };
     phases: {

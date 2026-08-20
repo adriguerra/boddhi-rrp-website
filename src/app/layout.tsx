@@ -18,6 +18,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rapidrepairprotocol.com"),
   title: "BODDHI RRP® — Rapid Repair Protocol",
   description:
     "Targeted tissue repair for accelerated return to play. Repair-State Medicine by Boddhi Clinic, Geneva.",
@@ -27,6 +28,22 @@ export const metadata: Metadata = {
       fr: "/fr",
       "x-default": "/",
     },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["fr_FR"],
+    url: "/",
+    siteName: "BODDHI RRP®",
+    title: "BODDHI RRP® — Rapid Repair Protocol",
+    description:
+      "Beat the prognosis. Accelerate return. Documented tissue repair for elite athletes.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BODDHI RRP® — Rapid Repair Protocol",
+    description:
+      "Beat the prognosis. Accelerate return. Documented tissue repair for elite athletes.",
   },
 };
 

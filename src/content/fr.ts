@@ -54,9 +54,6 @@ export const fr: SiteContent = {
             "Le RRP® maximise la perfusion tissulaire, la vasodilatation et le recrutement des cellules immunitaires à chaque étape.",
             "La chaleur, pas la glace. L'activation, pas la suppression.",
           ],
-          poster: "/assets/science/principle-1-poster.jpg",
-          posterAlt:
-            "Aiguilles de Precision Repair Acupuncture placées le long de la jambe",
         },
         {
           label: "Principe 2",
@@ -66,16 +63,13 @@ export const fr: SiteContent = {
             "Le RRP® verrouille la réparation — immobilisation stratégique, charge contrôlée, soutien biologique — jusqu'à ce que la structure tienne.",
             "Précis. Délibéré. Rien n'est laissé au hasard.",
           ],
-          poster: "/assets/science/principle-2-poster.jpg",
-          posterAlt:
-            "Strapping sportif appliqué pour verrouiller la réparation autour du genou",
         },
       ],
     },
     phases: [
       {
         num: "1",
-        title: "Préparer le corps",
+        title: "Réparation tissulaire optimale",
         subtitle: "Athlète placé dans un état immersif de tissu optimal",
         bullets: [
           "Protocole de récupération quotidien guidé",
